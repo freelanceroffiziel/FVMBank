@@ -1,5 +1,4 @@
 import { useState } from "react";
-import SideBar from "../../sideBarComponents/sideBar/sideBar";
 import ImageUploader from "../accountComponent/ImageUploader";
 import DashboardHome from "../dashboardHomeComponent/DashboardHome";
 import StartInvesting from "../startInvestingComponent/StartInvesting";
@@ -8,6 +7,7 @@ import TransactionHistory from "../transactionHistoryComponent/TransactionHistor
 import Deposit from "../depositComponent/Deposit";
 import Withdraw from "../withdrawalComponent/Withdraw";
 import Referrals from "../referralComponents/Referrals";
+import SideBar from "../../sideBarComponents/sideBar/SideBar";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
