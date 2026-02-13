@@ -5,13 +5,13 @@ import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SearchBar from "./pages/SearchBar";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Dashboard from "./features/dashboard/dashboardComponent/dashboardMain/Dashboard";
 import Feeds from "./pages/Feeds";
 import Services from "./pages/Services";
+import About from "./pages/About";
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="" element={<Home />}></Route>
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
             <Route path="/feeds" element={<Feeds />} />

@@ -29,10 +29,10 @@ const Register = () => {
           className="lg:max-w-md md:max-w-2xl max-w-[23rem] mx-auto flex-col flex gap-4 bg-white px-6 md:px-10 lg:px-6 py-12 rounded-lg shadow-lg text-navyBlue h-full "
         >
           <div className="flex flex-col justify-center items-center gap-1 ">
-            <h1 className="text-center text-[35px] lg:text-[30px] md:text-[40px] font-serif font-semibold text-orange-600 ">
+            <h1 className="text-center text-[35px] lg:text-[30px] md:text-[40px] font-serif font-semibold text-teal-800 ">
               Register
             </h1>
-            <hr className="w-[60px] border-green-600  lg:border-2 border-4 border-dashed rounded-full " />
+            <hr className="w-[60px] border-red-800  lg:border-2 border-4 border-dashed rounded-full " />
           </div>
           <div id="formCon" className="">
             <ToastContainer className="mt-14"/>
@@ -47,18 +47,18 @@ const Register = () => {
                       htmlFor="firstname"
                       className="lg:text-[15px] md:text-[28px] text-[22px]"
                     >
-                      First Name <span className="text-green-600">*</span>
+                      First Name <span className="text-teal-600">*</span>
                     </label>
                     <Field
                       type="text"
                       name="firstname"
                       autoComplete="on"
-                      className="w-full border text-green-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
                       name="firstname"
                       component="div"
-                      className="text-red-500 lg:text-[14px] md:text-[27px] text-[20px]"
+                      className="text-red-600 lg:text-[14px] md:text-[27px] text-[20px]"
                     />
                   </div>
 
@@ -67,18 +67,18 @@ const Register = () => {
                       htmlFor="lastname"
                       className="lg:text-[15px] md:text-[28px] text-[22px]"
                     >
-                      Last Name <span className="text-green-600">*</span>
+                      Last Name <span className="text-teal-600">*</span>
                     </label>
                     <Field
                       type="text"
                       name="lastname"
                       autoComplete="on"
-                      className="w-full border text-green-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
                       name="lastname"
                       component="div"
-                      className="text-red-500 lg:text-[14px] md:text-[27px] text-[20px]"
+                      className="text-red-600 lg:text-[14px] md:text-[27px] text-[20px]"
                     />
                   </div>
 
@@ -87,18 +87,18 @@ const Register = () => {
                       htmlFor="email"
                       className="lg:text-[15px] md:text-[28px] text-[22px]"
                     >
-                      Email <span className="text-green-600">*</span>
+                      Email <span className="text-teal-600">*</span>
                     </label>
                     <Field
                       type="email"
                       name="email"
                       autoComplete="on"
-                      className="w-full border text-green-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
                       name="email"
                       component="div"
-                      className="text-red-500 lg:text-[14px] md:text-[27px] text-[20px]"
+                      className="text-red-600 lg:text-[14px] md:text-[27px] text-[20px]"
                     />
                   </div>
 
@@ -107,18 +107,18 @@ const Register = () => {
                       htmlFor="password"
                       className="lg:text-[15px] md:text-[28px] text-[22px]"
                     >
-                      Password <span className="text-green-600">*</span>
+                      Password <span className="text-teal-600">*</span>
                     </label>
                     <Field
                       type="password"
                       name="password"
                       autoComplete="on"
-                      className="w-full border text-green-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
                       name="password"
                       component="div"
-                      className="text-red-500 lg:text-[14px] md:text-[27px] text-[20px]"
+                      className="text-red-600 lg:text-[14px] md:text-[27px] text-[20px]"
                     />
                   </div>
 
@@ -128,7 +128,7 @@ const Register = () => {
                         Remembered Password?{" "}
                         <Link
                           to={"/Login"}
-                          className="text-green-600 hover:underline font-semibold tracking-wider "
+                          className="text-teal-600 hover:underline font-semibold tracking-wider "
                         >
                           Login
                         </Link >
@@ -138,7 +138,7 @@ const Register = () => {
 
                   <button
                     type="submit"
-                    className="w-full border-[1px] gap-2 border-green-600 lg:p-2 md:p-4 p-3 lg:text-[20px] md:text-[25px] text-[24px] hover:bg-green-600 hover:text-gray-50 transition-all text-center"
+                    className="w-full border-[1px] gap-2 border-teal-600 lg:p-2 md:p-4 p-3 lg:text-[20px] md:text-[25px] text-[24px] hover:bg-teal-600 hover:text-gray-50 transition-all text-center"
                   >
                     {isSubmitting ? "Registering..." : "Register"}
                   </button>

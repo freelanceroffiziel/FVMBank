@@ -44,7 +44,7 @@ const About = () => {
           </section>
         </section>
       </main>
-      
+
       <section className="py-16 ">
         <AboutTwo />
       </section>

@@ -30,10 +30,10 @@ const Footer = () => {
               className="flex flex-col items-center justify-between gap-8 p-4 lg:flex-row lg:gap-0 lg:p-8 "
             >
               <div id="first">
-                <span className="md:text-[25px] lg:text-[30px] text-[40px] font-extrabold font-serif tracking-wider ">
+                <span className="md:text-[25px] lg:text-[30px] text-[35px] font-extrabold font-serif tracking-wider ">
                   FVM<span className="font-bold text-red-700">Bank</span>
                 </span>
-                <p className="lg:w-[40vw] md:text-[25px] lg:text-[16px] text-[21px] mt-3 lg:mt-0 ">
+                <p className="lg:w-[40vw] md:text-[25px] lg:text-[16px] text-[18px] mt-3 lg:mt-0 ">
                   Welcome to FVMBank where your financial security and
                   convenience are our top priorities. With a commitment to
                   excellence and decades of trusted service, we offer
@@ -46,27 +46,27 @@ const Footer = () => {
               </div>
 
               <div id="second" className="">
-                <h1 className="md:text-[25px] lg:text-[30px] text-[40px] font-extrabold font-serif tracking-wider mb-4  ">
+                <h1 className="md:text-[25px] lg:text-[30px] text-[30px] font-extrabold font-serif tracking-wider mb-4  ">
                   Pages
                 </h1>
                 <ul>
                   <li className="">
-                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[24px]">
+                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[20px]">
                       United State
                     </Link>
                   </li>
                   <li className="">
-                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[24px]">
+                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[20px]">
                       +1 (414)885-4567
                     </Link>
                   </li>
                   <li className="">
-                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[24px]">
+                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[20px]">
                       IconicBank@gmail.com
                     </Link>
                   </li>
                   <li className="">
-                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[24px]">
+                    <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[20px]">
                       436 evergreen apt 2A Brooklyn 11221
                     </Link>
                   </li>
@@ -81,7 +81,7 @@ const Footer = () => {
           >
             <div id="secondFooterSecSon" className="p-4 text-gray-800 lg:p-8 ">
               <div className="flex flex-col items-center justify-center gap-5 lg:flex-col ">
-                <h1 className="md:text-[25px] lg:text-[30px] text-[40px] font-extrabold font-serif tracking-wider mb-4 ">
+                <h1 className="md:text-[25px] lg:text-[30px] text-[30px] font-extrabold font-serif tracking-wider mb-4 ">
                   Links
                 </h1>
                 <ul className="flex items-center gap-3 lg:flex-row">
@@ -90,8 +90,8 @@ const Footer = () => {
                       to={"/"}
                       className={({ isActive }) =>
                         isActive
-                          ? " md:text-[25px] lg:text-[18px] text-[23px] border-dashed border-b-2"
-                          : " md:text-[25px] lg:text-[18px] text-[23px]"
+                          ? " md:text-[25px] lg:text-[18px] text-[20px] border-dashed border-b-2"
+                          : " md:text-[25px] lg:text-[18px] text-[20px]"
                       }
                     >
                       Home
@@ -102,8 +102,8 @@ const Footer = () => {
                       to={"/About"}
                       className={({ isActive }) =>
                         isActive
-                          ? " md:text-[25px] lg:text-[18px] text-[23px]  border-dashed border-b-2"
-                          : " md:text-[25px] lg:text-[18px] text-[23px]"
+                          ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
+                          : " md:text-[25px] lg:text-[18px] text-[20px]"
                       }
                     >
                       About
@@ -114,8 +114,8 @@ const Footer = () => {
                       to={"/Contact"}
                       className={({ isActive }) =>
                         isActive
-                          ? " md:text-[25px] lg:text-[18px] text-[23px]  border-dashed border-b-2"
-                          : " md:text-[25px] lg:text-[18px] text-[23px]"
+                          ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
+                          : " md:text-[25px] lg:text-[18px] text-[20px]"
                       }
                     >
                       Contact
@@ -126,8 +126,8 @@ const Footer = () => {
                       to={"/Help"}
                       className={({ isActive }) =>
                         isActive
-                          ? " md:text-[25px] lg:text-[18px] text-[23px]  border-dashed border-b-2"
-                          : " md:text-[25px] lg:text-[18px] text-[23px]"
+                          ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
+                          : " md:text-[25px] lg:text-[18px] text-[20px]"
                       }
                     >
                       Help
@@ -138,8 +138,8 @@ const Footer = () => {
                       to={"/Faq"}
                       className={({ isActive }) =>
                         isActive
-                          ? " md:text-[25px] lg:text-[18px] text-[23px]  border-dashed border-b-2"
-                          : " md:text-[25px] lg:text-[18px] text-[23px]"
+                          ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
+                          : " md:text-[25px] lg:text-[18px] text-[20px]"
                       }
                     >
                       Faq
@@ -162,7 +162,7 @@ const Footer = () => {
               className="flex flex-col justify-between gap-5 mb-14 lg:flex-row lg:gap-0 "
             >
               <div>
-                <h1 className="md:text-[25px] lg:text-[30px] text-[40px] font-extrabold font-serif tracking-wider mb-6  ">
+                <h1 className="md:text-[25px] lg:text-[30px] text-[30px] font-extrabold font-serif tracking-wider mb-6  ">
                   News Letter
                 </h1>
 
@@ -220,7 +220,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <span className="text-[19px] md:text-[24px] lg:text-[18px]  ">
+            <span className="text-[17px] md:text-[24px] lg:text-[18px]  ">
               <AllRightsReserce />
             </span>
           </section>

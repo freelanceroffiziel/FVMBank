@@ -147,58 +147,64 @@ const Header = () => {
             <ul className=" top-0 z-40 mt-24 py-14 md:mt-28  w-[95%] h-auto flex flex-col  justify-center mx-auto items-center gap-2 text-[20px] md:text-[27px] bg-teal-950/85 border-[1px] border-teal-950 text-teal-50 transition ease-in-out duration-100  shadow-white rounded-2xl font-medium  ">
               <li>
                 <NavLink
-                  to="/"
+                  to={"/"}
                   onClick={() => setHamburgerOpen(false)}
-                  className={({ isActive }) =>
-                    isActive ? "border-b-[1px] border-teal-900  " : " "
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="aAbout"
-                  className={({ isActive }) =>
-                    isActive ? "border-b-[1px] border-teal-900  " : " "
-                  }
-                >
-                  About
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to={"/Feeds"}
                   className={({ isActive }) =>
                     isActive
                       ? " text-[18px] md:text-[30px] lg:text-[18px]"
                       : " text-[18px] md:text-[30px] lg:text-[18px]"
                   }
                 >
-                  Feeds
+                  Home
                 </NavLink>
               </li>
-
               <li>
                 <NavLink
-                  to="/contact"
+                  to={"/About"}
                   onClick={() => setHamburgerOpen(false)}
                   className={({ isActive }) =>
-                    isActive ? "border-b-[1px] border-teal-900  " : " "
+                    isActive
+                      ? " text-[18px] md:text-[30px] lg:text-[18px]"
+                      : " text-[18px] md:text-[30px] lg:text-[18px]"
+                  }
+                >
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/Feeds"}
+                  onClick={() => setHamburgerOpen(false)}
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-[18px] md:text-[30px] lg:text-[18px]"
+                      : " text-[18px] md:text-[30px] lg:text-[18px]"
+                  }
+                >
+                  Security
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/Contact"}
+                  onClick={() => setHamburgerOpen(false)}
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-[18px] md:text-[30px] lg:text-[18px]"
+                      : " text-[18px] md:text-[30px] lg:text-[18px]"
                   }
                 >
                   Contact
                 </NavLink>
               </li>
-
               <li>
                 <NavLink
-                  to="/services"
+                  to={"/services"}
                   onClick={() => setHamburgerOpen(false)}
                   className={({ isActive }) =>
-                    isActive ? "border-b-[1px] border-teal-900  " : " "
+                    isActive
+                      ? " text-[18px] md:text-[30px] lg:text-[18px]"
+                      : " text-[18px] md:text-[30px] lg:text-[18px]"
                   }
                 >
                   Services
@@ -220,17 +226,13 @@ const Header = () => {
                     </NavLink>
                   </li>
 
-                  <li>
-                    <NavLink
-                      to="/SignUp"
-                      onClick={() => setHamburgerOpen(false)}
-                      className={({ isActive }) =>
-                        isActive ? "border-b-[1px] border-gray-50  " : " "
-                      }
-                    >
-                      Sign Up
-                    </NavLink>
-                  </li>
+                  <Link
+                    to={"/Register"}
+                    onClick={() => setHamburgerOpen(false)}
+                    className="px-3 py-1.5 border-2 border-teal-600 rounded-tl-full rounded-bl-full hover:bg-gray-50 hover:text-teal-800 "
+                  >
+                    Open Account
+                  </Link>
                 </ul>
               </div>
             </ul>
