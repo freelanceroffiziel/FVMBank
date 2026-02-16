@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import TeamImage from "../../assets/images/istockphoto-2160707342-612x612.jpg"; 
+import TeamImage from "../../assets/images/istockphoto-2160707342-612x612.jpg";
 import Marquee from "react-fast-marquee";
 import { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
@@ -40,7 +40,12 @@ const TeamSection = () => {
             Meet Our Team
           </h1>
           <p className="text-[20px] md:text-[26px] lg:text-[20px] tracking-wider font-serif text-teal-50">
-            At Iconic Bank, our <span className="font-bold text-teal-500">dedicated professionals</span> power our mission with innovation, integrity, and a commitment to excellence.
+            At FVM Bank, our{" "}
+            <span className="font-bold text-teal-500">
+              dedicated professionals
+            </span>{" "}
+            power our mission with innovation, integrity, and a commitment to
+            excellence.
           </p>
         </div>
 
@@ -78,16 +83,18 @@ const TeamSection = () => {
                   <Marquee speed={30}>
                     <div>
                       <h1 className="lg:text-[15px] md:text-[25px] text-[22px]">
-                        “Iconic Bank thrives because of people like Alexis – her vision and collaborative energy inspire everyone around her.”
+                        “FVM Bank thrives because of people like Alexis – her
+                        vision and collaborative energy inspire everyone around
+                        her.”
                       </h1>
                     </div>
                   </Marquee>
                 </div>
 
-                <div className="relative lg:w-[10vw] md:w-[32vw] w-[30vw] bg-red-600 md:px-2 py-4 text-teal-50 transition duration-300 ease-in-out hover:bg-red-700 rounded-r-sm">
+                <div className="relative lg:w-[10vw] md:w-[32vw] w-[30vw] bg-red-600 md:px-2 py-5 text-teal-50 transition duration-300 ease-in-out hover:bg-red-700 rounded-r-sm">
                   <Link
                     to={"/our-team"}
-                    className="lg:text-[15px] md:text-[27px] text-[18px] font-semibold flex items-center justify-center"
+                    className="lg:text-[15px] md:text-[27px] text-[16px] font-semibold flex items-center justify-center"
                   >
                     Meet the Team
                   </Link>

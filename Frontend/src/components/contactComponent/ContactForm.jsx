@@ -20,7 +20,7 @@ const ContactForm = () => {
   });
   return (
     <main>
-      <section className="flex flex-col items-center justify-between py-20 lg:flex-row lg:px-16 bg-teal-950/0 lg:gap-10 ">
+      <section className="flex flex-col items-center justify-between py-20 lg:flex-row bg-teal-950/0 lg:gap-10 ">
         <section className="w-full textSection ">
           <div className="flex flex-col gap-2 text-gray-700 ">
             <div className="mb-4">
@@ -64,7 +64,7 @@ const ContactForm = () => {
 
         {/* mdddle */}
 
-        <section className="relative w-full p-10 bg-white border-gray-200 shadow-xl border-[1px] backdrop-blur-md  rounded-3xl ">
+        <section className="relative w-full py-4 px-4 bg-white border-gray-200 shadow border-[1px] backdrop-blur-md  rounded-3xl lg:mt-0 mt-20 ">
           <div className="w-full ">
             <Formik
               initialValues={initialValues}

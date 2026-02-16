@@ -49,7 +49,7 @@ const AboutTwo = () => {
                 <img
                   src={twoItems.imgAbout}
                   alt=""
-                  className="rounded-full lg:h-36 lg:w-36 md:h-72 md:w-72 h-56 w-56 "
+                  className="w-56 h-56 rounded-full lg:h-36 lg:w-36 md:h-72 md:w-72 "
                 />
               </div>
 

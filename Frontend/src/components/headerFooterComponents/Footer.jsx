@@ -19,7 +19,7 @@ import SmartSupp from "../miniComponents/SmartSupp";
 const Footer = () => {
   return (
     <>
-      <footer className="text-gray-200 lg:p-8 p-4  md:mt-[9vh] mt-[10vh] lg:mt-[10vh] ">
+      <footer className="text-gray-200 lg:px-8 x-4  md:mt-[9vh] mt-[10vh] lg:mt-[10vh]">
         <section
           id="footerSonSection"
           className="flex flex-col gap-4 lg:flex-col "

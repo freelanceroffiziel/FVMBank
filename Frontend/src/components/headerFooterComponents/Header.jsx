@@ -19,7 +19,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <ul className="flex items-center gap-4 lg:flex-row tracking-wide ">
+          <ul className="flex items-center gap-4 tracking-wide lg:flex-row ">
             <li>
               <NavLink
                 to={"/"}
@@ -82,14 +82,14 @@ const Header = () => {
             </li>
           </ul>
 
-          <div className="flex items-center gap-2 lg:flex-row justify-center ">
-            <span className=" ">
+          <div className="flex items-center justify-center gap-2 lg:flex-row ">
+            <span className="">
               <NavLink to="/SearchBar">
                 <RiSearchLine className="transition ease-in-out duration-500 transform text-[30px] md:text-[35px] lg:text-[23px] fontweight: 'extrabold' text-teal-900 hover:text-teal-100/100" />
               </NavLink>
             </span>
 
-            <div className="flex items-center gap-3 lg:flex-row justify-center">
+            <div className="flex items-center justify-center gap-3 lg:flex-row">
               <Link to={"/Login"} className="">
                 Login
               </Link>
@@ -107,7 +107,7 @@ const Header = () => {
         {/* mediavIEW */}
         <div
           id="destop"
-          className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-4 py-1 shadow-md mediaViews lg:hidden text-teal-900 bg-white/80 md:px-12"
+          className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-4 py-1 text-teal-900 bg-white shadow-md mediaViews lg:hidden md:px-12"
         >
           <Link to={""}>
             <span className="text-[30px] font-extrabold font-serif tracking-wider ">
@@ -212,7 +212,7 @@ const Header = () => {
               </li>
 
               {/* signuploginbelow */}
-              <div className="signuploginbelow mt-4 ">
+              <div className="mt-4 signuploginbelow ">
                 <ul className="flex flex-row gap-5 lg:text-[15px] ">
                   <li>
                     <NavLink

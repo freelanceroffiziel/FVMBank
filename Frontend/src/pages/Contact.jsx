@@ -4,17 +4,17 @@ import ContactStars from "../components/contactComponent/ContactStars";
 
 const Contact = () => {
   return (
-    <main className="relative min-h-screen pt-[10vh]  overflow-hidden">
+    <main className="relative min-h-screen lg:pt-[5vh] pt-[4vh]  overflow-hidden">
       <section className="contactSonCon ">
-        <section className=" secContactOne bg-teal-950/75 lg:px-16">
+        <section className=" secContactOne bg-teal-950/75">
           <ContactOne />
         </section>
 
-        <section className="lg:mt-10 contactForm ">
+        <section className="px-6 lg:mt-10 contactForm lg:px-16">
           <ContactForm />
         </section>
 
-        <section className="lg:mt-10 lg:px-16 ">
+        <section className="px-6 lg:mt-10 lg:px-16 ">
           <ContactStars/>
         </section>
       </section>

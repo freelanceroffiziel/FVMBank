@@ -16,7 +16,7 @@ export const latestNewsJs = [
   },
   {
     id: 1,
-    heading: "Iconic Bank Partners with everyone ",
+    heading: "FVM Bank Partners with everyone ",
     para: "Winners of innovation ventures received funding to turn their ideas into market ready products ",
     newsImg: three,
   },

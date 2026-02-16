@@ -18,7 +18,7 @@ const About = () => {
     <>
       <main>
         <section id="propertySellSon" className="w-full ">
-          <section id="welcomeFather">
+          <section id="welcomeFather ">
             <div
               id=""
               className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-screen relative flex items-start justify-start lg:pt-12   "
@@ -31,7 +31,7 @@ const About = () => {
                 <h1 className="text-[30px] md:text-[45px] lg:text-[50px] font-serif text-teal-700 ">
                   About FVM<span className="text-red-600">Bank</span>
                 </h1>
-                <p className=" lg:w-[30vw] md:w-[40vw] w-[80vw] text-[20px] md:text-[24px] lg:text-[16px] ">
+                <p className=" lg:w-[30vw] md:w-[40vw] w-[80vw] text-[18px] md:text-[24px] lg:text-[16px] ">
                   More than 25 years ago, FVM Bank revolutionized the credit
                   card industry with data and technology. Today, we are one of
                   the most widely recognized brands in banking — serving more
