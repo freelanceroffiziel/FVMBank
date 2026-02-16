@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import HomePaymentTracker from "./HomePaymentTracker";
-import salesHeroImg from "../../assets/images/confident.jpg";
+import salesHeroImg from "../../assets/smallImg/istockphoto-2232750573-612x612.jpg";
 import ScrollReveal from "scrollreveal";
 
 const HomeFirstComponent = () => {
@@ -33,7 +33,7 @@ const HomeFirstComponent = () => {
         >
           <section
             id="secondHeroSec"
-            className="flex flex-col-reverse items-center  lg:flex-row py-8 px-4 bg-cover bg-no-repeat"
+            className="flex flex-col-reverse items-center  lg:flex-row py-8 px-4  bg-cover bg-no-repeat"
             style={{ backgroundImage: `url(${salesHeroImg})` }}
           >
             <div className="flex flex-col items-center justify-center gap-2 md:gap-2 lg:flex-row lg:gap-5 w-full  ">
@@ -41,13 +41,13 @@ const HomeFirstComponent = () => {
                 <HomePaymentTracker />
               </div>
 
-              <div className="relative w-full lg:w-[53vw] lg:h-[70vh] md:h-[85vh] h-[60vh] flex items-start justify-center ">
+              <div className="relative w-full lg:w-[53vw] flex items-start justify-center">
                 <div
                   id="homeText"
                   className="relative z-10 lg:px-8 md:px-6 px-4 py-6 lg:py-12 bg-white bg-opacity-40 rounded shadow-md text-teal-800 lg:ml-16 md:ml-6 ml-0 md:mt-[35vh] mt-16 lg:mt-28"
                 >
                   <p className="lg:w-[30vw] md:w-[70vw] w-[80vw] text-[20px] md:text-[24px] lg:text-[18px]">
-                    Welcome to IconicBank where your financial security and
+                    Welcome to FVM Bank where your financial security and
                     convenience are our top priorities. With a commitment to
                     excellence, we ensure seamless banking experiences for all
                     our customers.

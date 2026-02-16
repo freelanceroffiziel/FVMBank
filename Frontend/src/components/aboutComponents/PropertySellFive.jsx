@@ -91,7 +91,7 @@ const TeamSection = () => {
                   </Marquee>
                 </div>
 
-                <div className="relative lg:w-[10vw] md:w-[32vw] w-[30vw] bg-red-600 md:px-2 py-5 text-teal-50 transition duration-300 ease-in-out hover:bg-red-700 rounded-r-sm">
+                <div className="relative lg:w-[10vw] md:w-[32vw] w-[30vw] bg-red-600 md:px-2 py-4.5 text-teal-50 transition duration-300 ease-in-out hover:bg-red-700 rounded-r-sm">
                   <Link
                     to={"/our-team"}
                     className="lg:text-[15px] md:text-[27px] text-[16px] font-semibold flex items-center justify-center"
