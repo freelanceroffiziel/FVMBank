@@ -28,7 +28,7 @@ const FinancialGSupport = () => {
       <main id="SectionFGSCon" className="lg:px-16 px-6 mt-[10vh]">
         <span
           id="financeH1"
-          className="md:text-[25px] lg:text-[30px] text-[40px] text-gray-500 font-bold font-serif text-center block"
+          className="md:text-[25px] lg:text-[30px] text-[40px] text-teal-900 font-bold font-serif text-center block"
         >
           <h1>Financial Guidance and Support</h1>
         </span>
@@ -46,14 +46,14 @@ const FinancialGSupport = () => {
                 <img src={firstImg} alt="" />
               </div>
               <div className="flex flex-col gap-5 px-4 py-4">
-                <h1 className="md:text-[25px] lg:text-[25px] text-[24px]  text-gray-500 font-serif font-semibold">
+                <h1 className="md:text-[25px] lg:text-[25px] text-[24px]  text-teal-900 font-serif font-semibold">
                   Make it happen. Live it
                 </h1>
-                <p className="md:text-[25px] lg:text-[17px] text-[22px]">
+                <p className="md:text-[25px] lg:text-[17px] text-[20px]">
                   Discover how smart saving habits could help make your dream
                   purchases a reality
                 </p>
-                <button className="px-5 py-2 border-2 border-teal-700 rounded-tr-full rounded-br-full w-fit md:text-[25px] lg:text-[18px] text-[22px] hover:bg-teal-800 hover:text-gray-50 transition-all">
+                <button className="px-5 py-2 border-2 border-teal-700 rounded-tr-full rounded-br-full w-fit md:text-[25px] lg:text-[18px] text-[19px] hover:bg-teal-800 hover:text-gray-50 transition-all">
                   <Link>Get tips for big purchase</Link>
                 </button>
               </div>
@@ -70,13 +70,13 @@ const FinancialGSupport = () => {
                 <img src={secImg} alt="" />
               </div>
               <div className="flex flex-col gap-5 px-4 py-4 items-center text-center">
-                <h1 className="md:text-[25px] lg:text-[25px] text-[24px]  text-gray-500 font-serif font-semibold">
+                <h1 className="md:text-[25px] lg:text-[25px] text-[24px]  text-teal-900 font-serif font-semibold">
                   Save. Invest. Retire well.
                 </h1>
-                <p className="md:text-[25px] lg:text-[17px] text-[22px]">
+                <p className="md:text-[25px] lg:text-[17px] text-[20px]">
                   Discover how to start saving to meet your retirement goals.
                 </p>
-                <button className="px-5 py-2 border-2 border-teal-700 rounded-full md:text-[25px] lg:text-[18px] text-[22px] hover:bg-teal-800 hover:text-gray-50 transition-all self-center">
+                <button className="px-5 py-2 border-2 border-teal-700 rounded-full md:text-[25px] lg:text-[18px] text-[19px] hover:bg-teal-800 hover:text-gray-50 transition-all self-center">
                   <Link className="w-fit">Get Ready for retirement</Link>
                 </button>
               </div>
@@ -93,15 +93,15 @@ const FinancialGSupport = () => {
                 <img src={thirdImg} alt="" />
               </div>
               <div className="flex flex-col gap-5 px-4 py-4 h-full justify-between">
-                <h1 className="md:text-[25px] lg:text-[25px] text-[24px]  text-gray-500 font-serif font-semibold">
+                <h1 className="md:text-[25px] lg:text-[25px] text-[24px]  text-teal-900 font-serif font-semibold">
                   Save. Invest. Retire well.
                 </h1>
-                <p className="md:text-[25px] lg:text-[17px] text-[22px]">
+                <p className="md:text-[25px] lg:text-[17px] text-[20px]">
                   Discover tools and tips to help make buying or refinancing a
                   little easier.
                 </p>
                 <div className="flex justify-end">
-                  <button className="px-5 py-2 border-2 border-teal-700 rounded-tl-full rounded-bl-full md:text-[25px] lg:text-[18px] text-[22px] hover:bg-teal-800 hover:text-gray-50 transition-all">
+                  <button className="px-5 py-2 border-2 border-teal-700 rounded-tl-full rounded-bl-full md:text-[25px] lg:text-[18px] text-[19px] hover:bg-teal-800 hover:text-gray-50 transition-all">
                     <Link>Get tips for homebuying</Link>
                   </button>
                 </div>
