@@ -1,15 +1,15 @@
 // src/components/SmartSupp.js
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const SmartSupp = () => {
   useEffect(() => {
     if (window.smartsupp) return;
 
     // Initialize Smartsupp
-    const initScript = document.createElement('script');
+    const initScript = document.createElement("script");
     initScript.innerHTML = `
       var _smartsupp = _smartsupp || {};
-      _smartsupp.key = '58f1939dd312fa78fbb7dbec0bb0884e73c0dbe5';
+      _smartsupp.key = 'd73ffe55c8f802303105d6876a965b793ed2af90';
       window.smartsupp||(function(d){
         var s,c,o=smartsupp=function(){ o._.push(arguments)};
         o._=[];
@@ -26,10 +26,10 @@ const SmartSupp = () => {
 
     // Wait for the chat widget to load and then reposition it
     const interval = setInterval(() => {
-      const chatBubble = document.querySelector('#smartsupp-chat'); // ID of the chat container
+      const chatBubble = document.querySelector("#smartsupp-chat"); // ID of the chat container
       if (chatBubble) {
-        chatBubble.style.right = '30vw'; // Tailwind-like right-[10vw]
-        chatBubble.style.bottom = '2rem'; // Optional: control bottom spacing
+        chatBubble.style.right = "30vw"; // Tailwind-like right-[10vw]
+        chatBubble.style.bottom = "2rem"; // Optional: control bottom spacing
         clearInterval(interval);
       }
     }, 500);
