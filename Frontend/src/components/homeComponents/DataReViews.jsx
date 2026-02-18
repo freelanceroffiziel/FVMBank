@@ -62,7 +62,7 @@ const DataReViews = () => {
       origin: "bottom",
       distance: "35px",
       duration: 1100,
-      delay: 150,
+      delay: 100,
     });
   });
 
@@ -87,10 +87,10 @@ const DataReViews = () => {
                   id="textCon"
                   className="flex flex-col items-center justify-center gap-5 px-8 py-5 text-center md:px-11"
                 >
-                  <p className="text-[20px] md:text-[28px] lg:text-[20px] ">
+                  <p className="text-[19px] md:text-[28px] lg:text-[17px] ">
                     {datas.para}
                   </p>
-                  <p className="font-bold text-[30px] md:text-[33px] lg:text-[25px] ">
+                  <p className="font-bold text-[25px] md:text-[33px] lg:text-[22px] ">
                     {datas.name}
                   </p>
                 </div>

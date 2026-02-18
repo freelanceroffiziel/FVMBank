@@ -34,14 +34,14 @@ const PlansOne = () => {
               className="flex flex-col items-center gap-5 px-4 py-10 transition duration-300 ease-in-out shadow-md bg-teal-50 hover:bg-teal-800 hover:text-teal-50 group "
             >
               <div id="imgHere">
-                <img src={plansSections.img} alt="" className="lg:w-[10vw] lg:h-[10vh] md:w-full md:h-full w-full" />
+                <img src={plansSections.img} alt="" className="w-56 h-56 rounded-full lg:h-36 lg:w-36  md:h-72 md:w-72" />
               </div>
 
               <div id="otherContentHere" className="">
                 <div id="otherContentHereSon" className="flex flex-col items-center justify-center gap-1 text-center ">
                   <h1 className="text-[23px] md:text-[28px] lg:text-[19px] font-semibold tracking-wide "> {plansSections.heading} </h1>
-                  <p className="text-[22px] md:text-[28px] lg:text-[17px]"> {plansSections.paragraph} </p>
-                  <button className="w-full py-3 text-[25px] md:text-[28px] lg:text-[20px] mt-5 ">
+                  <p className="text-[19px] md:text-[28px] lg:text-[16px]"> {plansSections.paragraph} </p>
+                  <button className="w-full py-3 text-[23px] md:text-[28px] lg:text-[18px] mt-5 ">
                     <Link className="border-dashed group-hover:border-b-2"> {plansSections.button} </Link>
                   </button>
                 </div>

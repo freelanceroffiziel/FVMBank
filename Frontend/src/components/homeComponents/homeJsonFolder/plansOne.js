@@ -1,7 +1,7 @@
-import one from "../../../assets/icons/image.png";
-import two from "../../../assets/icons/image.png";
-import three from "../../../assets/icons/image.png";
-import four from "../../../assets/icons/image.png";
+import one from "../../../assets/removedBg/istockphoto-2229561212-612x612.jpg";
+import two from "../../../assets/removedBg/istockphoto-955889572-612x612.jpg";
+import three from "../../../assets/removedBg/world_wide_web-card-3212764_1920.png";
+import four from "../../../assets/removedBg/Screenshot 2026-02-18 125939.png";
 export const plans = [
   {
     id: 1,

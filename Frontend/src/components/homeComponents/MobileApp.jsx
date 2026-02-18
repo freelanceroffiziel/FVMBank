@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import appFoto from "../../assets/removedBg/Screenshot_2025-07-08_101930-removebg-preview.png";
+import appFoto from "../../assets/dataReviewImg/422737-google-485611_1920-removebg-preview.png";
 import { Link } from "react-router-dom";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa";
@@ -10,7 +10,7 @@ const MobileApp = () => {
       origin: "top",
       distance: "35px",
       duration: 1100,
-      delay: 130,
+      delay: 100,
     });
   });
 
@@ -19,7 +19,7 @@ const MobileApp = () => {
       origin: "bottom",
       distance: "35px",
       duration: 1100,
-      delay: 130,
+      delay: 100,
     });
   });
 
@@ -28,7 +28,7 @@ const MobileApp = () => {
       origin: "bottom",
       distance: "35px",
       duration: 1200,
-      delay: 110,
+      delay: 100,
     });
   });
 
@@ -38,7 +38,7 @@ const MobileApp = () => {
       origin: "bottom",
       distance: "35px",
       duration: 1300,
-      delay: 120,
+      delay: 100,
     });
   });
 
@@ -48,7 +48,7 @@ const MobileApp = () => {
       origin: "bottom",
       distance: "35px",
       duration: 1400,
-      delay: 130,
+      delay: 100,
     });
   });
 
@@ -57,7 +57,7 @@ const MobileApp = () => {
       origin: "bottom",
       distance: "35px",
       duration: 1500,
-      delay: 140,
+      delay: 100,
     });
   });
 
@@ -71,8 +71,8 @@ const MobileApp = () => {
         >
           <section id="appFirstSecCon">
             <div id="appFirstSecConSon">
-              <h1 id="mobileH1" className="md:text-[25px] lg:text-[30px] text-[35px] font-serif text-teal-700  lg:text-start text-center font-bold tracking-wider ">Banking made easy</h1>
-              <ul id="mobileUL" className="flex flex-col lg:text-start text-center gap-2 mb-6 md:text-[25px] lg:text-[15px] text-[21px] ">
+              <h1 id="mobileH1" className="md:text-[25px] lg:text-[30px] text-[30px] font-serif text-teal-700  lg:text-start text-center font-bold tracking-wider">Banking made easy</h1>
+              <ul id="mobileUL" className="flex flex-col lg:text-start text-center gap-2 mb-6 md:text-[25px] lg:text-[15px] text-[18px] ">
                 <li>
                   Our IconicBank Mobile app gives you fast and secure access to
                   your finances
