@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import appFoto from "../../assets/dataReviewImg/422737-google-485611_1920-removebg-preview.png";
+import appFoto from "../../assets/mobileImg/422737-google-485611_1920-removebg-preview.png";
 import { Link } from "react-router-dom";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa";
