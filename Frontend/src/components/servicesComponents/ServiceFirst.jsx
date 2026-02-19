@@ -16,7 +16,7 @@ const ServiceFirst = () => {
       <section id="welcomeFather ">
         <div
           id=""
-          className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-[95vh] lg:pt-[20vh]  relative flex items-start justify-end"
+          className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-[91vh] lg:pt-[20vh]  relative flex items-start justify-end"
           style={{ backgroundImage: `url(${salesHeroImg})` }}
         >
           <div

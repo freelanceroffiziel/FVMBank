@@ -27,8 +27,9 @@ const ContactOne = () => {
               Contact <span className="text-red-600">Us</span>
             </h1>
             <p className=" lg:w-[30vw] md:w-[40vw] w-[80vw] text-[18px] md:text-[24px] lg:text-[16px] ">
-              Fill out the contact form below and we’ll get back to you as soon
-              as possible.
+              Have a question or need assistance? Simply complete the contact
+              form below and let us know how we can help. We’ll respond promptly
+              and make sure you get the answers you’re looking for.
             </p>
           </div>
 

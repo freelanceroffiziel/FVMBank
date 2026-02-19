@@ -144,7 +144,7 @@ const Header = () => {
               hamburgerOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            <ul className=" top-0 z-40 mt-24 py-14 md:mt-28  w-[95%] h-auto flex flex-col  justify-center mx-auto items-center gap-2 text-[20px] md:text-[27px] bg-teal-950/85 border-[1px] border-teal-950 text-teal-50 transition ease-in-out duration-100  shadow-white rounded-2xl font-medium  ">
+            <ul className=" top-0 z-40 mt-24 py-14 md:mt-28  w-[91%] h-auto flex flex-col  justify-center mx-auto items-center gap-2 text-[20px] md:text-[27px] bg-teal-950/85 border-[1px] border-teal-950 text-teal-50 transition ease-in-out duration-100  shadow-white rounded-2xl font-medium  ">
               <li>
                 <NavLink
                   to={"/"}
