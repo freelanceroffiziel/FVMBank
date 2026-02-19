@@ -24,32 +24,42 @@ const ContactForm = () => {
         <section className="w-full textSection ">
           <div className="flex flex-col gap-2 text-gray-700 ">
             <div className="mb-4">
-              <h3 className="lg:text-[35px] lg:leading-9.5 font-sans text-teal-900 tracking-wide  font-semibold">
+              <h3 className="lg:text-[35px] text-[23px] lg:leading-9.5 font-sans text-teal-900 tracking-wide  font-semibold">
                 Get Your Instant Free Response Now
               </h3>
-              <p className="mt-1 text-teal-900 lg:text-[16px] ">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. A,
-                obcaecati quaerat odit eaque corporis{" "}
+              <p className="mt-1 text-teal-600 lg:text-[16px] text-[18px] ">
+                Ready to get answers fast? Submit your details below and receive
+                a prompt, personalized response from our team — completely free
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold tracking-wide ">Our Office</h3>
-              <p className="mt-1 text-teal-600">123 Main Street City, Country 12345</p>
+              <h3 className="text-xl font-semibold tracking-wide text-teal-900 ">
+                Our Office
+              </h3>
+              <p className="mt-1 text-teal-600">
+                123 Main Street City, Country 12345
+              </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold tracking-wide">Email</h3>
+              <h3 className="text-xl font-semibold tracking-wide text-teal-900 ">
+                Email
+              </h3>
               <p className="mt-1 text-teal-600">IconicBank@gmail.com</p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold tracking-wide">Phone</h3>
+              <h3 className="text-xl font-semibold tracking-wide text-teal-900 ">
+                Phone
+              </h3>
               <p className="mt-1"> +1 (414) 885 - 4567</p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold tracking-wide">WhatsApp Chat</h3>
+              <h3 className="text-xl font-semibold tracking-wide text-teal-900 ">
+                WhatsApp Chat
+              </h3>
               <a
                 href={`https://wa.me/${phoneNumber}`}
                 target="_blank"

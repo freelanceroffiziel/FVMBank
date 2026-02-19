@@ -34,7 +34,7 @@ const TeamSection = () => {
 
   return (
     <section id="teamSection" className="bg-navyBlue bg-opacity-70">
-      <div className="py-10 bg-teal-800 lg:px-20 px-7">
+      <div className="py-10 bg-teal-800 lg:px-20 px-6">
         <div className="flex flex-col items-center justify-center gap-3 text-center">
           <h1 className="text-[28px] md:text-[33px] lg:text-[35px] text-brightTeal font-semibold font-sans tracking-wider">
             Meet Our Team
