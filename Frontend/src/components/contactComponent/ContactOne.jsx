@@ -16,7 +16,7 @@ const ContactOne = () => {
       <section id="welcomeFather ">
         <div
           id=""
-          className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-screen relative flex items-start justify-start lg:pt-[20vh] "
+          className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-[85vh] lg:pt-[20vh]   relative flex items-start justify-start"
           style={{ backgroundImage: `url(${salesHeroImg})` }}
         >
           <div

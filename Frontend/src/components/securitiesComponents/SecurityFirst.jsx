@@ -17,7 +17,7 @@ const SecurityFirst = () => {
         <section id="welcomeFather ">
           <div
             id=""
-            className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-screen relative flex items-start justify-end lg:pt-[20vh]  "
+            className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-[95vh] lg:pt-[20vh]  relative flex items-start justify-end"
             style={{ backgroundImage: `url(${salesHeroImg})` }}
           >
             <div

@@ -21,7 +21,7 @@ const About = () => {
           <section id="welcomeFather ">
             <div
               id=""
-              className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-screen relative flex items-start justify-start lg:pt-12   "
+              className="bg-cover bg-center w-full lg:h-[85vh] md:[85vh] h-[95vh] lg:pt-[20vh]  relative flex items-start justify-start  "
               style={{ backgroundImage: `url(${salesHeroImg})` }}
             >
               <div
