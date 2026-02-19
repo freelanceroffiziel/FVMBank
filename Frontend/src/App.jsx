@@ -9,9 +9,9 @@ import Contact from "./pages/Contact";
 import SearchBar from "./pages/SearchBar";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Dashboard from "./features/dashboard/dashboardComponent/dashboardMain/Dashboard";
-import Feeds from "./pages/Feeds";
 import Services from "./pages/Services";
 import About from "./pages/About";
+import Security from "./pages/Security";
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
             <Route path="/about" element={<About/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/feeds" element={<Feeds />} />
+            <Route path="/security" element={<Security />} />
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

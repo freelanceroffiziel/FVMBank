@@ -94,7 +94,7 @@ const ContactStars = () => {
             <span className="text-teal-900 font-semibold ">
               Friendly & Approachable
             </span>{" "}
-            – We treat every customer with respect, patience, and genuine care.
+            – We treat every customer with respect, patience, and genuine care.{" "}
             <span className="text-teal-900 font-semibold ">
               Globally Active
             </span>{" "}

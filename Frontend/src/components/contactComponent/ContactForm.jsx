@@ -25,11 +25,11 @@ const ContactForm = () => {
           <div className="flex flex-col gap-2 text-gray-700 ">
             <div className="mb-4">
               <h3 className="lg:text-[35px] text-[23px] lg:leading-9.5 font-sans text-teal-900 tracking-wide  font-semibold">
-                Get Your Instant Free Response Now
+                Get Your Instant Free Response Now!!!
               </h3>
               <p className="mt-1 text-teal-600 lg:text-[16px] text-[18px] ">
                 Ready to get answers fast? Submit your details below and receive
-                a prompt, personalized response from our team — completely free
+                a prompt, personalized response from our team — completely free.
               </p>
             </div>
 

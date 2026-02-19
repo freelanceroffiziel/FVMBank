@@ -46,7 +46,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to={"/Feeds"}
+                to={"/Security"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-[18px] md:text-[30px] lg:text-[18px]"
@@ -173,7 +173,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to={"/Feeds"}
+                  to={"/Security"}
                   onClick={() => setHamburgerOpen(false)}
                   className={({ isActive }) =>
                     isActive
