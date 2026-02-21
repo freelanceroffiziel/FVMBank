@@ -334,7 +334,7 @@ const SecurityFourth = () => {
             </li>
           </ul>
         </div>
-        {/* second adding */}
+        {/* */}
         <div className="lg:text-left space-y-4">
           <h2 className="md:text-[25px] lg:text-[30px] text-[25px] font-semibold">
             How We Use and Share Personal Information
