@@ -62,7 +62,7 @@ const Footer = () => {
                   </li>
                   <li className="">
                     <Link className="border-dashed hover:border-b-2 md:text-[25px] lg:text-[18px] text-[20px]">
-                      IconicBank@gmail.com
+                      fvmbank1@gmail.com
                     </Link>
                   </li>
                   <li className="">
