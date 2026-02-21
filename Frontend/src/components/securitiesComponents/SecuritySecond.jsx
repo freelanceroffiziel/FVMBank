@@ -24,7 +24,10 @@ const SecuritySecond = () => {
             <li>Help Fight Fraud</li>
             <li>
               Think you have experienced fraud?{" "}
-              <Link to={"/Contact"} className="text-teal-600 hover:text-teal-800 hover:underline ">
+              <Link
+                to={"/Contact"}
+                className="text-teal-600 hover:text-teal-800 hover:underline "
+              >
                 Report Now
               </Link>{" "}
             </li>
@@ -48,7 +51,7 @@ const SecuritySecond = () => {
           <ul className="space-y-2 md:text-[25px] lg:text-[18px] text-[19px]">
             <li>Help protect your money. Pause, verify, help prevent scams</li>
             <li>
-              Check out our
+              Check out our{" "}
               <Link className="text-teal-600 hover:text-teal-800 hover:underline ">
                 Fraud Checklist
               </Link>{" "}
