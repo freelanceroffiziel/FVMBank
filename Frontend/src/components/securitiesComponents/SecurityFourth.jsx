@@ -89,16 +89,6 @@ const SecurityFourth = () => {
                 Download our U.S. Online Privacy Notice in English (PDF)
               </Link>
             </li>
-            <li className="text-teal-500 hover:text-teal-800">
-              <Link>
-                Download our U.S. Online Privacy Notice in Spanish (PDF)
-              </Link>
-            </li>
-            <li className="text-teal-500 hover:text-teal-800">
-              <Link>
-                Download our U.S. Online Privacy Notice in German (PDF)
-              </Link>
-            </li>
           </ul>
         </div>
         {/*  */}

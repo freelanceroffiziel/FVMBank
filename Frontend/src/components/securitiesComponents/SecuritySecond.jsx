@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import centerImg from "../../assets/smallImg/istockphoto-2250005108-612x612.jpg";
+import centerImg from "../../assets/securityImg/istockphoto-1479778391-612x612.jpg";
 
 const SecuritySecond = () => {
   return (
@@ -9,7 +9,7 @@ const SecuritySecond = () => {
         <h2 className="md:text-[25px] lg:text-[30px] text-[25px] text-center ">
           There’s a new scam targeting customers.{" "}
           <Link className="text-teal-600 hover:text-teal-800 underline">
-            There’s a new scam targeting customers.
+            Learn how to help protect your money.
           </Link>{" "}
         </h2>
       </section>

@@ -6,7 +6,7 @@ const AllRightsReserce = () => {
       <main className="relative">
         <div className="tracking-wide ">
           {" "}
-         <span className="text-red-700">&copy;</span>IconicBank 2025 all Right Reserved{" "}
+         <span className="text-red-700">&copy;</span>FvmBank 2026 all Right Reserved{" "}
         </div>
       </main>
     </>
