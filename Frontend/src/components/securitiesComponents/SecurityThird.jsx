@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import completeDetails from "../../assets/securityImg/peggy_marco-matrix-1013611_1920-removebg-preview.png"
-
+import ScrollReveal from "scrollreveal";
 const SecurityThird = () => {
+    useEffect(() => {
+    ScrollReveal().reveal(".main", {
+      origin: "bottom",
+      distance: "35px",
+      duration: 1200,
+      delay: 100,
+    });
+  }, []); 
   return (
-    <main className="bg-teal-600">
+    <main className="main bg-teal-600">
       <section className="flex lg:flex-row flex-col lg:gap-0 gap-12 justify-between items-center lg:px-16 px-6 py-10 ">
         <div className="space-y-5  text-teal-50">
           <h1 className="text-teal-950 md:text-[25px] lg:text-[30px] text-[24px]">Our Online & Mobile Security Guarantee</h1>

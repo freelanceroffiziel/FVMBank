@@ -1,11 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import centerImg from "../../assets/securityImg/istockphoto-1479778391-612x612.jpg";
+import ScrollReveal from "scrollreveal";
 
 const SecuritySecond = () => {
+    useEffect(() => {
+    ScrollReveal().reveal(".main", {
+      origin: "bottom",
+      distance: "35px",
+      duration: 1200,
+      delay: 100,
+    });
+  }, []); 
+
+    useEffect(() => {
+    ScrollReveal().reveal(".main1", {
+      origin: "bottom",
+      distance: "35px",
+      duration: 900,
+      delay: 50,
+    });
+  }, []); 
+
+    useEffect(() => {
+    ScrollReveal().reveal(".main2", {
+      origin: "bottom",
+      distance: "35px",
+      duration: 1000,
+      delay: 100,
+    });
+  }, []); 
+
+    useEffect(() => {
+    ScrollReveal().reveal(".main3", {
+      origin: "bottom",
+      distance: "35px",
+      duration: 1100,
+      delay: 150,
+    });
+  }, []); 
   return (
-    <main className=" space-y-11 ">
-      <section className="lg:px-16 px-6">
+    <main className="main space-y-11 ">
+      <section className="main lg:px-16 px-6">
         <h2 className="md:text-[25px] lg:text-[30px] text-[25px] text-center ">
           There’s a new scam targeting customers.{" "}
           <Link className="text-teal-600 hover:text-teal-800 underline">
@@ -14,8 +50,8 @@ const SecuritySecond = () => {
         </h2>
       </section>
 
-      <section className=" flex justify-center lg:flex-row flex-col  gap-12 items-center lg:px-16 px-6">
-        <div className="lg:text-right  space-y-6 ">
+      <section className="main flex justify-center lg:flex-row flex-col  gap-12 items-center lg:px-16 px-6">
+        <div className="main1 lg:text-right  space-y-6 ">
           <h2 className="md:text-[25px] lg:text-[30px] text-[25px] font-semibold  ">
             How we help protect you
           </h2>
@@ -35,7 +71,7 @@ const SecuritySecond = () => {
           </ul>
         </div>
 
-        <div className="h-60 w-60 ">
+        <div className="main2 h-60 w-60 ">
           <img
             src={centerImg}
             alt={centerImg.className}
@@ -43,7 +79,7 @@ const SecuritySecond = () => {
           />
         </div>
 
-        <div className="lg:text-left  space-y-6 ">
+        <div className="main3 lg:text-left  space-y-6 ">
           <h2 className="md:text-[25px] lg:text-[30px] text-[25px] font-semibold  ">
             How to help protect yourself
           </h2>
