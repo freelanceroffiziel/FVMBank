@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const SecurityFourth = () => {
   return (
     <main className="lg:px-9 px-6  ">
-      <section className="bg-white shadow-xl lg:p-8 p-4 border-[1px] border-gray-100 space-y-5 ">
+      <div className=" border-b-2 mb-4 border-teal-600 text-teal-800 ">
+        <h3>U.S. Online Privacy Notice</h3>
+      </div>
+      <section className="bg-white shadow lg:p-8 p-4 border-[1px] border-gray-100 space-y-5 ">
         <h2 className="text-teal-800 font-medium ">FULL PAGE VERSION</h2>
 
         <div className="space-y-4">
@@ -340,6 +343,176 @@ const SecurityFourth = () => {
               assistance needs, and travel details for participants).
             </li>
           </ul>
+        </div>
+        {/* second adding */}
+        <div className="lg:text-left space-y-4">
+          <h2 className="md:text-[25px] lg:text-[30px] text-[25px] font-semibold">
+            How We Use and Share Personal Information
+          </h2>
+
+          <h3 className="font-semibold text-[20px]">
+            How do we use your personal information?
+          </h3>
+
+          <p>
+            Personal information collected from and about you online described
+            in this Notice may be used for many purposes such as:
+          </p>
+
+          <ul className="space-y-2 md:text-[18px] text-[16px]">
+            <li>
+              Delivering products and services to you by verifying your
+              identity, processing applications, processing transactions,
+              providing customer support, locating ATMs and financial centers,
+              and consolidating financial account information.
+            </li>
+            <li>
+              Personalizing your digital and mobile experience by enhancing our
+              Sites and Mobile Apps and creating relevant alerts, products or
+              services.
+            </li>
+            <li>
+              Providing advertising on our Sites and Mobile Apps, third-party
+              sites, and offline channels such as financial centers, call
+              centers, email, mail and phone.
+            </li>
+            <li>
+              Detecting and preventing fraud, identity theft and other risks.
+            </li>
+            <li>
+              Performing analytics concerning your use of our online services.
+            </li>
+            <li>
+              Complying with legal requirements, industry standards and
+              policies.
+            </li>
+            <li>
+              Allowing you to use features that require device permissions such
+              as geolocation or contacts.
+            </li>
+            <li>
+              Providing notifications regarding registered events and improving
+              event effectiveness.
+            </li>
+          </ul>
+
+          <p>
+            We retain personal information as required by law and securely
+            delete it as soon as legally permitted.
+          </p>
+
+          <h3 className="font-semibold text-[20px]">
+            Individual health and/or sensitive information
+          </h3>
+
+          <p>
+            To the extent we receive or process health information, it will be
+            used and disclosed in accordance with applicable federal and state
+            laws. Information provided for special accommodations during event
+            registration will only be used as necessary.
+          </p>
+        </div>
+
+        {/* Sharing Section */}
+        <div className="lg:text-left space-y-4">
+          <h3 className="font-semibold text-[22px]">
+            With whom do we share your personal information?
+          </h3>
+
+          <ul className="space-y-2 md:text-[18px] text-[16px]">
+            <li>Affiliates and subsidiaries.</li>
+            <li>Third-party providers under contract.</li>
+            <li>Government agencies as required by law.</li>
+          </ul>
+
+          <h3 className="font-semibold text-[20px]">
+            Aggregated / De-Identified Information
+          </h3>
+
+          <p>
+            Personal information may be aggregated or de-identified and shared
+            with third parties for business purposes in accordance with
+            applicable laws.
+          </p>
+
+          <h3 className="font-semibold text-[20px]">How to limit sharing</h3>
+
+          <p>
+            You may limit certain sharing of personal information based on your
+            marketing and information-sharing preferences through your account
+            settings.
+          </p>
+        </div>
+
+        {/* Online Behavioral Advertising */}
+        <div className="lg:text-left space-y-4">
+          <h2 className="md:text-[25px] lg:text-[30px] text-[25px] font-semibold">
+            Online Behavioral Advertising
+          </h2>
+
+          <p>
+            We use personal information to deliver advertising and marketing,
+            including prescreened credit offers, that may be relevant to you.
+          </p>
+
+          <ul className="space-y-2 md:text-[18px] text-[16px]">
+            <li>On our Sites and Mobile Apps.</li>
+            <li>
+              Through offline channels such as financial centers and direct
+              marketing.
+            </li>
+            <li>On non-affiliated third-party sites and mobile apps.</li>
+          </ul>
+
+          <h3 className="font-semibold text-[20px]">How you can opt out</h3>
+
+          <p>
+            You may opt out of interest-based advertising through industry
+            opt-out tools or browser settings. Please note that opting out does
+            not stop general advertising.
+          </p>
+
+          <h3 className="font-semibold text-[20px]">Reminder</h3>
+
+          <ul className="space-y-2 md:text-[18px] text-[16px]">
+            <li>You may still receive general advertising.</li>
+            <li>Online account areas may continue to show tailored content.</li>
+            <li>
+              If cookies are deleted or you change devices/browsers, you may
+              need to opt out again.
+            </li>
+          </ul>
+        </div>
+
+        {/* Additional Information */}
+        <div className="lg:text-left space-y-4">
+          <h2 className="md:text-[25px] lg:text-[30px] text-[25px] font-semibold">
+            Additional Information
+          </h2>
+
+          <h3 className="font-semibold text-[20px]">
+            Third-Party Data Sharing
+          </h3>
+
+          <p>
+            Some third parties offer aggregation services that allow you to
+            consolidate financial account data. Use caution and review their
+            privacy policies before sharing credentials or account access.
+          </p>
+
+          <p>
+            If you revoke access from a third party, we recommend changing your
+            password immediately.
+          </p>
+
+          <h3 className="font-semibold text-[20px]">Social Media</h3>
+
+          <p>
+            We engage with customers on social media platforms. Content shared
+            on those platforms is subject to their respective terms and privacy
+            policies. Social share buttons on our Sites may allow third parties
+            to collect browsing information.
+          </p>
         </div>
       </section>
     </main>
