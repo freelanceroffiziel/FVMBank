@@ -10,7 +10,7 @@ const Contact = () => {
           <ContactOne />
         </section>
 
-        <section className="px-6 lg:mt-10 contactForm lg:px-16">
+        <section className="px-6 lg:mt-6 contactForm lg:px-16 mt-[6vh]">
           <ContactForm />
         </section>
 

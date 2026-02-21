@@ -14,7 +14,7 @@ const Home = () => {
       <section>
         <HomeFirstComponent />
       </section>
-      <section>
+      <section className="lg:mt-[0vh] mt-[6vh]">
         <MiniBelow />
       </section>
       <section>

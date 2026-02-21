@@ -16,7 +16,7 @@ const About = () => {
   });
   return (
     <>
-      <main>
+      <main className="">
         <section id="propertySellSon" className="w-full ">
           <section id="welcomeFather ">
             <div
@@ -45,7 +45,7 @@ const About = () => {
         </section>
       </main>
 
-      <section className="py-16 ">
+      <section className="py-16 lg:mt-[0vh] mt-[6vh] ">
         <AboutTwo />
       </section>
       <section className="">
