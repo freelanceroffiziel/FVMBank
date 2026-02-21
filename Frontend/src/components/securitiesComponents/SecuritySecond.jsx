@@ -24,7 +24,7 @@ const SecuritySecond = () => {
             <li>Help Fight Fraud</li>
             <li>
               Think you have experienced fraud?{" "}
-              <Link className="text-teal-600 hover:text-teal-800 hover:underline ">
+              <Link to={"/Contact"} className="text-teal-600 hover:text-teal-800 hover:underline ">
                 Report Now
               </Link>{" "}
             </li>

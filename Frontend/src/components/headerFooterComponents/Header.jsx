@@ -34,7 +34,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to={"/About"}
+                to={"/about"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-[18px] md:text-[30px] lg:text-[18px]"
@@ -46,7 +46,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to={"/Security"}
+                to={"/security"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-[18px] md:text-[30px] lg:text-[18px]"
@@ -58,7 +58,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to={"/Contact"}
+                to={"/contact"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-[18px] md:text-[30px] lg:text-[18px]"
@@ -90,12 +90,12 @@ const Header = () => {
             </span>
 
             <div className="flex items-center justify-center gap-3 lg:flex-row">
-              <Link to={"/Login"} className="">
+              <Link to={"/login"} className="">
                 Login
               </Link>
 
               <Link
-                to={"/Register"}
+                to={"/register"}
                 className="px-3 py-1.5 border-2 border-teal-600 rounded-tl-full rounded-bl-full hover:bg-gray-50 hover:text-teal-800 "
               >
                 Open Account
@@ -160,7 +160,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to={"/About"}
+                  to={"/about"}
                   onClick={() => setHamburgerOpen(false)}
                   className={({ isActive }) =>
                     isActive
@@ -173,7 +173,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to={"/Security"}
+                  to={"/security"}
                   onClick={() => setHamburgerOpen(false)}
                   className={({ isActive }) =>
                     isActive
@@ -186,7 +186,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to={"/Contact"}
+                  to={"/contact"}
                   onClick={() => setHamburgerOpen(false)}
                   className={({ isActive }) =>
                     isActive
@@ -216,7 +216,7 @@ const Header = () => {
                 <ul className="flex flex-row gap-5 lg:text-[15px] ">
                   <li>
                     <NavLink
-                      to="/Login"
+                      to="/login"
                       onClick={() => setHamburgerOpen(false)}
                       className={({ isActive }) =>
                         isActive ? "border-b-[1px] border-gray-50  " : ""
@@ -227,7 +227,7 @@ const Header = () => {
                   </li>
 
                   <Link
-                    to={"/Register"}
+                    to={"/register"}
                     onClick={() => setHamburgerOpen(false)}
                     className="px-3 py-1.5 border-2 border-teal-600 rounded-tl-full rounded-bl-full hover:bg-gray-50 hover:text-teal-800 "
                   >

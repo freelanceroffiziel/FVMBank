@@ -99,7 +99,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <NavLink
-                      to={"/About"}
+                      to={"/about"}
                       className={({ isActive }) =>
                         isActive
                           ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
@@ -111,7 +111,19 @@ const Footer = () => {
                   </li>
                   <li>
                     <NavLink
-                      to={"/Contact"}
+                      to={"/security"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
+                          : " md:text-[25px] lg:text-[18px] text-[20px]"
+                      }
+                    >
+                      Security
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to={"/contact"}
                       className={({ isActive }) =>
                         isActive
                           ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
@@ -123,26 +135,14 @@ const Footer = () => {
                   </li>
                   <li>
                     <NavLink
-                      to={"/Help"}
+                      to={"/services"}
                       className={({ isActive }) =>
                         isActive
                           ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
                           : " md:text-[25px] lg:text-[18px] text-[20px]"
                       }
                     >
-                      Help
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to={"/Faq"}
-                      className={({ isActive }) =>
-                        isActive
-                          ? " md:text-[25px] lg:text-[18px] text-[20px]  border-dashed border-b-2"
-                          : " md:text-[25px] lg:text-[18px] text-[20px]"
-                      }
-                    >
-                      Faq
+                      Services
                     </NavLink>
                   </li>
                 </ul>
