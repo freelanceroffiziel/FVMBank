@@ -7,7 +7,7 @@ const SecurityFourth = () => {
       <div className=" border-b-2 mb-4 border-teal-600 text-teal-800 ">
         <h3>U.S. Online Privacy Notice</h3>
       </div>
-      <section className="bg-white shadow lg:p-8 p-4 border-[1px] border-gray-100 space-y-5 ">
+      <section className="bg-white shadow lg:p-8 p-4 border-[1px] border-gray-100 space-y-5 [&_ul]:list-disc [&_ul]:list-inside ">
         <h2 className="text-teal-800 font-medium ">FULL PAGE VERSION</h2>
 
         <div className="space-y-4">
