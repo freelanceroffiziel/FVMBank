@@ -28,7 +28,7 @@ const SecurityFourth = () => {
         </div>
 
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             This Notice explains
           </h2>
 
@@ -72,7 +72,7 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Updates to this Notice
           </h2>
 
@@ -93,7 +93,7 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Our Online Privacy Practices
           </h2>
 
@@ -108,7 +108,7 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Linking to other sites
           </h2>
 
@@ -125,7 +125,7 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Protecting your personal information
           </h2>
 
@@ -152,7 +152,7 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Making sure personal information is accurate
           </h2>
 
@@ -169,11 +169,11 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Personal Information We Collect Online
           </h2>
 
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             How do we collect personal information online?
           </h2>
 
@@ -225,7 +225,7 @@ const SecurityFourth = () => {
         </div>
         {/*  */}
         <div className="lg:text-left  space-y-4 ">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold  ">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold  ">
             Types of personal information we collect online
           </h2>
 
@@ -336,11 +336,11 @@ const SecurityFourth = () => {
         </div>
         {/* */}
         <div className="lg:text-left space-y-4">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             How We Use and Share Personal Information
           </h2>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             How do we use your personal information?
           </h3>
 
@@ -391,7 +391,7 @@ const SecurityFourth = () => {
             delete it as soon as legally permitted.
           </p>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             Individual health and/or sensitive information
           </h3>
 
@@ -405,7 +405,7 @@ const SecurityFourth = () => {
 
         {/* Sharing Section */}
         <div className="lg:text-left space-y-4">
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             With whom do we share your personal information?
           </h3>
 
@@ -415,7 +415,7 @@ const SecurityFourth = () => {
             <li>Government agencies as required by law.</li>
           </ul>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             Aggregated / De-Identified Information
           </h3>
 
@@ -425,7 +425,7 @@ const SecurityFourth = () => {
             applicable laws.
           </p>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">How to limit sharing</h3>
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">How to limit sharing</h3>
 
           <p>
             You may limit certain sharing of personal information based on your
@@ -436,7 +436,7 @@ const SecurityFourth = () => {
 
         {/* Online Behavioral Advertising */}
         <div className="lg:text-left space-y-4">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             Online Behavioral Advertising
           </h2>
 
@@ -454,7 +454,7 @@ const SecurityFourth = () => {
             <li>On non-affiliated third-party sites and mobile apps.</li>
           </ul>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">How you can opt out</h3>
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">How you can opt out</h3>
 
           <p>
             You may opt out of interest-based advertising through industry
@@ -462,7 +462,7 @@ const SecurityFourth = () => {
             not stop general advertising.
           </p>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">Reminder</h3>
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">Reminder</h3>
 
           <ul className="space-y-2 md:text-[18px] text-[16px]">
             <li>You may still receive general advertising.</li>
@@ -476,11 +476,11 @@ const SecurityFourth = () => {
 
         {/* Additional Information */}
         <div className="lg:text-left space-y-4">
-          <h2 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h2 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             Additional Information
           </h2>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">
             Third-Party Data Sharing
           </h3>
 
@@ -495,7 +495,7 @@ const SecurityFourth = () => {
             password immediately.
           </p>
 
-          <h3 className="md:text-[25px] lg:text-[21px] text-[25px] font-semibold">Social Media</h3>
+          <h3 className="md:text-[25px] lg:text-[21px] text-[20px] font-semibold">Social Media</h3>
 
           <p>
             We engage with customers on social media platforms. Content shared
