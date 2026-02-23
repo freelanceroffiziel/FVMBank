@@ -1,0 +1,27 @@
+[
+  {
+    "country": "Kenya",
+    "project": "Solar Microgrids Initiative",
+    "outcome": "Local communities gained access to clean electricity, benefiting over 10,000 households."
+  },
+  {
+    "country": "Germany",
+    "project": "Renewable Energy Startup Funding",
+    "outcome": "Startup developed innovative wind turbines, reducing carbon emissions by 15% in the region."
+  },
+  {
+    "country": "India",
+    "project": "Community Health Centers",
+    "outcome": "Grants supported construction of rural health clinics, improving access to medical services."
+  },
+  {
+    "country": "Brazil",
+    "project": "Rainforest Conservation Program",
+    "outcome": "Funds helped preserve over 5,000 hectares of rainforest and supported local communities."
+  },
+  {
+    "country": "United States",
+    "project": "STEM Education Grant",
+    "outcome": "Schools received resources to implement advanced STEM programs, benefiting 2,000+ students."
+  }
+]
