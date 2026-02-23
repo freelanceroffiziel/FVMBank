@@ -1,67 +1,32 @@
 import React from "react";
-import histories from "../../json/grantHistories.json"
-const GrantOverview = () => {
-  return (
-    <section className="py-12 px-6 bg-gray-50 rounded-lg shadow-md mb-8">
-      <h2 className="text-2xl font-bold text-teal-700 mb-4">About Grants</h2>
-      <p className="text-gray-700">
-        Governments and organizations worldwide offer financial grants to
-        support startups, individuals, small businesses, and community projects.
-        Grants are non-repayable funds designed to accelerate growth,
-        innovation, and social impact. We help you achieve that by giving you
-        direct access.
-      </p>
-    </section>
-  );
-};
+import { FaPiggyBank, FaCreditCard, FaChartLine, FaHandHoldingUsd } from "react-icons/fa";
 
-const HowToApply = () => {
-  return (
-    <section className="py-12 px-6 bg-white rounded-lg shadow-md mb-8">
-      <h2 className="text-2xl font-bold text-teal-700 mb-4">
-        Grant Access & Claiming
-      </h2>
-      <ol className="list-decimal list-inside text-gray-700 space-y-2">
-        <li>Check eligibility criteria for the grant program.</li>
-        <li>Submit an online application form with project details.</li>
-        <li>
-          Provide supporting documents like business plan, budget, or community
-          proposal.
-        </li>
-        <li>Wait for approval notification from our grants committee.</li>
-        <li>Receive funds and start implementing your project.</li>
-      </ol>
-    </section>
-  );
-};
+const services = [
+  { icon: <FaPiggyBank />, title: "Savings Accounts", desc: "Secure and flexible savings options for individuals and businesses." },
+  { icon: <FaCreditCard />, title: "Credit Cards", desc: "Exclusive credit cards with rewards and cashback." },
+  { icon: <FaChartLine />, title: "Investments", desc: "Grow your wealth with smart investment strategies." },
+  { icon: <FaHandHoldingUsd />, title: "Business Loans", desc: "Flexible loans to accelerate your business growth." },
+];
 
-const GlobalGrantHistories = () => {
+const ServiceSecond = () => {
   return (
-    <section className="py-12 px-6 bg-gray-50 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-teal-700 mb-6">
-        Global Grant Success Histories
+    <section className="px-4 lg:px-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-center text-teal-700 mb-12">
+        Our Core Services
       </h2>
-      <div className="space-y-4">
-        {histories.map((history, idx) => (
-          <div key={idx} className="p-4 bg-white rounded shadow">
-            <h3 className="font-semibold text-teal-700">
-              {history.project} ({history.country})
-            </h3>
-            <p className="text-gray-700">{history.outcome}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="bg-white p-6 rounded shadow hover:shadow-lg transition"
+          >
+            <div className="text-teal-700 text-4xl mb-4">{service.icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+            <p className="text-gray-700">{service.desc}</p>
           </div>
         ))}
       </div>
     </section>
-  );
-};
-
-const ServiceSecond = () => {
-  return (
-    <main className="lg:mt-[10vh] mt-[16vh] px-4 lg:px-16">
-      <GrantOverview />
-      <HowToApply />
-      <GlobalGrantHistories />
-    </main>
   );
 };
 

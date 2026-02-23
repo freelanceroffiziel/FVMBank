@@ -1,27 +1,92 @@
 [
   {
+    "id": 1,
     "country": "Kenya",
     "project": "Solar Microgrids Initiative",
     "outcome": "Local communities gained access to clean electricity, benefiting over 10,000 households."
   },
   {
+    "id": 2,
     "country": "Germany",
     "project": "Renewable Energy Startup Funding",
     "outcome": "Startup developed innovative wind turbines, reducing carbon emissions by 15% in the region."
   },
   {
+    "id": 3,
     "country": "India",
     "project": "Community Health Centers",
     "outcome": "Grants supported construction of rural health clinics, improving access to medical services."
   },
   {
+    "id": 4,
     "country": "Brazil",
     "project": "Rainforest Conservation Program",
     "outcome": "Funds helped preserve over 5,000 hectares of rainforest and supported local communities."
   },
   {
+    "id": 5,
     "country": "United States",
     "project": "STEM Education Grant",
     "outcome": "Schools received resources to implement advanced STEM programs, benefiting 2,000+ students."
+  },
+  {
+    "id": 6,
+    "country": "Australia",
+    "project": "Coral Reef Preservation",
+    "outcome": "Funding helped protect parts of the Great Barrier Reef, supporting marine biodiversity."
+  },
+  {
+    "id": 7,
+    "country": "Canada",
+    "project": "Indigenous Community Education",
+    "outcome": "Grants provided resources for schools in remote Indigenous communities, increasing literacy and skills training."
+  },
+  {
+    "id": 8,
+    "country": "Japan",
+    "project": "Smart City Energy Solutions",
+    "outcome": "Implemented energy-efficient smart grids, reducing city energy consumption by 12%."
+  },
+  {
+    "id": 9,
+    "country": "South Africa",
+    "project": "Clean Water Access Program",
+    "outcome": "Installed water filtration systems, providing safe drinking water to over 50,000 residents."
+  },
+  {
+    "id": 10,
+    "country": "Norway",
+    "project": "Electric Vehicle Incentives",
+    "outcome": "Encouraged adoption of electric vehicles, reducing urban CO2 emissions significantly."
+  },
+  {
+    "id": 11,
+    "country": "Mexico",
+    "project": "Urban Green Spaces Initiative",
+    "outcome": "Created parks and urban gardens, improving air quality and community well-being."
+  },
+  {
+    "id": 12,
+    "country": "France",
+    "project": "Cultural Heritage Restoration",
+    "outcome": "Restored historical landmarks and museums, preserving national heritage and tourism."
+  },
+  {
+    "id": 13,
+    "country": "Thailand",
+    "project": "Community Health Outreach",
+    "outcome": "Provided mobile clinics to rural villages, improving access to healthcare services."
+  },
+  {
+    "id": 14,
+    "country": "United Kingdom",
+    "project": "Renewable Energy Education",
+    "outcome": "Schools received solar kits and curriculum support, teaching students about sustainable energy."
+  },
+  {
+    "id": 15,
+    "country": "Argentina",
+    "project": "Sustainable Agriculture Grant",
+    "outcome": "Supported farmers with eco-friendly techniques, increasing crop yield and reducing chemical use."
   }
 ]

@@ -3,6 +3,7 @@ import ServiceFirst from "../components/servicesComponents/ServiceFirst";
 import ServiceSecond from "../components/servicesComponents/ServiceSecond";
 import ServiceThird from "../components/servicesComponents/ServiceThird";
 import ServiceFourth from "../components/servicesComponents/ServiceFourth";
+import ServiceFift from "../components/servicesComponents/ServiceFift";
 
 const Services = () => {
   return (
@@ -11,16 +12,20 @@ const Services = () => {
         <ServiceFirst />
       </section>
 
-       <section className="lg:mt-[10vh] mt-[16vh]">
-        <ServiceFourth />
-      </section>
-
       <section className="lg:mt-[10vh] mt-[16vh]">
         <ServiceSecond />
       </section>
 
-      <section className="lg:mt-[10vh] mt-[16vh]">
+      <section className="lg:mt-[10vh] mt-[13vh]">
         <ServiceThird />
+      </section>
+
+      <section className="lg:mt-[10vh] mt-[16vh]">
+        <ServiceFourth />
+      </section>
+
+      <section className="lg:mt-[10vh] mt-[13vh]">
+        <ServiceFift />
       </section>
     </main>
   );
