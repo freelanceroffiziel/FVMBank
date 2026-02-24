@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ServiceFift = () => {
   return (
     <main>
-      <section className=" text-700  text-center">
+      <section className=" text-700 text-center lg:px-16 px-6">
         <h2 className="text-3xl lg:text-4xl font-bold mb-4">
           Ready to Take the Next Step?
         </h2>

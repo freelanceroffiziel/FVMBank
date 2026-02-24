@@ -21,7 +21,7 @@ const ServiceFirst = () => {
         >
           <div
             id="text"
-            className="lg:px-8 md:px-8 md:py-8 px-8 py-8 lg:py-8 lg:mr-16 md:mr-6 bg-white rounded bg-opacity-40 text-teal-80 lg:mt-10 md:mt-[35vh] ml-0 md:top-0  bottom-[-10vh] lg:relative md:relative absolute md:shadow-none shadow "
+            className="lg:px-8 md:px-8 md:py-8 px-8 py-8 lg:py-8 lg:mr-16 md:mr-6 bg-white rounded bg-opacity-40 text-teal-80 lg:mt-10 md:mt-[35vh] ml-0 md:top-0  bottom-[-10vh] lg:relative md:relative absolute md:shadow-none shadow"
           >
             <h1 className="text-[30px] md:text-[45px] lg:text-[50px] font-serif text-teal-700 ">
               Our <span className="text-red-600">Services</span>

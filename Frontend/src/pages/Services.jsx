@@ -16,15 +16,15 @@ const Services = () => {
         <ServiceSecond />
       </section>
 
-      <section className="lg:mt-[10vh] mt-[13vh]">
+      <section className="lg:mt-[10vh] mt-[12vh]">
         <ServiceThird />
       </section>
 
-      <section className="lg:mt-[10vh] mt-[16vh]">
+      <section className="lg:mt-[10vh] mt-[12vh]">
         <ServiceFourth />
       </section>
 
-      <section className="lg:mt-[10vh] mt-[13vh]">
+      <section className="lg:mt-[10vh] mt-[12vh]">
         <ServiceFift />
       </section>
     </main>
