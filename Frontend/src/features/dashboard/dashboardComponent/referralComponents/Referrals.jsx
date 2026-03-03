@@ -21,7 +21,6 @@ const Referrals = () => {
           <div id="myMeferralEarnings" className="mt-4">
             <MyMeferralEarnings />
           </div>
-          <div id=""></div>
         </div>
       </section>
     </main>
