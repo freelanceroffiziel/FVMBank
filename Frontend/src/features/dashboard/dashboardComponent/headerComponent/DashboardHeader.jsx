@@ -87,7 +87,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
               className="fixed top-0 z-40 left-0 pt-24 md:pt-36 pb-6
               flex flex-col text-[22px] md:text-[25px]
               text-[#c0c0c0] bg-teal-700 lg:hidden
-              h-full w-[70%] pl-3.5 overflow-y-scroll"
+              h-full w-[60%] pl-3.5 overflow-y-scroll"
             >
               <ul className="flex flex-col">
                 <li>
