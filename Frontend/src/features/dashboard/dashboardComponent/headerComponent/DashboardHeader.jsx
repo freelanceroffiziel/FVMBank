@@ -92,7 +92,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
               <ul className="flex flex-col">
                 <li>
                   <button
-                    onClick={() => setSelectedSection("dashboard")}
+                    onClick={() => {
+                      setSelectedSection("dashboard");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiDashboard2Fill className="text-[25px]" />
@@ -102,7 +105,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("activityLogs")}
+                    onClick={() => {
+                      setSelectedSection("activityLogs");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiDatabase2Fill className="text-[25px]" />
@@ -112,7 +118,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("transfer")}
+                    onClick={() => {
+                      setSelectedSection("transfer");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiDatabase2Fill className="text-[25px]" />
@@ -122,7 +131,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("withdraw")}
+                    onClick={() => {
+                      setSelectedSection("withdraw");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiCashFill className="text-[25px]" />
@@ -132,7 +144,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("deposit")}
+                    onClick={() => {
+                      setSelectedSection("deposit");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiMoneyDollarBoxFill className="text-[25px]" />
@@ -142,7 +157,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("account")}
+                    onClick={() => {
+                      setSelectedSection("account");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiAccountBoxFill className="text-[25px]" />
@@ -152,7 +170,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("cards")}
+                    onClick={() => {
+                      setSelectedSection("cards");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiShareCircleFill className="text-[25px]" />
@@ -162,7 +183,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("loans")}
+                    onClick={() => {
+                      setSelectedSection("loans");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiShareCircleFill className="text-[25px]" />
@@ -172,7 +196,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("notification")}
+                    onClick={() => {
+                      setSelectedSection("notification");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiShareCircleFill className="text-[25px]" />
@@ -182,7 +209,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
                 <li>
                   <button
-                    onClick={() => setSelectedSection("referral")}
+                    onClick={() => {
+                      setSelectedSection("referral");
+                      setMenu(false);
+                    }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
                     <RiShareCircleFill className="text-[25px]" />
