@@ -41,7 +41,7 @@ const DashboardHome = () => {
       >
         <div
           id="dashboardDivs"
-          className="grid gap-5 transition-all lg:grid-cols-4 "
+          className="grid gap-2 lg:gap-1.5 transition-all lg:grid-cols-4 "
         >
           <div
             id="depositDiv"
@@ -103,7 +103,7 @@ const DashboardHome = () => {
         <section id="copyDiv">
           <div
             id="copyDivSohn"
-            className="flex flex-col gap-5 px-3 py-10 bg-teal-700 rounded text-gray-50"
+            className="flex flex-col gap-5 px-3 lg:px-6 shadow py-10 lg:py-13 bg-teal-700 rounded text-gray-50"
           >
             <CopyAbleInput />
           </div>

@@ -47,8 +47,8 @@ const DashboardHeader = ({ setSelectedSection }) => {
     <main className="headerCon">
       <section className="headerConSon">
         <section className="mt-[10vh] fixed top-0 lg:p-8 lg:ml-[17vw] z-50 w-full">
-          <div className="fixed top-0 z-50 w-full p-2 bg-teal-800 desktop">
-            <div className="bg-teal-900 rounded-md text-gray-50 flex justify-between py-4 px-4 lg:w-[78vw] w-full">
+          <div className="fixed top-0 z-50 w-full lg:max-w-[80vw] p-2 bg-teal-800 desktop ">
+            <div className="bg-teal-900 rounded-md text-gray-50 flex justify-between py-4 px-4 w-full">
               <div className="p-2 bg-teal-600 rounded hover:bg-teal-700 shadow transition-all">
                 {menu ? (
                   <RiCloseFill

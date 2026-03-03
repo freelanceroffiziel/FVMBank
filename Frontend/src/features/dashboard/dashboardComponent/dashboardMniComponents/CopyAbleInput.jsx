@@ -18,7 +18,7 @@ const CopyAbleInput = () => {
       <section id="copyDiv">
         <div
           id="copyDivSohn"
-          className="flex flex-col gap-5 px-3 py-10 bg-teal-900 rounded text-gray-50"
+          className="flex flex-col gap-5 px-3 py-10 bg-teal-900 rounded text-gray-50 shadow-2xl "
         >
           <div className="text-[24px] md:text-[25px] lg:text-[18px] font-semibold">
             <div className="flex flex-row items-center justify-center gap-2 text-center">
@@ -35,7 +35,7 @@ const CopyAbleInput = () => {
               value={text}
               readOnly
               onFocus={(e) => e.target.select()}
-              className="lg:w-[30vw] w-[40vw] md:w-[45vw] placeholder:pl-2 py-1 outline-none border-[1px] border-gray-50 rounded focus:placeholder:text-gray-50"
+              className="lg:w-[30vw] w-[40vw] md:w-[45vw] placeholder:pl-2 py-1 outline-none border-[1px] border-gray-50 rounded focus:placeholder:text-gray-50  "
             />
             <CopyToClipboard text={text} onCopy={handleCopy}>
               <button
