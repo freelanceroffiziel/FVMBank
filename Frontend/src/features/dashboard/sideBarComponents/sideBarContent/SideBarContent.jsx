@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   RiAccountBoxFill,
   RiBarChart2Fill,
@@ -7,81 +7,152 @@ import {
   RiDatabase2Fill,
   RiMoneyDollarBoxFill,
   RiShareCircleFill,
+  RiArrowUpSLine,
+  RiArrowDownSLine,
 } from "react-icons/ri";
 
 const SideBarContent = ({ setSelectedSection }) => {
+  const sidebarRef = useRef(null);
+  const [showTopArrow, setShowTopArrow] = useState(false);
+  const [showBottomArrow, setShowBottomArrow] = useState(false);
+
+  const handleScroll = () => {
+    const el = sidebarRef.current;
+    if (!el) return;
+
+    const atTop = el.scrollTop === 0;
+    const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+
+    setShowTopArrow(!atTop);
+    setShowBottomArrow(!atBottom);
+  };
+
   return (
-    <main className="sidebarContentCon">
-      <section className="sidebarContentConSon">
+    <div className="relative h-[70vh]">
+      {/* TOP ARROW */}
+      {showTopArrow && (
+        <div className="absolute top-0 left-0 w-full flex justify-center bg-white z-10">
+          <RiArrowUpSLine className="text-2xl text-teal-600 animate-bounce" />
+        </div>
+      )}
+
+      <main
+        ref={sidebarRef}
+        onScroll={handleScroll}
+        className="sidebarContentCon overflow-y-scroll h-full shadow-white"
+      >
         <div id="ulSon" className="space-y-10">
-          <ul id="sideBarList" className="flex flex-col gap-3">
+          <ul id="sideBarList" className="flex flex-col">
             <li>
               <button
                 onClick={() => setSelectedSection("dashboard")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiDashboard2Fill className="text-[25px] " />
+                <RiDashboard2Fill className="text-[25px]" />
                 Dashboard
               </button>
             </li>
+
             <li>
               <button
-                onClick={() => setSelectedSection("startInvesting")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
+                onClick={() => setSelectedSection("activityLogs")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiDatabase2Fill className="text-[25px] " />
-                Accounts
+                <RiDatabase2Fill className="text-[25px]" />
+                Activity Logs
               </button>
             </li>
+
             <li>
               <button
-                onClick={() => setSelectedSection("History")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
+                onClick={() => setSelectedSection("transfer")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiBarChart2Fill className="text-[25px] " />
-                Histories
+                <RiDatabase2Fill className="text-[25px]" />
+                Transfer
               </button>
             </li>
-            <li>
-              <button
-                onClick={() => setSelectedSection("deposit")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
-              >
-                <RiMoneyDollarBoxFill className="text-[25px] " />
-                Deposit
-              </button>
-            </li>
+
             <li>
               <button
                 onClick={() => setSelectedSection("withdraw")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiCashFill className="text-[25px] " />
+                <RiCashFill className="text-[25px]" />
                 Withdraw
               </button>
             </li>
+
+            <li>
+              <button
+                onClick={() => setSelectedSection("deposit")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
+              >
+                <RiMoneyDollarBoxFill className="text-[25px]" />
+                Deposit
+              </button>
+            </li>
+
             <li>
               <button
                 onClick={() => setSelectedSection("account")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiAccountBoxFill className="text-[25px] " />
+                <RiAccountBoxFill className="text-[25px]" />
                 Account
               </button>
             </li>
+
+            <li>
+              <button
+                onClick={() => setSelectedSection("cards")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
+              >
+                <RiShareCircleFill className="text-[25px]" />
+                Cards
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => setSelectedSection("loans")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
+              >
+                <RiShareCircleFill className="text-[25px]" />
+                Loans
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => setSelectedSection("notification")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
+              >
+                <RiShareCircleFill className="text-[25px]" />
+                Notification
+              </button>
+            </li>
+
             <li>
               <button
                 onClick={() => setSelectedSection("referral")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-2 border-b-4 border-teal-900 cursor-pointer focus:border-b-4 focus:border-teal-400 focus:text-orange-600 focus:bg-gray-100 "
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiShareCircleFill className="text-[25px] " />
+                <RiShareCircleFill className="text-[25px]" />
                 Referral
               </button>
             </li>
           </ul>
         </div>
-      </section>
-    </main>
+      </main>
+
+      {/* BOTTOM ARROW */}
+      {showBottomArrow && (
+        <div className="absolute bottom-0 left-0 w-full flex justify-center bg-white z-10">
+          <RiArrowDownSLine className="text-2xl text-teal-600 animate-bounce" />
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -12,6 +12,8 @@ import Dashboard from "./features/dashboard/dashboardComponent/dashboardMain/Das
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Security from "./pages/Security";
+import AdminLayout from "./layouts/AdminLayout";
+import Admin from "./features/admin/adminMain/Admin";
 
 const App = () => {
   return (
@@ -32,13 +34,13 @@ const App = () => {
 
           {/* USERDASHBOARD */}
           <Route path="/" element={<DashboardLayout />}>
-            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
 
           {/* ADMINDASHBOARD */}
-          {/* <Route path="/" element={<AdminDashboard />}>
-            <Route path="/AdminDashboard" element={<AdminDashboard />} />
-          </Route> */}
+          <Route path="/" element={<AdminLayout />}>
+            <Route path="/admin" element={<Admin />} />
+          </Route>
           {/* ERROR PAGES */}
 
           <Route path="*" element={<Error />}></Route>

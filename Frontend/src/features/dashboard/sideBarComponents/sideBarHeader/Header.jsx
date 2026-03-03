@@ -13,9 +13,9 @@ const Header = () => {
             </span>
           </Link>
 
-          <p className="text-[20px] md:text-[25px] lg:text-[18px] font-extrabold tracking-wider ">
+          <p className="text-[20px] text-teal-600 md:text-[25px] lg:text-[18px] font-extrabold tracking-wider ">
             Hello:{" "}
-            <span className="font-semibold text-green-700 text-shadow-orange-950 ">
+            <span className="font-semibold text-teal-50  text-shadow-orange-950 ">
               Smitcheal
             </span>{" "}
           </p>

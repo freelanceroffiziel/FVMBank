@@ -1,17 +1,18 @@
 import { useState } from "react";
 import ImageUploader from "../accountComponent/ImageUploader";
 import DashboardHome from "../dashboardHomeComponent/DashboardHome";
-import StartInvesting from "../startInvestingComponent/StartInvesting";
 import DashboardHeader from "../headerComponent/DashboardHeader";
 import TransactionHistory from "../transactionHistoryComponent/TransactionHistory";
 import Deposit from "../depositComponent/Deposit";
 import Withdraw from "../withdrawalComponent/Withdraw";
 import Referrals from "../referralComponents/Referrals";
 import SideBar from "../../sideBarComponents/sideBar/SideBar";
+import ActivityLogs from "../dashoardActivityLogs/ActivityLogs";
+import Transfer from "../transferComponent/Transfer";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
-  
+
   return (
     <main id="mainCon" className="">
       <section id="mainSohn" className="flex min-h-screen">
@@ -32,19 +33,19 @@ const Dashboard = () => {
 
         <section
           id="dashboardContentVater"
-          className="w-full lg:flex-1 lg:p-8 lg:ml-[255px] mt-[9vh] lg:pt-14 "
+          className="w-full lg:flex-1 lg:p-7 lg:ml-[255px] mt-[9vh] lg:pt-12 "
         >
           <section id="dashboardContentSohn">
             {/* Conditional content rendering based on selected section */}
-            <section id="conditionalSec" className="p-6 lg:p-0">
+            <section id="conditionalSec" className="p-4 lg:p-0">
               {selectedSection === "dashboard" && (
                 <section id="dashboardSecVater" className="">
                   <DashboardHome />
                 </section>
               )}
-              {selectedSection === "startInvesting" && (
-                <section id="startInvestingConDiv">
-                  <StartInvesting />
+              {selectedSection === "transfer" && (
+                <section id="transfer">
+                  <Transfer/>
                 </section>
               )}
               {selectedSection === "History" && (
@@ -72,6 +73,11 @@ const Dashboard = () => {
               {selectedSection === "referral" && (
                 <section className="refferralSon">
                   <Referrals />
+                </section>
+              )}
+              {selectedSection === "activityLogs" && (
+                <section className="activityLogs">
+                  <ActivityLogs />
                 </section>
               )}
             </section>

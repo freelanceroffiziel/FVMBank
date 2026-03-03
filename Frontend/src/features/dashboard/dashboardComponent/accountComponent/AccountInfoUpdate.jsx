@@ -36,9 +36,9 @@ const AccountInfoUpdate = () => {
         <div id="accountInfo" className="text-gray-100 bg-teal-900 rounded">
           <div id="accountInfoSon" className="flex flex-col gap-6 px-5 py-10">
             <span>
-              <p className="flex flex-row items-center gap-2 text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-green-600">
+              <p className="flex flex-row items-center gap-2 text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-teal-500">
                 Update <span className="font-bold text-orange-600">your</span>{" "}
-                <span className="text-gray-300">Account information</span>
+                <span className="text-teal-600">Account information</span>
               </p>
             </span>
 

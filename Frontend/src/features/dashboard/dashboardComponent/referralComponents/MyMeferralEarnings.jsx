@@ -10,9 +10,9 @@ const MyMeferralEarnings = () => {
             id=""
             className="text-[29px] md:text-[30px] lg:text-[23px] font-semibold flex flex-col items-center justify-center gap-10"
           >
-            <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-green-600 ">
+            <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-teal-600 ">
               My<p className="font-bold text-orange-600 ">Referrals</p>{" "}
-              <p className="text-gray-600">Earnings</p>
+              <p className="text-teal-700">Earnings</p>
             </p>
             <p className="text-[29px] md:text-[30px] lg:text-[18px] ">
               You have no referral earning yet.

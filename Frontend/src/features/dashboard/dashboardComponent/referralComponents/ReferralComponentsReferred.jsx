@@ -11,7 +11,7 @@ const ReferralComponentsReferred = () => {
         >
           <div
             id=" noOfReferral"
-            className="flex flex-row items-center justify-between w-full lg:w-[20vw] py-5 gap-6 p-4 transition-all bg-gray-900 rounded hover:bg-gray-950 text-gray-50 "
+            className="flex flex-row items-center justify-between w-full lg:w-[20vw] py-5 gap-6 p-4 transition-all bg-teal-500 rounded hover:bg-teal-700 text-gray-50 "
           >
             <div className="flex flex-col gap-3">
               <p className="text-[22px] md:text-[25px] lg:text-[16px] u">
@@ -29,13 +29,13 @@ const ReferralComponentsReferred = () => {
 
             <span>
               {" "}
-              <RiUserSharedFill className="text-[45px] md:text-[50px] lg:text-[30px] text-green-600  " />
+              <RiUserSharedFill className="text-[45px] md:text-[50px] lg:text-[30px] text-teal-600  " />
             </span>
           </div>
 
           <div
             id=" referralearnings"
-            className="flex flex-row items-center justify-between w-full lg:w-[20vw] py-5 gap-6 p-4 transition-all bg-green-900 rounded hover:bg-green-950 text-gray-50 "
+            className="flex flex-row items-center justify-between w-full lg:w-[20vw] py-5 gap-6 p-4 transition-all bg-teal-900 rounded hover:bg-teal-950 text-gray-50 "
           >
             <div className="flex flex-col gap-3">
               <p className="text-[22px] md:text-[25px] lg:text-[16px]  ">
@@ -54,7 +54,7 @@ const ReferralComponentsReferred = () => {
 
             <span>
               {" "}
-              <RiMoneyDollarBoxFill className="text-[45px] md:text-[50px] lg:text-[35px] text-green-600  " />
+              <RiMoneyDollarBoxFill className="text-[45px] md:text-[50px] lg:text-[35px] text-teal-600  " />
             </span>
           </div>
         </section>

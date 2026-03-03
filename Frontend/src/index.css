@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.sidebarContentCon::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebarContentCon {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

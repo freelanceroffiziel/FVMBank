@@ -27,9 +27,9 @@ const PasswordUpdate = () => {
       >
         <div id="passwordUpdateSon" className="flex flex-col gap-8 px-5 py-10">
           <span className="flex flex-row items-center justify-center ">
-            <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-green-600 ">
+            <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-teal-500 ">
               Change <p className="font-bold text-orange-600 "> your</p>{" "}
-              <p className="text-gray-300"> Password</p>
+              <p className="text-teal-600"> Password</p>
             </p>
           </span>
 

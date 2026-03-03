@@ -27,16 +27,16 @@ const ImageUploader = () => {
         <div id="firstDivCon" className="grid gap-6 lg:grid-cols-2 ">
           <div
             id="firstDivSohnCon"
-            className="px-5 py-10 text-gray-100 bg-teal-900 rounded h-fit "
+            className="px-5 py-10 text-teal-100 bg-teal-900 rounded h-fit "
           >
             <form
               action=""
               className="flex flex-col items-center gap-6 "
               onSubmit={handleSubmit}
             >
-              <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-green-600 ">
+              <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-teal-500 ">
                 Change <p className="font-bold text-orange-600 "> your</p>{" "}
-                <p className="text-gray-300"> Profile Picture</p>
+                <p className="text-teal-600"> Profile Picture</p>
               </p>
               <span>
                 <img
@@ -56,7 +56,7 @@ const ImageUploader = () => {
                 />
                 <label
                   htmlFor="fileUpload"
-                  className="inline-block px-4 py-2 text-white transition-colors bg-green-700 rounded cursor-pointer hover:bg-green-800"
+                  className="inline-block px-4 py-2 text-white transition-colors bg-teal-700 rounded cursor-pointer hover:bg-teal-800"
                 >
                   Choose Profile Image
                 </label>

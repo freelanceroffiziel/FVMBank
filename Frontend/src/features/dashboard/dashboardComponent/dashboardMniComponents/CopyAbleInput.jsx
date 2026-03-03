@@ -23,7 +23,7 @@ const CopyAbleInput = () => {
           <div className="text-[24px] md:text-[25px] lg:text-[18px] font-semibold">
             <div className="flex flex-row items-center justify-center gap-2 text-center">
               <span>Copy your</span>
-              <span className="text-green-600">
+              <span className="text-teal-600">
                 referral link below and share to your friends & loved ones
               </span>
             </div>
@@ -40,7 +40,7 @@ const CopyAbleInput = () => {
             <CopyToClipboard text={text} onCopy={handleCopy}>
               <button
                 aria-label="Copy referral link to clipboard"
-                className="bg-green-600 hover:bg-green-600 focus:bg-green-800 text-gray-50 py-1.5 px-2 rounded text-[24px] md:text-[25px] lg:text-[18px] flex flex-row items-center gap-1"
+                className="bg-teal-600 hover:bg-teal-600 focus:bg-teal-800 text-gray-50 py-1.5 px-2 rounded text-[24px] md:text-[25px] lg:text-[18px] flex flex-row items-center gap-1"
               >
                 <RiFileCopyFill />
                 {copied ? "Copied" : "Copy"}
