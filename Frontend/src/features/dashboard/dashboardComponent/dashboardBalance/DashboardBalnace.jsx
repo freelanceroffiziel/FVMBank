@@ -7,9 +7,9 @@ const DashboardBalnace = () => {
       <section className="mainconSon">
         <section className=" flex flex-row justify-between items-center ">
           <div className="balanceDiv">
-            <p className=" lg:text-[20px]  tracking-wide ">Balance</p>
-            <span className="lg:text-[30px] flex flex-row items-center lg:gap-2 font-semibold text-teal-700 ">
-              5,000.000.00 <span className="lg:text-[20px] font-normal text-black "> USD</span>{" "}
+            <p className=" lg:text-[20px]  text-[22px]  tracking-wide ">Balance</p>
+            <span className="lg:text-[30px] text-[22px] flex flex-row items-center lg:gap-2 gap-2 font-semibold text-teal-700 ">
+              5,000.000.00 <span className="lg:text-[20px] text-[22px] font-normal text-black "> USD</span>{" "}
             </span>
           </div>
 

@@ -7,7 +7,7 @@ const ReferralComponentsReferred = () => {
       <main id="ReferralComponentsReferredCon">
         <section
           id="ReferralComponentsReferredSon"
-          className="flex items-center gap-5 lg:flex-row "
+          className="flex items-center gap-5 lg:flex-row flex-col  "
         >
           <div
             id=" noOfReferral"

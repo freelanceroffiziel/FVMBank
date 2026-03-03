@@ -33,11 +33,11 @@ const Dashboard = () => {
 
         <section
           id="dashboardContentVater"
-          className="w-full lg:flex-1 lg:p-7 lg:ml-[255px] mt-[9vh] lg:pt-12 "
+          className="w-full lg:flex-1 lg:p-7 lg:ml-[255px]  pt-[9.4vh] lg:pt-[16vh] "
         >
           <section id="dashboardContentSohn">
             {/* Conditional content rendering based on selected section */}
-            <section id="conditionalSec" className="p-4 lg:p-0">
+            <section id="conditionalSec" className="p-2 lg:p-0">
               {selectedSection === "dashboard" && (
                 <section id="dashboardSecVater" className="">
                   <DashboardHome />

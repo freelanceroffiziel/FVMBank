@@ -35,7 +35,10 @@ const DashboardHome = () => {
 
   return (
     <main className="">
-      <div id="dashboardSon" className="flex flex-col gap-10 lg:pt-0 pt-[5vh]   ">
+      <div
+        id="dashboardSon"
+        className="  flex flex-col gap-10 lg:pt-0 pt-[5vh]   "
+      >
         <div
           id="dashboardDivs"
           className="grid gap-5 transition-all lg:grid-cols-4 "
@@ -105,8 +108,6 @@ const DashboardHome = () => {
             <CopyAbleInput />
           </div>
         </section>
-
-        <section className="mt-5 ineChart">{/* <LineChartOne /> */}</section>
       </div>
     </main>
   );
