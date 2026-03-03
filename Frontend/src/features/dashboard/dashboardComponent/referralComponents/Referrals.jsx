@@ -6,19 +6,19 @@ import CopyAbleInput from "../dashboardMniComponents/CopyAbleInput";
 
 const Referrals = () => {
   return (
-    <main className="pt-[5vh] lg:pt-[0vh]">
+    <main className="pt-[4vh] lg:pt-[0vh]">
       <section className="">
         <div id="referralSonCon">
-          <div id="" className="mb-10">
+          <div id="" className="mb-4">
             <ReferralComponentsReferred />
           </div>
           <div id="">
             <CopyAbleInput />
           </div>
-          <div id="myCurrentReferrals" className="mt-5">
+          <div id="myCurrentReferrals" className="mt-4">
             <MyCurrentReferrals />
           </div>
-          <div id="myMeferralEarnings" className="mt-5">
+          <div id="myMeferralEarnings" className="mt-4">
             <MyMeferralEarnings />
           </div>
           <div id=""></div>
