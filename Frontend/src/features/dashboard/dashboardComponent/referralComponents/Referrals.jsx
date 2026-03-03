@@ -9,7 +9,7 @@ const Referrals = () => {
     <main className="pt-[3vh] lg:pt-[0vh]">
       <section className="">
         <div id="referralSonCon">
-          <div id="" className="mb-5">
+          <div id="" className="mb-3">
             <ReferralComponentsReferred />
           </div>
           <div id="">
