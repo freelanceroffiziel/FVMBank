@@ -34,10 +34,10 @@ const DashboardHome = () => {
   });
 
   return (
-    <main className="">
+    <main className="pt-[14.2vh] lg:pt-[16vh] ">
       <div
         id="dashboardSon"
-        className="  flex flex-col gap-10 lg:pt-0 pt-[3vh]   "
+        className="  flex flex-col gap-10"
       >
         <div
           id="dashboardDivs"

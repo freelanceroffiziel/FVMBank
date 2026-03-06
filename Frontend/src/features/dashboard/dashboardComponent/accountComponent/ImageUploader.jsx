@@ -22,9 +22,9 @@ const ImageUploader = () => {
   };
 
   return (
-    <main id="vater" className="">
+    <main id="vater" className="pt-[14.2vh] lg:pt-[16vh] ">
       <section id="sohn" className="">
-        <div id="firstDivCon" className="grid gap-6 lg:grid-cols-2 ">
+        <div id="firstDivCon" className="grid gap-4 lg:gap-6 lg:grid-cols-2 ">
           <div
             id="firstDivSohnCon"
             className="px-5 py-10 text-teal-100 bg-teal-900 rounded h-fit "
