@@ -76,7 +76,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
             {showTopFade && (
               <div
                 onClick={scrollUp}
-                className="fixed top-24 left-0 w-[70%] h-16 z-50 cursor-pointer
+                className="fixed top-24 left-0 w-[60%] h-16 z-50 cursor-pointer
                 bg-gradient-to-b from-teal-900 to-transparent"
               />
             )}
@@ -237,7 +237,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
             {showBottomFade && (
               <div
                 onClick={scrollDown}
-                className="fixed bottom-0 left-0 w-[70%] h-16 z-50 cursor-pointer
+                className="fixed bottom-0 left-0 w-[60%] h-16 z-50 cursor-pointer
                 bg-gradient-to-t from-teal-900 to-transparent"
               />
             )}
