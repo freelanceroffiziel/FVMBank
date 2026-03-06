@@ -76,7 +76,7 @@ const Dashboard = () => {
                 </section>
               )}
               {selectedSection === "activityLogs" && (
-                <section className="activityLogs">
+                <section className="activityLog">
                   <ActivityLogs />
                 </section>
               )}
