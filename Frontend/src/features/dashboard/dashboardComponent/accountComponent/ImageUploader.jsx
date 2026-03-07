@@ -22,7 +22,7 @@ const ImageUploader = () => {
   };
 
   return (
-    <main id="vater" className="pt-[14vh] lg:pt-[16vh] ">
+    <main id="vater" className="pt-[14.2vh] lg:pt-[16vh] min-h-screen">
       <section id="sohn" className="">
         <div id="firstDivCon" className="grid gap-4 lg:gap-6 lg:grid-cols-2 ">
           <div
