@@ -9,6 +9,9 @@ import Referrals from "../referralComponents/Referrals";
 import SideBar from "../../sideBarComponents/sideBar/SideBar";
 import ActivityLogs from "../dashoardActivityLogs/ActivityLogs";
 import Transfer from "../transferComponent/Transfer";
+import Cards from "../cardsComponent/Cards";
+import Loans from "../loansComponent/Loans";
+import Notification from "../notificationComponent/Notification";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -78,6 +81,21 @@ const Dashboard = () => {
               {selectedSection === "activityLogs" && (
                 <section className="activityLog">
                   <ActivityLogs />
+                </section>
+              )}
+               {selectedSection === "cards" && (
+                <section className="cards">
+                  <Cards/>
+                </section>
+              )}
+               {selectedSection === "loans" && (
+                <section className="loans">
+                  <Loans/>
+                </section>
+              )}
+               {selectedSection === "notification" && (
+                <section className="notification">
+                  <Notification/>
                 </section>
               )}
             </section>
