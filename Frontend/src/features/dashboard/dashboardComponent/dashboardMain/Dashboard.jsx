@@ -12,6 +12,8 @@ import Transfer from "../transferComponent/Transfer";
 import Cards from "../cardsComponent/Cards";
 import Loans from "../loansComponent/Loans";
 import Notification from "../notificationComponent/Notification";
+import Settings from "../settingsComponent/Settings";
+import Support from "../helpsupportComponent/Support";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -96,6 +98,16 @@ const Dashboard = () => {
               {selectedSection === "notification" && (
                 <section className="notification">
                   <Notification />
+                </section>
+              )}
+              {selectedSection === "settings" && (
+                <section className="settings">
+                  <Settings />
+                </section>
+              )}
+              {selectedSection === "usersupport" && (
+                <section className="usersupport">
+                  <Support />
                 </section>
               )}
             </section>

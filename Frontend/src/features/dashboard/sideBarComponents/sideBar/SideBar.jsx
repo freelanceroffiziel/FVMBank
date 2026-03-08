@@ -27,7 +27,7 @@ const SideBar = ({ setSelectedSection }) => {
             </div>
 
             <footer id="footerCon" className="mt-auto">
-              <Footer />
+              <Footer setSelectedSection={setSelectedSection} />
             </footer>
           </div>
         </section>

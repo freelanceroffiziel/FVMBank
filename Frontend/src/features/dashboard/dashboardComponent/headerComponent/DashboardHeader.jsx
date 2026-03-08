@@ -48,8 +48,8 @@ const DashboardHeader = ({ setSelectedSection }) => {
       <section className="headerConSon">
         <section className="mt-[10vh] fixed top-0 lg:p-8 lg:ml-[17vw] z-50 w-full">
           <div className="fixed top-0 z-50 w-full lg:max-w-[80vw] p-2 bg-teal-800 desktop ">
-            <div className="bg-teal-900 rounded-md text-gray-50 flex justify-between py-4 px-4 w-full">
-              <div className="p-2 bg-teal-600 rounded hover:bg-teal-700 shadow transition-all">
+            <div className="flex justify-between w-full px-4 py-4 bg-teal-900 rounded-md text-gray-50">
+              <div className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700">
                 {menu ? (
                   <RiCloseFill
                     className="text-[33px]"
@@ -63,7 +63,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                 )}
               </div>
 
-              <div className="p-2 bg-teal-600 rounded hover:bg-teal-700 shadow transition-all">
+              <div className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700">
                 <RiUser2Fill className="text-[33px]" />
               </div>
             </div>
@@ -221,13 +221,24 @@ const DashboardHeader = ({ setSelectedSection }) => {
                 </li>
               </ul>
 
-              <div className="mt-10 pl-3 border-t border-gray-300 pt-4">
+              <div className="pt-4 pl-3 mt-10 border-t border-gray-300">
                 <ul>
                   <li>
-                    <Link to="#">Settings</Link>
+                    <button
+                      className="text-white hover:underline"
+                      onClick={() => setSelectedSection("settings")}
+                    >
+                      Settings
+                    </button>
                   </li>
+
                   <li>
-                    <Link to="#">Help & Support</Link>
+                    <button
+                      className="text-white hover:underline mt-1 flex items-center gap-1.5"
+                      onClick={() => setSelectedSection("usersupport")}
+                    >
+                      Help & Support
+                    </button>
                   </li>
                 </ul>
               </div>

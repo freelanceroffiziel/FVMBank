@@ -1,22 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ setSelectedSection }) => {
   return (
-    <main className="sideBarFooter">
-      <section className="sideBarFooter">
-        <div id="footerSohn" className="">
-          <ul>
-            <li>
-              <Link >Settings</Link>
-            </li>
-            <li>
-              <Link>Help & Support</Link>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
+    <footer className="sideBarFooter">
+      <ul>
+        <li>
+          <button
+            className="text-white hover:underline"
+            onClick={() => setSelectedSection("settings")}
+          >
+            Settings
+          </button>
+        </li>
+
+        <li>
+          <button
+            className="text-white hover:underline mt-1 flex items-center gap-1.5"
+            onClick={() => setSelectedSection("usersupport")}
+          >
+            Help & Support
+          </button>
+        </li>
+      </ul>
+    </footer>
   );
 };
 
