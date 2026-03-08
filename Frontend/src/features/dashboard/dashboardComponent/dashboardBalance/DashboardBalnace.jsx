@@ -5,9 +5,9 @@ const DashboardBalnace = () => {
   return (
     <main className="maincon">
       <section className="mainconSon">
-        <section className=" flex flex-row justify-between items-center ">
+        <section className="flex flex-row items-center justify-between ">
           <div className="balanceDiv">
-            <p className=" lg:text-[20px]  text-[22px]  tracking-wide ">Balance</p>
+            <p className=" lg:text-[20px]  text-[22px]  tracking-wide ">balance</p>
             <span className="lg:text-[30px] text-[22px] flex flex-row items-center lg:gap-2 gap-2 font-semibold text-teal-700 ">
               5,000.000.00 <span className="lg:text-[20px] text-[22px] font-normal text-black "> USD</span>{" "}
             </span>

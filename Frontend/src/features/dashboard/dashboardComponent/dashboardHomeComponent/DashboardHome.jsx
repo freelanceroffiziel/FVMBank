@@ -17,13 +17,13 @@ const DashboardHome = () => {
 
   return (
     <main className="pt-[14.2vh] lg:pt-[16vh] min-h-screen">
-      <div className="mx-auto px-4 lg:px-2 flex flex-col gap-10">
+      <div className="flex flex-col gap-10 px-0 mx-auto lg:px-2">
         {/* Quick Action Cards */}
         <div className="grid gap-4 lg:grid-cols-4">
           {/* Transfer via Card */}
-          <div className="dashboard-card flex flex-col justify-between gap-4 p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiMoneyDollarBoxFill className="text-4xl text-teal-600" />
-            <p className="font-semibold text-gray-800 flex justify-between items-center">
+            <p className="flex items-center justify-between font-semibold text-gray-800">
               Transfer via Card
               <span className="bg-gray-200 text-gray-800 text-sm px-2 py-0.5 rounded-full">
                 0
@@ -32,9 +32,9 @@ const DashboardHome = () => {
           </div>
 
           {/* Transfer to Another Bank */}
-          <div className="dashboard-card flex flex-col justify-between gap-4 p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiBankFill className="text-4xl text-teal-600" />
-            <p className="font-semibold text-gray-800 flex justify-between items-center">
+            <p className="flex items-center justify-between font-semibold text-gray-800">
               Transfer to Another Bank
               <span className="bg-gray-200 text-gray-800 text-sm px-2 py-0.5 rounded-full">
                 0
@@ -43,9 +43,9 @@ const DashboardHome = () => {
           </div>
 
           {/* Internal Bank Transfer */}
-          <div className="dashboard-card flex flex-col justify-between gap-4 p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiArrowUpCircleFill className="text-4xl text-teal-600" />
-            <p className="font-semibold text-gray-800 flex justify-between items-center">
+            <p className="flex items-center justify-between font-semibold text-gray-800">
               Transfer within Bank
               <span className="bg-gray-200 text-gray-800 text-sm px-2 py-0.5 rounded-full">
                 1
@@ -54,9 +54,9 @@ const DashboardHome = () => {
           </div>
 
           {/* Referral / Invite */}
-          <div className="dashboard-card flex flex-col justify-between gap-4 p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+          <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiUserSharedFill className="text-4xl text-teal-600" />
-            <p className="font-semibold text-gray-800 flex justify-between items-center">
+            <p className="flex items-center justify-between font-semibold text-gray-800">
               Invite & Earn
               <span className="bg-gray-200 text-gray-800 text-sm px-2 py-0.5 rounded-full">
                 12
@@ -69,38 +69,38 @@ const DashboardHome = () => {
         <DashboardBalance />
 
         {/* Notifications & Quick Links */}
-        <section className="grid lg:grid-cols-3 gap-6">
+        <section className="grid gap-6 lg:grid-cols-3">
           {/* Notifications */}
-          <div className="bg-white rounded-lg shadow p-4">
-            <h2 className="text-lg font-bold text-teal-900 mb-3 flex items-center gap-2">
+          <div className="p-4 bg-white rounded-lg shadow">
+            <h2 className="flex items-center gap-2 mb-3 text-lg font-bold text-teal-900">
               <RiNotification3Fill /> Notifications
             </h2>
             <ul className="space-y-2 text-gray-700">
-              <li className="border-b pb-1">Payment of $120 completed</li>
-              <li className="border-b pb-1">New login from Lagos, Nigeria</li>
-              <li className="border-b pb-1">Virtual card request approved</li>
+              <li className="pb-1 border-b">Payment of $120 completed</li>
+              <li className="pb-1 border-b">New login from Lagos, Nigeria</li>
+              <li className="pb-1 border-b">Virtual card request approved</li>
             </ul>
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-white rounded-lg shadow p-4 flex flex-col gap-3">
-            <h2 className="text-lg font-bold text-teal-900 mb-2">
+          <div className="flex flex-col gap-3 p-4 bg-white rounded-lg shadow">
+            <h2 className="mb-2 text-lg font-bold text-teal-900">
               Quick Links
             </h2>
-            <button className="py-2 bg-teal-900 text-white rounded hover:bg-teal-800 transition">
+            <button className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
               Apply for Loan
             </button>
-            <button className="py-2 bg-teal-900 text-white rounded hover:bg-teal-800 transition">
+            <button className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
               View Cards
             </button>
-            <button className="py-2 bg-teal-900 text-white rounded hover:bg-teal-800 transition">
+            <button className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
               Fund Wallet
             </button>
           </div>
 
           {/* Copyable Account Info */}
-          <div className="bg-white rounded-lg shadow p-4">
-            <h2 className="text-lg font-bold text-teal-900 mb-3">
+          <div className="p-4 bg-white rounded-lg shadow">
+            <h2 className="mb-3 text-lg font-bold text-teal-900">
               Your Account
             </h2>
             <CopyAbleInput />
@@ -108,13 +108,13 @@ const DashboardHome = () => {
         </section>
 
         {/* Recent Transactions */}
-        <section className="bg-white rounded-lg shadow p-4">
-          <h2 className="text-lg font-bold text-teal-900 mb-3">
+        <section className="p-4 bg-white rounded-lg shadow">
+          <h2 className="mb-3 text-lg font-bold text-teal-900">
             Recent Transactions
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full border">
-              <thead className="bg-teal-900 text-white">
+              <thead className="text-white bg-teal-900">
                 <tr>
                   <th className="p-2 text-left">Date</th>
                   <th className="p-2 text-left">Description</th>
