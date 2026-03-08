@@ -2,26 +2,26 @@ import React from "react";
 
 const Deposit = () => {
   return (
-    <main className="pt-[14.2vh] lg:pt-[16vh] min-h-screen ">
-      <section className="mx-auto bg-white shadow-lg rounded-lg p-6">
+    <main className="pt-[14vh] lg:pt-[16vh] min-h-screen ">
+      <section className="p-6 mx-auto bg-white rounded-lg shadow-lg">
 
         {/* Header */}
-        <div className="mb-6 border-b pb-4">
+        <div className="pb-4 mb-6 border-b">
           <h1 className="text-2xl font-bold text-teal-900">FVMBank Deposit</h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-sm text-gray-500">
             Add funds to your FVMBank account securely
           </p>
         </div>
 
         {/* Deposit Form */}
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
 
           {/* Select Account */}
           <div className="flex flex-col">
             <label className="text-sm font-semibold text-gray-600">
               Deposit To
             </label>
-            <select className="border rounded p-2 mt-1">
+            <select className="p-2 mt-1 border rounded">
               <option>FVMBank USD Account - 204839293</option>
               <option>FVMBank EUR Account - 839201233</option>
               <option>FVMBank GBP Account - 382920199</option>
@@ -33,7 +33,7 @@ const Deposit = () => {
             <label className="text-sm font-semibold text-gray-600">
               Deposit Method
             </label>
-            <select className="border rounded p-2 mt-1">
+            <select className="p-2 mt-1 border rounded">
               <option>Bank Wire Transfer</option>
               <option>International Transfer</option>
               <option>Card Deposit</option>
@@ -46,7 +46,7 @@ const Deposit = () => {
             <label className="text-sm font-semibold text-gray-600">
               Currency
             </label>
-            <select className="border rounded p-2 mt-1">
+            <select className="p-2 mt-1 border rounded">
               <option>USD ($)</option>
               <option>EUR (€)</option>
               <option>GBP (£)</option>
@@ -61,7 +61,7 @@ const Deposit = () => {
             <input
               type="number"
               placeholder="Enter deposit amount"
-              className="border rounded p-2 mt-1"
+              className="p-2 mt-1 border rounded"
             />
           </div>
 
@@ -73,7 +73,7 @@ const Deposit = () => {
             <input
               type="text"
               placeholder="Transaction reference or note"
-              className="border rounded p-2 mt-1"
+              className="p-2 mt-1 border rounded"
             />
           </div>
 
@@ -84,7 +84,7 @@ const Deposit = () => {
             </label>
             <input
               type="file"
-              className="border rounded p-2 mt-1 bg-white"
+              className="p-2 mt-1 bg-white border rounded"
             />
           </div>
 
@@ -92,7 +92,7 @@ const Deposit = () => {
           <div className="md:col-span-2">
             <button
               type="submit"
-              className="w-full bg-teal-900 text-white py-3 rounded-lg font-semibold hover:bg-teal-800 transition"
+              className="w-full py-3 font-semibold text-white transition bg-teal-900 rounded-lg hover:bg-teal-800"
             >
               Submit Deposit
             </button>
@@ -102,13 +102,13 @@ const Deposit = () => {
 
         {/* Recent Deposits */}
         <div className="mt-10">
-          <h2 className="text-lg font-bold text-teal-900 mb-4">
+          <h2 className="mb-4 text-lg font-bold text-teal-900">
             Recent Deposits
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full border">
-              <thead className="bg-teal-900 text-white">
+              <thead className="text-white bg-teal-900">
                 <tr>
                   <th className="p-2 text-left">Date</th>
                   <th className="p-2 text-left">Method</th>

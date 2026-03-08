@@ -4,7 +4,7 @@ import { RiFileCopyFill } from "react-icons/ri";
 
 const CopyAbleInput = () => {
   const [text] = useState(
-    "https://cryptstocks.com/register?ref=Smitcheal12"
+    "https://fvmbank.com/register?ref=Smitcheal12"
   );
   const [copied, setCopied] = useState(false);
 
@@ -16,19 +16,19 @@ const CopyAbleInput = () => {
   };
 
   return (
-    <section className="flex flex-col gap-6 p-6 bg-teal-900 rounded-xl shadow-xl text-gray-50">
+    <section className="flex flex-col gap-6 p-6 bg-teal-900 shadow-xl rounded-xl text-gray-50">
       {/* Header */}
       <div className="text-center">
-        <h2 className="text-lg md:text-xl lg:text-lg font-semibold">
+        <h2 className="text-lg font-semibold md:text-xl lg:text-lg">
           Share Your Referral Link
         </h2>
-        <p className="mt-1 text-sm md:text-base text-gray-200">
+        <p className="mt-1 text-sm text-gray-200 md:text-base">
           Copy the link below and share it with friends & loved ones
         </p>
       </div>
 
       {/* Input + Copy Button */}
-      <div className="flex flex-col md:flex-row gap-3 items-center justify-center">
+      <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
         <input
           type="text"
           value={text}

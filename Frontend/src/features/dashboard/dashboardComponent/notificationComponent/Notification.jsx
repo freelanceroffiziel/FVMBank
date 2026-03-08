@@ -2,70 +2,56 @@ import React from "react";
 
 const Notification = () => {
   return (
-    <main className="pt-[14.2vh] lg:pt-[16vh] min-h-screen">
-      <section className="mx-auto bg-white shadow-lg rounded-lg p-6">
-
+    <main className="pt-[14vh] lg:pt-[16vh] min-h-screen">
+      <section className="p-6 mx-auto bg-white rounded-lg shadow-lg">
         {/* Header */}
-        <div className="mb-6 border-b pb-4">
+        <div className="pb-4 mb-6 border-b">
           <h1 className="text-2xl font-bold text-teal-900">Notifications</h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-sm text-gray-500">
             Stay updated with your account activities
           </p>
         </div>
 
         {/* Notifications List */}
-        <div className="space-y-4 mb-10">
-
+        <div className="mb-10 space-y-4">
           {/* Notification 1 */}
-          <div className="border rounded-lg p-4 flex justify-between items-center hover:bg-gray-50 transition">
+          <div className="flex items-center justify-between p-4 transition border rounded-lg hover:bg-gray-50">
             <div>
-              <p className="font-semibold text-teal-900">
-                Payment Successful
-              </p>
+              <p className="font-semibold text-teal-900">Payment Successful</p>
               <p className="text-sm text-gray-500">
                 Your transfer of $120 to John Smith was successful.
               </p>
             </div>
 
-            <span className="text-sm text-gray-400">
-              2 mins ago
-            </span>
+            <span className="text-sm text-gray-400">2 mins ago</span>
           </div>
 
           {/* Notification 2 */}
-          <div className="border rounded-lg p-4 flex justify-between items-center hover:bg-gray-50 transition">
+          <div className="flex items-center justify-between p-4 transition border rounded-lg hover:bg-gray-50">
             <div>
-              <p className="font-semibold text-teal-900">
-                Card Transaction
-              </p>
+              <p className="font-semibold text-teal-900">Card Transaction</p>
               <p className="text-sm text-gray-500">
                 Your card was charged $15 for Netflix subscription.
               </p>
             </div>
 
-            <span className="text-sm text-gray-400">
-              10 mins ago
-            </span>
+            <span className="text-sm text-gray-400">10 mins ago</span>
           </div>
 
           {/* Notification 3 */}
-          <div className="border rounded-lg p-4 flex justify-between items-center hover:bg-gray-50 transition">
+          <div className="flex items-center justify-between p-4 transition border rounded-lg hover:bg-gray-50">
             <div>
-              <p className="font-semibold text-teal-900">
-                New Login Detected
-              </p>
+              <p className="font-semibold text-teal-900">New Login Detected</p>
               <p className="text-sm text-gray-500">
                 Your account was accessed from a new device.
               </p>
             </div>
 
-            <span className="text-sm text-gray-400">
-              1 hour ago
-            </span>
+            <span className="text-sm text-gray-400">1 hour ago</span>
           </div>
 
           {/* Notification 4 */}
-          <div className="border rounded-lg p-4 flex justify-between items-center hover:bg-gray-50 transition">
+          <div className="flex items-center justify-between p-4 transition border rounded-lg hover:bg-gray-50">
             <div>
               <p className="font-semibold text-teal-900">
                 Card Request Approved
@@ -75,26 +61,20 @@ const Notification = () => {
               </p>
             </div>
 
-            <span className="text-sm text-gray-400">
-              Yesterday
-            </span>
+            <span className="text-sm text-gray-400">Yesterday</span>
           </div>
-
         </div>
 
         {/* Notification Actions */}
-        <div className="grid md:grid-cols-2 gap-4">
-
-          <button className="bg-teal-900 text-white py-3 rounded-lg font-semibold hover:bg-teal-800 transition">
+        <div className="grid gap-4 md:grid-cols-2">
+          <button className="py-3 font-semibold text-white transition bg-teal-900 rounded-lg hover:bg-teal-800">
             Mark All as Read
           </button>
 
-          <button className="bg-gray-200 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+          <button className="py-3 font-semibold transition bg-gray-200 rounded-lg hover:bg-gray-300">
             Clear Notifications
           </button>
-
         </div>
-
       </section>
     </main>
   );

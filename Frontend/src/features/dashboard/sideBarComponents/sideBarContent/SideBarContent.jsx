@@ -31,7 +31,7 @@ const SideBarContent = ({ setSelectedSection }) => {
     <div className="relative h-[70vh]">
       {/* TOP ARROW */}
       {showTopArrow && (
-        <div className="absolute top-0 left-0 w-full flex justify-center bg-white z-10">
+        <div className="absolute top-0 left-0 z-10 flex justify-center w-full bg-white">
           <RiArrowUpSLine className="text-2xl text-teal-600 animate-bounce" />
         </div>
       )}
@@ -39,7 +39,7 @@ const SideBarContent = ({ setSelectedSection }) => {
       <main
         ref={sidebarRef}
         onScroll={handleScroll}
-        className="sidebarContentCon overflow-y-scroll h-full shadow-white"
+        className="h-full overflow-y-scroll sidebarContentCon shadow-white"
       >
         <div id="ulSon" className="space-y-10">
           <ul id="sideBarList" className="flex flex-col">
@@ -148,7 +148,7 @@ const SideBarContent = ({ setSelectedSection }) => {
 
       {/* BOTTOM ARROW */}
       {showBottomArrow && (
-        <div className="absolute bottom-0 left-0 w-full flex justify-center bg-white z-10">
+        <div className="absolute bottom-0 left-0 z-10 flex justify-center w-full bg-white">
           <RiArrowDownSLine className="text-2xl text-teal-600 animate-bounce" />
         </div>
       )}

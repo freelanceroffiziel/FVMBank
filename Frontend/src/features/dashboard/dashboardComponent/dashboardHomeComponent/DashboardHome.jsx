@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   RiMoneyDollarBoxFill,
   RiBankFill,
@@ -10,17 +10,12 @@ import DashboardBalance from "../dashboardBalance/DashboardBalnace";
 import CopyAbleInput from "../dashboardMniComponents/CopyAbleInput";
 
 const DashboardHome = () => {
-  useEffect(() => {
-    // Example: ScrollReveal for card animations (optional)
-    // ScrollReveal().reveal(".dashboard-card", { interval: 200 });
-  }, []);
-
   return (
-    <main className="pt-[14.2vh] lg:pt-[16vh] min-h-screen">
+    <main className="pt-[14vh] lg:pt-[16vh] min-h-screen">
       <div className="flex flex-col gap-10 px-0 mx-auto lg:px-2">
-        {/* Quick Action Cards */}
+        
         <div className="grid gap-4 lg:grid-cols-4">
-          {/* Transfer via Card */}
+        
           <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiMoneyDollarBoxFill className="text-4xl text-teal-600" />
             <p className="flex items-center justify-between font-semibold text-gray-800">
@@ -31,7 +26,7 @@ const DashboardHome = () => {
             </p>
           </div>
 
-          {/* Transfer to Another Bank */}
+       
           <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiBankFill className="text-4xl text-teal-600" />
             <p className="flex items-center justify-between font-semibold text-gray-800">
@@ -42,7 +37,7 @@ const DashboardHome = () => {
             </p>
           </div>
 
-          {/* Internal Bank Transfer */}
+        
           <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiArrowUpCircleFill className="text-4xl text-teal-600" />
             <p className="flex items-center justify-between font-semibold text-gray-800">

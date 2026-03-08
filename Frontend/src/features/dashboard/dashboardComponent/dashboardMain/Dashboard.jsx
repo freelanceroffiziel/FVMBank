@@ -48,7 +48,7 @@ const Dashboard = () => {
               )}
               {selectedSection === "transfer" && (
                 <section id="transfer">
-                  <Transfer/>
+                  <Transfer />
                 </section>
               )}
               {selectedSection === "History" && (
@@ -83,19 +83,19 @@ const Dashboard = () => {
                   <ActivityLogs />
                 </section>
               )}
-               {selectedSection === "cards" && (
+              {selectedSection === "cards" && (
                 <section className="cards">
-                  <Cards/>
+                  <Cards />
                 </section>
               )}
-               {selectedSection === "loans" && (
+              {selectedSection === "loans" && (
                 <section className="loans">
-                  <Loans/>
+                  <Loans />
                 </section>
               )}
-               {selectedSection === "notification" && (
+              {selectedSection === "notification" && (
                 <section className="notification">
-                  <Notification/>
+                  <Notification />
                 </section>
               )}
             </section>
