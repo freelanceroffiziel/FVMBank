@@ -36,7 +36,7 @@ const ImageUploader = () => {
             >
               <p className="flex flex-row items-center gap-2  text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-teal-500 ">
                 Change <p className="font-bold text-orange-600 "> your</p>{" "}
-                <p className="text-teal-600"> Profile Picture</p>
+                <p className="text-teal-600">Image</p>
               </p>
               <span>
                 <img

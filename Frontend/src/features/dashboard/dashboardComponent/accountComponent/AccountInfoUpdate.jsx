@@ -38,7 +38,7 @@ const AccountInfoUpdate = () => {
             <span>
               <p className="flex flex-row items-center gap-2 text-[28px] md:text-[22px] lg:text-[30px] font-semibold text-teal-500">
                 Update <span className="font-bold text-orange-600">your</span>{" "}
-                <span className="text-teal-600">Account information</span>
+                <span className="text-teal-600">information</span>
               </p>
             </span>
 
