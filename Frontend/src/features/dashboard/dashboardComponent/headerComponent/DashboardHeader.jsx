@@ -10,7 +10,6 @@ import {
   RiShareCircleFill,
   RiUser2Fill,
 } from "react-icons/ri";
-import { Link } from "react-router-dom";
 
 const DashboardHeader = ({ setSelectedSection }) => {
   const [menu, setMenu] = useState(false);
@@ -63,7 +62,9 @@ const DashboardHeader = ({ setSelectedSection }) => {
                 )}
               </div>
 
-              <div className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700">
+              <div className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700"
+              onClick={() => setSelectedSection("profile")}
+              >
                 <RiUser2Fill className="text-[33px]" />
               </div>
             </div>
@@ -226,7 +227,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
                   <li>
                     <button
                       className="text-white hover:underline"
-                      onClick={() => setSelectedSection("settings")}
+                      onClick={() => {
+                        setSelectedSection("settings");
+                        setMenu(false);
+                      }}
                     >
                       Settings
                     </button>
@@ -235,7 +239,10 @@ const DashboardHeader = ({ setSelectedSection }) => {
                   <li>
                     <button
                       className="text-white hover:underline mt-1 flex items-center gap-1.5"
-                      onClick={() => setSelectedSection("usersupport")}
+                      onClick={() => {
+                        setSelectedSection("usersupport");
+                        setMenu(false);
+                      }}
                     >
                       Help & Support
                     </button>

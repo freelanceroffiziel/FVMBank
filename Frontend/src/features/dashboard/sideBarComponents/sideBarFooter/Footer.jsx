@@ -1,28 +1,29 @@
 import React from "react";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Footer = ({ setSelectedSection }) => {
   return (
-    <footer className="sideBarFooter">
-      <ul>
-        <li>
-          <button
-            className="text-white hover:underline"
-            onClick={() => setSelectedSection("settings")}
-          >
-            Settings
-          </button>
-        </li>
-
-        <li>
-          <button
-            className="text-white hover:underline mt-1 flex items-center gap-1.5"
-            onClick={() => setSelectedSection("usersupport")}
-          >
-            Help & Support
-          </button>
-        </li>
-      </ul>
-    </footer>
+    <main className="sideBarFooter">
+      <section className="sideBarFooter">
+        <div id="footerSohn" className="">
+          <ul className="">
+            <li className="">
+              <button
+                className="text hover:underline"
+                onClick={() => setSelectedSection("settings")}
+              >
+                Settings
+              </button>
+            </li>
+            <li className="text-white hover:underline mt-1 flex items-center gap-1.5"
+            onClick={() => setSelectedSection("usersupport")}>
+              <button>Help & Support</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
   );
 };
 

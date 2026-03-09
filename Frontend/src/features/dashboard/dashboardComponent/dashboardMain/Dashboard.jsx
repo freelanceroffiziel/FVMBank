@@ -13,6 +13,7 @@ import Loans from "../loansComponent/Loans";
 import Notification from "../notificationComponent/Notification";
 import Settings from "../settingsComponent/Settings";
 import Support from "../helpsupportComponent/Support";
+import Profile from "../userProfileComponent/Profile";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -100,6 +101,11 @@ const Dashboard = () => {
               {selectedSection === "usersupport" && (
                 <section className="usersupport">
                   <Support />
+                </section>
+              )}
+               {selectedSection === "profile" && (
+                <section className="profile">
+                  <Profile/>
                 </section>
               )}
             </section>
