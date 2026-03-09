@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ImageUploader from "../accountComponent/ImageUploader";
 import DashboardHome from "../dashboardHomeComponent/DashboardHome";
 import DashboardHeader from "../headerComponent/DashboardHeader";
 import TransactionHistory from "../transactionHistoryComponent/TransactionHistory";
@@ -66,13 +65,6 @@ const Dashboard = () => {
               {selectedSection === "withdraw" && (
                 <section id="withdrawConDiv">
                   <Withdraw />
-                </section>
-              )}
-              {selectedSection === "account" && (
-                <section id="accountVaterDiv">
-                  <div id="accountSonDiv">
-                    <ImageUploader />
-                  </div>
                 </section>
               )}
               {selectedSection === "referral" && (

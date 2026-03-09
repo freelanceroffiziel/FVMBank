@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
 import {
-  RiAccountBoxFill,
-  RiBarChart2Fill,
   RiCashFill,
   RiDashboard2Fill,
   RiDatabase2Fill,
@@ -90,16 +88,6 @@ const SideBarContent = ({ setSelectedSection }) => {
               >
                 <RiMoneyDollarBoxFill className="text-[25px]" />
                 Deposit
-              </button>
-            </li>
-
-            <li>
-              <button
-                onClick={() => setSelectedSection("account")}
-                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
-              >
-                <RiAccountBoxFill className="text-[25px]" />
-                Account
               </button>
             </li>
 
