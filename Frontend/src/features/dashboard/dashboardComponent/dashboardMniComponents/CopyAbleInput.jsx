@@ -34,7 +34,7 @@ const CopyAbleInput = () => {
           value={text}
           readOnly
           onFocus={(e) => e.target.select()}
-          className="w-full md:w-[60%] lg:w-[50%] px-3 py-2 rounded border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-600 placeholder-gray-400"
+          className="w-full md:w-[60%] lg:w-[37%] px-3 py-2 rounded border border-gray-200 text-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-600 placeholder-gray-400"
         />
 
         <CopyToClipboard text={text} onCopy={handleCopy}>
