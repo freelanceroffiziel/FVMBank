@@ -18,7 +18,7 @@ const Admin = () => {
   return (
     <main
       id="mainCon"
-      className="dashboard-wrapper h-screen overflow-y-scroll hide-scrollbar"
+      className="h-screen overflow-y-scroll dashboard-wrapper hide-scrollbar"
     >
       <section
         id="mainSohn"
@@ -102,7 +102,7 @@ const Admin = () => {
         {/* center items */}
 
         {/* activites page start */}
-        <main className="activities hidden lg:block ">
+        <main className="hidden activities lg:block ">
           <section className="activitieSon">
             <ActivitiesMain/>
           </section>

@@ -213,7 +213,7 @@ const Header = () => {
 
               {/* signuploginbelow */}
               <div className="mt-4 signuploginbelow ">
-                <ul className="flex flex-row gap-5 lg:text-[15px] ">
+                <ul className="flex flex-row gap-5 items-center justify-center lg:text-[15px] ">
                   <li>
                     <NavLink
                       to="/login"
