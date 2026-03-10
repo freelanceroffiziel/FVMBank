@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-  RiCashFill,
   RiCloseFill,
   RiDashboard2Fill,
-  RiDatabase2Fill,
-  RiLogoutBoxLine,
   RiMenuFill,
-  RiMoneyDollarBoxFill,
-  RiShareCircleFill,
   RiUser2Fill,
 } from "react-icons/ri";
 import LogoutModal from "../logoutComponent/LogoutModal";
+import { PiHandDeposit } from "react-icons/pi";
+import { BiTransfer } from "react-icons/bi";
+import { FiActivity } from "react-icons/fi";
+import { RiLuggageDepositLine } from "react-icons/ri";
+import { IoCardSharp } from "react-icons/io5";
+import { FcDebt } from "react-icons/fc";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { RiUserSharedLine } from "react-icons/ri";
 
 const DashboardHeader = ({ setSelectedSection }) => {
   const [menu, setMenu] = useState(false);
@@ -120,7 +123,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiDatabase2Fill className="text-[25px]" />
+                    <FiActivity className="text-[25px]" />
                     Activity Logs
                   </button>
                 </li>
@@ -133,7 +136,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiDatabase2Fill className="text-[25px]" />
+                    <BiTransfer className="text-[25px]" />
                     Transfer
                   </button>
                 </li>
@@ -146,7 +149,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiCashFill className="text-[25px]" />
+                    <PiHandDeposit className="text-[25px]" />
                     Withdraw
                   </button>
                 </li>
@@ -159,7 +162,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiMoneyDollarBoxFill className="text-[25px]" />
+                    <RiLuggageDepositLine className="text-[25px]" />
                     Deposit
                   </button>
                 </li>
@@ -172,7 +175,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiShareCircleFill className="text-[25px]" />
+                    <IoCardSharp className="text-[25px]" />
                     Cards
                   </button>
                 </li>
@@ -185,7 +188,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiShareCircleFill className="text-[25px]" />
+                    <FcDebt className="text-[25px]" />
                     Loans
                   </button>
                 </li>
@@ -198,7 +201,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiShareCircleFill className="text-[25px]" />
+                    <IoNotificationsOutline className="text-[25px]" />
                     Notification
                   </button>
                 </li>
@@ -211,7 +214,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiShareCircleFill className="text-[25px]" />
+                    <RiUserSharedLine  className="text-[25px]" />
                     Referral
                   </button>
                 </li>

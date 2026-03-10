@@ -1,13 +1,18 @@
 import React, { useRef, useState } from "react";
 import {
-  RiCashFill,
   RiDashboard2Fill,
-  RiDatabase2Fill,
-  RiMoneyDollarBoxFill,
-  RiShareCircleFill,
   RiArrowUpSLine,
   RiArrowDownSLine,
 } from "react-icons/ri";
+import { PiHandDeposit } from "react-icons/pi";
+import { BiTransfer } from "react-icons/bi";
+import { FiActivity } from "react-icons/fi";
+import { RiLuggageDepositLine } from "react-icons/ri";
+import { IoCardSharp } from "react-icons/io5";
+import { FcDebt } from "react-icons/fc";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { RiUserSharedLine } from "react-icons/ri";
+
 
 const SideBarContent = ({ setSelectedSection }) => {
   const sidebarRef = useRef(null);
@@ -56,7 +61,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("activityLogs")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiDatabase2Fill className="text-[25px]" />
+                <FiActivity className="text-[25px]" />
                 Activity Logs
               </button>
             </li>
@@ -66,7 +71,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("transfer")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiDatabase2Fill className="text-[25px]" />
+                <BiTransfer className="text-[25px]" />
                 Transfer
               </button>
             </li>
@@ -76,7 +81,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("withdraw")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiCashFill className="text-[25px]" />
+                <PiHandDeposit className="text-[25px]" />
                 Withdraw
               </button>
             </li>
@@ -86,7 +91,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("deposit")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiMoneyDollarBoxFill className="text-[25px]" />
+                <RiLuggageDepositLine className="text-[25px]" />
                 Deposit
               </button>
             </li>
@@ -96,7 +101,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("cards")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiShareCircleFill className="text-[25px]" />
+                <IoCardSharp className="text-[25px]" />
                 Cards
               </button>
             </li>
@@ -106,7 +111,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("loans")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiShareCircleFill className="text-[25px]" />
+                <FcDebt className="text-[25px]" />
                 Loans
               </button>
             </li>
@@ -116,7 +121,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("notification")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiShareCircleFill className="text-[25px]" />
+                <IoNotificationsOutline className="text-[25px]" />
                 Notification
               </button>
             </li>
@@ -126,7 +131,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("referral")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiShareCircleFill className="text-[25px]" />
+                <RiUserSharedLine  className="text-[25px]" />
                 Referral
               </button>
             </li>
