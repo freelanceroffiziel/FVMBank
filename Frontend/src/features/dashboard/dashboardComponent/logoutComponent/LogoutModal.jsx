@@ -18,7 +18,6 @@ const LogoutModal = () => {
         </button>
         {/*  */}
 
-        {/* Modal for Logout Confirmation */}
         {modal && (
           <div
             onClick={() => setModal(false)}
