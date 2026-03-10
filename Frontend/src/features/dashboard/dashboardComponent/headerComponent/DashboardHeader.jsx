@@ -67,13 +67,21 @@ const DashboardHeader = ({ setSelectedSection }) => {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="p-2 transition-all bg-teal-500 rounded shadow hover:bg-teal-600">
+                <div
+                  className="p-2 transition-all bg-teal-500 rounded shadow hover:bg-teal-600"
+                  onClick={() => {
+                    setMenu(false);
+                  }}
+                >
                   <LogoutModal />
                 </div>
 
                 <div
                   className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700"
-                  onClick={() => setSelectedSection("profile")}
+                  onClick={() => {
+                    setSelectedSection("profile");
+                    setMenu(false);
+                  }}
                 >
                   <RiUser2Fill className="text-[33px]" />
                 </div>
@@ -214,7 +222,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                     }}
                     className="flex items-center gap-2 px-2 py-4"
                   >
-                    <RiUserSharedLine  className="text-[25px]" />
+                    <RiUserSharedLine className="text-[25px]" />
                     Referral
                   </button>
                 </li>
