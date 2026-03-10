@@ -1,15 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-  RiAccountBoxFill,
   RiCashFill,
   RiCloseFill,
   RiDashboard2Fill,
   RiDatabase2Fill,
+  RiLogoutBoxLine,
   RiMenuFill,
   RiMoneyDollarBoxFill,
   RiShareCircleFill,
   RiUser2Fill,
 } from "react-icons/ri";
+import LogoutModal from "../logoutComponent/LogoutModal";
 
 const DashboardHeader = ({ setSelectedSection }) => {
   const [menu, setMenu] = useState(false);
@@ -62,10 +63,17 @@ const DashboardHeader = ({ setSelectedSection }) => {
                 )}
               </div>
 
-              <div className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700"
-              onClick={() => setSelectedSection("profile")}
-              >
-                <RiUser2Fill className="text-[33px]" />
+              <div className="flex items-center gap-3">
+                <div className="p-2 transition-all bg-teal-500 rounded shadow hover:bg-teal-600">
+                  <LogoutModal />
+                </div>
+
+                <div
+                  className="p-2 transition-all bg-teal-600 rounded shadow hover:bg-teal-700"
+                  onClick={() => setSelectedSection("profile")}
+                >
+                  <RiUser2Fill className="text-[33px]" />
+                </div>
               </div>
             </div>
           </div>
@@ -153,19 +161,6 @@ const DashboardHeader = ({ setSelectedSection }) => {
                   >
                     <RiMoneyDollarBoxFill className="text-[25px]" />
                     Deposit
-                  </button>
-                </li>
-
-                <li>
-                  <button
-                    onClick={() => {
-                      setSelectedSection("account");
-                      setMenu(false);
-                    }}
-                    className="flex items-center gap-2 px-2 py-4"
-                  >
-                    <RiAccountBoxFill className="text-[25px]" />
-                    Account
                   </button>
                 </li>
 
