@@ -13,7 +13,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Security from "./pages/Security";
 import AdminLayout from "./layouts/AdminLayout";
-import Admin from "./features/admin/adminMain/Admin";
+import Admin from "./features/admin/adminComponent/adminMain/Admin";
 
 const App = () => {
   return (
