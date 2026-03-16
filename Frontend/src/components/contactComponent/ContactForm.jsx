@@ -56,7 +56,7 @@ const ContactForm = () => {
               <p className="mt-1"> +1 (414) 885 - 4567</p>
             </div>
 
-            <div>
+            <div>s
               <h3 className="text-xl font-semibold tracking-wide text-teal-900 ">
                 WhatsApp Chat
               </h3>

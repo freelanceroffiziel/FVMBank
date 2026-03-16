@@ -95,7 +95,7 @@ const Header = () => {
               </Link>
 
               <Link
-                to={"/register"}
+                to={"/open-account"}
                 className="px-3 py-1.5 border-2 border-teal-600 rounded-tl-full rounded-bl-full hover:bg-gray-50 hover:text-teal-800 "
               >
                 Open Account
@@ -227,7 +227,7 @@ const Header = () => {
                   </li>
 
                   <Link
-                    to={"/register"}
+                    to={"/open-account"}
                     onClick={() => setHamburgerOpen(false)}
                     className="px-3 py-1.5 border-2 border-teal-600 rounded-tl-full rounded-bl-full hover:bg-gray-50 hover:text-teal-800 "
                   >

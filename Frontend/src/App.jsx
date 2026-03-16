@@ -3,8 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error from "./errors/Error";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Contact from "./pages/Contact";
 import SearchBar from "./pages/SearchBar";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -14,6 +12,11 @@ import About from "./pages/About";
 import Security from "./pages/Security";
 import AdminLayout from "./layouts/AdminLayout";
 import Admin from "./features/admin/adminComponent/adminMain/Admin";
+import ResetPassword from "./auth/ResetPassword";
+import ResetPasswordToken from "./auth/ResetPasswordToken";
+import VerifyOTP from "./auth/VerifyOTP";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 const App = () => {
   return (
@@ -28,8 +31,12 @@ const App = () => {
             <Route path="/security" element={<Security />} />
 
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/open-account" element={<Register />} />
             <Route path="/searchBar" element={<SearchBar />} />
+
+            <Route path="/ResetPassword" element={<ResetPassword/>} />
+            <Route path="/ResetPassword/:token" element={<ResetPasswordToken/>} />
+            <Route path="/otp" element={<VerifyOTP/>} />
           </Route>
 
           {/* USERDASHBOARD */}
