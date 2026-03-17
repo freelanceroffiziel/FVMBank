@@ -1,8 +1,13 @@
-import React, { Children, useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthContext from "./context";
+import {ThreeCircles } from "react-loader-spinner"; 
 
-const AuthContextProvider = ({ Children }) => {
+const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
 
   const contextData = {
     loading,
@@ -20,11 +25,11 @@ const AuthContextProvider = ({ Children }) => {
             backgroundColor: "#f8f9fa",
           }}
         >
-          <Oval color="#36d7b7" height={60} width={60} />
+          <ThreeCircles color="#36d7b7" height={60} width={60} />
         </div>
       ) : (
         <AuthContext.Provider value={contextData}>
-          {Children}
+          {children}
         </AuthContext.Provider>
       )}
     </>
