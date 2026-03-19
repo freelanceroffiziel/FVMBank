@@ -88,7 +88,7 @@ const Login = () => {
                       <p className="md:tracking-wider">
                         don&apos;t have account?{" "}
                         <Link
-                          to={"/Register"}
+                          to={"/open-account"}
                           className="font-semibold tracking-wider text-teal-600 hover:underline "
                         >
                           Register

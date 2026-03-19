@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import AuthContext from "./context";
-import {ThreeCircles } from "react-loader-spinner"; 
+import { ThreeCircles } from "react-loader-spinner";
 
 const AuthContextProvider = ({ children }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
-  }, []);
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // simulate loading delay
+
+    return () => clearTimeout(timer);
+  }, [location]); // runs on every route change
 
   const contextData = {
     loading,
