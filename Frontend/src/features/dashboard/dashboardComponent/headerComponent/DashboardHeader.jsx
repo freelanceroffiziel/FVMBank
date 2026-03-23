@@ -68,7 +68,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
 
               <div className="flex items-center gap-3">
                 <div
-                  className="p-2 transition-all bg-teal-500 rounded shadow hover:bg-teal-600"
+                  className=""
                   onClick={() => {
                     setMenu(false);
                   }}

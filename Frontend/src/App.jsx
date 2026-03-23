@@ -18,46 +18,51 @@ import VerifyOTP from "./auth/VerifyOTP";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import AuthContextProvider from "./context/AuthContextProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <AuthContextProvider>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route path="" element={<Home />}></Route>
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/security" element={<Security />} />
+        <QueryClientProvider client={queryClient}>
+          <AuthContextProvider>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route path="" element={<Home />}></Route>
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/security" element={<Security />} />
 
-              <Route path="/login" element={<Login />} />
-              <Route path="/open-account" element={<Register />} />
-              <Route path="/searchBar" element={<SearchBar />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/open-account" element={<Register />} />
+                <Route path="/searchBar" element={<SearchBar />} />
 
-              <Route path="/ResetPassword" element={<ResetPassword />} />
-              <Route
-                path="/ResetPassword/:token"
-                element={<ResetPasswordToken />}
-              />
-              <Route path="/otp" element={<VerifyOTP />} />
-            </Route>
+                <Route path="/ResetPassword" element={<ResetPassword />} />
+                <Route
+                  path="/ResetPassword/:token"
+                  element={<ResetPasswordToken />}
+                />
+                <Route path="/otp" element={<VerifyOTP />} />
+              </Route>
 
-            {/* USERDASHBOARD */}
-            <Route path="/" element={<DashboardLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Route>
+              {/* USERDASHBOARD */}
+              <Route path="/" element={<DashboardLayout />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+              </Route>
 
-            {/* ADMINDASHBOARD */}
-            <Route path="/" element={<AdminLayout />}>
-              <Route path="/admin" element={<Admin />} />
-            </Route>
-            {/* ERROR PAGES */}
+              {/* ADMINDASHBOARD */}
+              <Route path="/" element={<AdminLayout />}>
+                <Route path="/admin" element={<Admin />} />
+              </Route>
+              {/* ERROR PAGES */}
 
-            <Route path="*" element={<Error />}></Route>
-          </Routes>
-        </AuthContextProvider>
+              <Route path="*" element={<Error />}></Route>
+            </Routes>
+          </AuthContextProvider>
+        </QueryClientProvider>
       </BrowserRouter>
     </>
   );

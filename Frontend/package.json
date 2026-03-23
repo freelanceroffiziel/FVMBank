@@ -22,7 +22,9 @@
     "license": "ISC",
     "dependencies": {
         "@tailwindcss/vite": "^4.1.10",
+        "@tanstack/react-query": "^5.95.0",
         "chart.js": "^4.5.0",
+        "cors": "^2.8.6",
         "countup.js": "^2.9.0",
         "formik": "^2.4.6",
         "js-cookie": "^3.0.5",

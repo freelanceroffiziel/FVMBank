@@ -1,87 +1,129 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
-import {ToastContainer} from "react-toastify";
 import * as Yup from "yup";
 
+import { useMutation } from "@tanstack/react-query";
+import { registerUser } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+
 const Register = () => {
-  const initialValues ={
-    firstname: "",
-    lastname: "",
+  const navigate = useNavigate();
+
+  const initialValues = {
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   };
 
   const validationSchema = Yup.object({
-    firstname: Yup.string().required("First name is required"),
-    lastname: Yup.string().required("Last name is required"),
-    email: Yup.string().required("Invalid email address").required("Email is required"),
-    password: Yup.string().required(6,"Password must be at least 6 characters").required("Password is required")
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+  });
 
-  })
+  // TanStack Mutation
+  const mutation = useMutation({
+    mutationFn: registerUser,
+    onSuccess: (data) => {
+      // Show toast first
+      toast.success("Registration successful!");
+
+      // Wait 2 seconds before navigating
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000); // 2000ms = 2 seconds
+    },
+    onError: (error) => {
+      toast.error(error.message || "Registration failed");
+    },
+  });
 
   return (
-
     <>
-      <main id="regisCon" className="lg:mt-[20vh] mt-[15vh] md:mt-[15vh] w-full">
+      <main
+        id="regisCon"
+        className="lg:mt-[20vh] mt-[15vh] md:mt-[15vh] w-full"
+      >
         <section
           id="regisSon"
-          className="lg:max-w-md md:max-w-2xl max-w-[23rem] mx-auto flex-col flex gap-4 bg-white px-6 md:px-10 lg:px-6 py-12 rounded-lg shadow-lg text-navyBlue h-full "
+          className="lg:max-w-md md:max-w-2xl max-w-[23rem] mx-auto flex-col flex gap-4 bg-white px-6 md:px-10 lg:px-6 py-12 rounded-lg shadow-lg text-navyBlue h-full"
         >
-          <div className="flex flex-col justify-center items-center gap-1 ">
-            <h1 className="text-center text-[35px] lg:text-[30px] md:text-[40px] font-serif font-semibold text-teal-800 ">
+          <div className="flex flex-col justify-center items-center gap-1">
+            <h1 className="text-center text-[35px] lg:text-[30px] md:text-[40px] font-serif font-semibold text-teal-800">
               Register
             </h1>
-            <hr className="w-[60px] border-red-800  lg:border-2 border-4 border-dashed rounded-full " />
+            <hr className="w-[60px] border-red-800 lg:border-2 border-4 border-dashed rounded-full" />
           </div>
-          <div id="formCon" className="">
-            <ToastContainer className="mt-14"/>
+          <div id="formCon">
+            <ToastContainer className="mt-14" />
             <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema} 
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={(values, { setSubmitting }) => {
+                const payload = {
+                  firstName: values.firstName,
+                  lastName: values.lastName,
+                  email: values.email,
+                  password: values.password,
+                };
+
+                mutation.mutate(payload, {
+                  onSuccess: () => setSubmitting(false),
+                  onError: () => setSubmitting(false),
+                });
+              }}
             >
               {({ isSubmitting }) => (
                 <Form className="space-y-4">
+                  {/* First Name */}
                   <div id="firstname">
                     <label
-                      htmlFor="firstname"
+                      htmlFor="firstName"
                       className="lg:text-[15px] md:text-[28px] text-[22px]"
                     >
                       First Name <span className="text-teal-600">*</span>
                     </label>
                     <Field
                       type="text"
-                      name="firstname"
+                      name="firstName"
                       autoComplete="on"
-                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1 transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
-                      name="firstname"
+                      name="firstName"
                       component="div"
                       className="text-red-600 lg:text-[14px] md:text-[27px] text-[20px]"
                     />
                   </div>
 
+                  {/* Last Name */}
                   <div id="lastname">
                     <label
-                      htmlFor="lastname"
+                      htmlFor="lastName"
                       className="lg:text-[15px] md:text-[28px] text-[22px]"
                     >
                       Last Name <span className="text-teal-600">*</span>
                     </label>
                     <Field
                       type="text"
-                      name="lastname"
+                      name="lastName"
                       autoComplete="on"
-                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1 transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
-                      name="lastname"
+                      name="lastName"
                       component="div"
                       className="text-red-600 lg:text-[14px] md:text-[27px] text-[20px]"
                     />
                   </div>
 
+                  {/* Email */}
                   <div id="email">
                     <label
                       htmlFor="email"
@@ -93,7 +135,7 @@ const Register = () => {
                       type="email"
                       name="email"
                       autoComplete="on"
-                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1 transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
                       name="email"
@@ -102,6 +144,7 @@ const Register = () => {
                     />
                   </div>
 
+                  {/* Password */}
                   <div id="password">
                     <label
                       htmlFor="password"
@@ -113,7 +156,7 @@ const Register = () => {
                       type="password"
                       name="password"
                       autoComplete="on"
-                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1  transition duration-500 ease-in-out"
+                      className="w-full border text-teal-600 rounded-md lg:p-2 md:p-4 p-3 focus:outline-none focus:outline-2 focus:outline-brightTeal lg:text-[18px] md:text-[25px] text-[22px] focus:ring-brightTeal focus:ring-1 transition duration-500 ease-in-out"
                     />
                     <ErrorMessage
                       name="password"
@@ -128,10 +171,10 @@ const Register = () => {
                         Remembered Password?{" "}
                         <Link
                           to={"/Login"}
-                          className="text-teal-600 hover:underline font-semibold tracking-wider "
+                          className="text-teal-600 hover:underline font-semibold tracking-wider"
                         >
                           Login
-                        </Link >
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -140,7 +183,9 @@ const Register = () => {
                     type="submit"
                     className="w-full border-[1px] gap-2 border-teal-600 lg:p-2 md:p-4 p-3 lg:text-[20px] md:text-[25px] text-[24px] hover:bg-teal-600 hover:text-gray-50 transition-all text-center"
                   >
-                    {isSubmitting ? "Registering..." : "Register"}
+                    {isSubmitting || mutation.isLoading
+                      ? "Registering..."
+                      : "Register"}
                   </button>
                 </Form>
               )}
