@@ -19,6 +19,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import AuthContextProvider from "./context/AuthContextProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Protected from "./protected/Protected";
 
 const queryClient = new QueryClient();
 
@@ -49,8 +50,10 @@ const App = () => {
               </Route>
 
               {/* USERDASHBOARD */}
-              <Route path="/" element={<DashboardLayout />}>
-                <Route path="/dashboard" element={<Dashboard />} />
+              <Route element={<Protected />}>
+                <Route path="/" element={<DashboardLayout />}>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                </Route>
               </Route>
 
               {/* ADMINDASHBOARD */}

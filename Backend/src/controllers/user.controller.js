@@ -4,15 +4,19 @@ const userModel = require("../models/user.model");
 const { sendVerficationEmail } = require("../utils/utils.sendMails");
 
 // Helper to generate random account number
-const generateAccountNumber = () => Math.floor(1000000000 + Math.random() * 9000000000).toString();
+const generateAccountNumber = () =>
+  Math.floor(1000000000 + Math.random() * 9000000000).toString();
 
-// Create new user
 exports.createuser = async (req, res) => {
   try {
-    // Map frontend keys to backend
-    const { firstName: firstname, lastName: lastname, email, password, role } = req.body;
+    const {
+      firstName: firstname,
+      lastName: lastname,
+      email,
+      password,
+      role,
+    } = req.body;
 
-    // Validate required fields
     if (!firstname || !lastname || !email || !password) {
       return res.status(400).json({ message: "Missing fields required" });
     }
@@ -23,7 +27,6 @@ exports.createuser = async (req, res) => {
       return res.status(400).json({ message: "Email already exists" });
     }
 
-    // Validate role
     const validRoles = ["user", "admin"];
     const userRole = role && validRoles.includes(role) ? role : "user";
 
@@ -48,7 +51,7 @@ exports.createuser = async (req, res) => {
     const token = jwt.sign(
       { userId: user._id, fullName: `${firstname} ${lastname}` },
       process.env.JWT_SECRET,
-      { expiresIn: "30m" }
+      { expiresIn: "30m" },
     );
 
     // Send verification email
@@ -67,11 +70,12 @@ exports.createuser = async (req, res) => {
       },
     });
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
   }
 };
 
-// User login
 exports.loginuser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -97,7 +101,7 @@ exports.loginuser = async (req, res) => {
         fullName: `${user.firstname} ${user.lastname}`,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "1d" }
+      { expiresIn: "1d" },
     );
 
     return res.status(200).json({
@@ -105,13 +109,16 @@ exports.loginuser = async (req, res) => {
       token,
       user: {
         id: user._id,
-        fullName: `${user.firstname} ${user.lastname}`,
+        firstname: user.firstname,
+        lastname: user.lastname,
         email: user.email,
         accountNumber: user.accountNumber,
         balance: user.balance,
       },
     });
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
   }
 };
