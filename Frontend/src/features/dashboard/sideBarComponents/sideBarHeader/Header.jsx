@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../../../context/useAuth";
 
 const Header = () => {
+  const { user } = useAuth();
   return (
     <main className="sideBarHeaderCon">
       <section className="sideBarHeaderCon">
@@ -14,10 +16,7 @@ const Header = () => {
           </Link>
 
           <p className="text-[20px] text-teal-600 md:text-[25px] lg:text-[18px] font-extrabold tracking-wider ">
-            Hello:{" "}
-            <span className="font-semibold text-teal-50  text-shadow-orange-950 ">
-              Smitcheal
-            </span>{" "}
+            Hello: {user?.firstname || "Guest"}
           </p>
         </div>
       </section>

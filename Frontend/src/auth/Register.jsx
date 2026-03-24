@@ -34,10 +34,10 @@ const Register = () => {
       // Show toast first
       toast.success("Registration successful!");
 
-      // Wait 2 seconds before navigating
+
       setTimeout(() => {
         navigate("/login");
-      }, 2000); // 2000ms = 2 seconds
+      }, 2000); 
     },
     onError: (error) => {
       toast.error(error.message || "Registration failed");

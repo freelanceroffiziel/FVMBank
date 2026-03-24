@@ -2,8 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
 import { toast } from "react-toastify";
-
-// Only export ONE AuthContext
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
@@ -24,15 +22,15 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData.user); 
+    localStorage.setItem("user", JSON.stringify(userData.user));
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
     toast.success("Logout successful!");
-    setTimeout(() => navigate("/login"), 1500); // wait for toast
+    setTimeout(() => navigate("/login"), 1500);
   };
 
   const contextData = { loading, user, login, logout };
