@@ -1,75 +1,135 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/user.model");
-const { sendVerficationEmail } = require("../utils/utils.sendMails");
-
-// Helper to generate random account number
-const generateAccountNumber = () =>
-  Math.floor(1000000000 + Math.random() * 9000000000).toString();
+const MailHelper = require("../utils/MailHelper");
+const Notification = require("../models/notification.model");
 
 exports.createuser = async (req, res) => {
   try {
-    const {
-      firstName: firstname,
-      lastName: lastname,
-      email,
-      password,
-      role,
-    } = req.body;
+    const { firstName, lastName, email, password, role } = req.body;
 
-    if (!firstname || !lastname || !email || !password) {
+    if (!firstName || !lastName || !email || !password)
       return res.status(400).json({ message: "Missing fields required" });
-    }
 
-    // Check if email already exists
     const existingEmail = await userModel.findOne({ email });
-    if (existingEmail) {
+    if (existingEmail)
       return res.status(400).json({ message: "Email already exists" });
-    }
 
-    const validRoles = ["user", "admin"];
-    const userRole = role && validRoles.includes(role) ? role : "user";
+    const userRole = role && ["user", "admin"].includes(role) ? role : "user";
 
-    // Hash password
-    const saltRounds = Number(process.env.genSaltSync) || 10;
-    const salt = bcrypt.genSaltSync(saltRounds);
-    const hashedPassword = bcrypt.hashSync(password, salt);
+    const hashedPassword = bcrypt.hashSync(password, 10);
 
-    // Create user
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const hashedOtp = bcrypt.hashSync(otp, 10);
+
+    const accountNumber = Math.floor(
+      1000000000 + Math.random() * 9000000000
+    ).toString();
+
     const user = new userModel({
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       password: hashedPassword,
       role: userRole,
-      accountNumber: generateAccountNumber(),
+      otp: hashedOtp,
+      otpExpires: Date.now() + 10 * 60 * 1000,
+      accountNumber,
+      balance: 0,
+      isVerified: false,
     });
 
     await user.save();
 
-    // JWT for verification
-    const token = jwt.sign(
-      { userId: user._id, fullName: `${firstname} ${lastname}` },
-      process.env.JWT_SECRET,
-      { expiresIn: "30m" },
-    );
+    await MailHelper.sendOtpEmail(email, otp);
 
-    // Send verification email
-    const verifyUrl = `${req.protocol}://${req.get("host")}/api/v1/updateuserstatus?token=${token}`;
-    sendVerficationEmail(user, verifyUrl);
+    // 🔔 Create notification
+    await Notification.create({
+      user: user._id,
+      message: "Account created. OTP sent to email for verification.",
+      type: "user",
+    });
 
     return res.status(201).json({
-      message: `User ${firstname} ${lastname} created successfully`,
-      user: {
-        id: user._id,
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        accountNumber: user.accountNumber,
-        balance: user.balance,
-      },
+      message: "OTP sent to your email. Verify your account.",
+      email: user.email,
     });
   } catch (error) {
+    console.error("Create user error:", error);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
+  }
+};
+
+exports.verifyOtp = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    const user = await userModel.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    if (user.isVerified)
+      return res.status(400).json({ message: "User already verified" });
+    if (user.otpExpires < Date.now())
+      return res.status(400).json({ message: "OTP expired" });
+
+    if (!bcrypt.compareSync(otp, user.otp))
+      return res.status(400).json({ message: "Invalid OTP" });
+
+    user.isVerified = true;
+    user.otp = null;
+    user.otpExpires = null;
+    await user.save();
+
+    await MailHelper.sendWelcomeEmail(user);
+
+    // 🔔 Notification
+    await Notification.create({
+      user: user._id,
+      message: "Account verified successfully",
+      type: "user",
+    });
+
+    return res
+      .status(200)
+      .json({ message: "Verification successful. You can now login." });
+  } catch (error) {
+    console.error("Verify OTP error:", error);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
+  }
+};
+
+exports.resendOtp = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await userModel.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+    if (user.isVerified)
+      return res.status(400).json({ message: "User already verified" });
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const hashedOtp = bcrypt.hashSync(otp, 10);
+
+    user.otp = hashedOtp;
+    user.otpExpires = Date.now() + 10 * 60 * 1000;
+    await user.save();
+
+    await MailHelper.sendOtpEmail(email, otp);
+
+    // 🔔 Notification
+    await Notification.create({
+      user: user._id,
+      message: "OTP resent successfully",
+      type: "user",
+    });
+
+    return res.status(200).json({ message: "OTP resent successfully" });
+  } catch (error) {
+    console.error("Resend OTP error:", error);
     return res
       .status(500)
       .json({ message: "Internal server error", error: error.message });
@@ -80,43 +140,48 @@ exports.loginuser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
+    if (!email || !password)
       return res.status(400).json({ message: "Missing fields required" });
-    }
 
     const user = await userModel.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: "User does not exist" });
-    }
+    if (!user) return res.status(404).json({ message: "User does not exist" });
+    if (!user.isVerified)
+      return res
+        .status(403)
+        .json({ message: "Please verify your account before logging in" });
 
-    const isMatch = bcrypt.compareSync(password, user.password);
-    if (!isMatch) {
+    if (!bcrypt.compareSync(password, user.password))
       return res.status(400).json({ message: "Invalid password" });
-    }
 
     const token = jwt.sign(
       {
         userId: user._id,
         role: user.role,
-        fullName: `${user.firstname} ${user.lastname}`,
+        fullName: `${user.firstName} ${user.lastName}`,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "1d" },
+      { expiresIn: "1d" }
     );
+
+    // 🔔 Notification
+    await Notification.create({
+      user: user._id,
+      message: "Logged in successfully",
+      type: "user",
+    });
 
     return res.status(200).json({
       message: "Login successful",
       token,
       user: {
         id: user._id,
-        firstname: user.firstname,
-        lastname: user.lastname,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
-        accountNumber: user.accountNumber,
-        balance: user.balance,
       },
     });
   } catch (error) {
+    console.error("Login error:", error);
     return res
       .status(500)
       .json({ message: "Internal server error", error: error.message });

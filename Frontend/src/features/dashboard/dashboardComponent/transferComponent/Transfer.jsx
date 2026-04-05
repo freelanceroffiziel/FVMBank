@@ -1,190 +1,141 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { transferMoney } from "../../../../api/transferApi";
+import { getAccountsByUser } from "../../../../api/accountApi";
+import useAuth from "../../../../context/useAuth";
+import { toast } from "react-toastify";
 
 const Transfer = () => {
+  const { user } = useAuth();
+
+  const [selectedAccount, setSelectedAccount] = useState(null);
+  const [toAccountNumber, setToAccountNumber] = useState("");
+  const [amount, setAmount] = useState("");
+  const [transactionPin, setTransactionPin] = useState("");
+
+  // Fetch real user accounts
+  const { data: accounts = [], isLoading: accountsLoading } = useQuery({
+    queryKey: ["accounts", user?.id],
+    queryFn: () => getAccountsByUser(user.id),
+    enabled: !!user,
+  });
+
+  // Transfer mutation
+  const mutation = useMutation({
+    mutationFn: transferMoney,
+    onMutate: () => console.log("Transfer started..."),
+    onSuccess: (data) => {
+      toast.success(data.message || "Transfer successful!");
+      setToAccountNumber("");
+      setAmount("");
+      setTransactionPin("");
+      setSelectedAccount(null);
+    },
+    onError: (error) =>
+      toast.error(error?.message || "Transfer failed. Please try again."),
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!selectedAccount) return toast.error("Select an account");
+    if (!toAccountNumber.trim())
+      return toast.error("Enter recipient account number");
+    if (!amount || Number(amount) <= 0)
+      return toast.error("Enter a valid amount");
+    if (!transactionPin) return toast.error("Enter transaction PIN");
+
+    mutation.mutate({
+      fromAccountType: selectedAccount.accountType,
+      toAccountNumber: toAccountNumber.trim(),
+      amount: Number(amount),
+      transactionPin,
+    });
+  };
+
+  if (accountsLoading) return <p>Loading your accounts...</p>;
+  if (!accounts.length)
+    return <p>No accounts found. Please create an account first.</p>;
+
   return (
-    <main className="pt-[14vh] lg:pt-[16vh] min-h-screen ">
-      <section className="p-6 mx-auto bg-white rounded-lg shadow-lg ">
-        {/* Header */}
-        <div className="pb-4 mb-6 border-b">
-          <h1 className="text-2xl font-bold text-teal-900">FVMBank Transfer</h1>
-          <p className="text-sm text-gray-500">Send money worldwide securely</p>
-        </div>
+    <main className="pt-[21vh] min-h-screen">
+      <section className="p-6 mx-auto bg-white rounded-lg shadow-lg lg:max-w-4xl">
+        <h1 className="mb-6 text-2xl font-bold text-teal-900">
+          Transfer Money
+        </h1>
 
-        {/* Transfer Form */}
-        <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* From Account */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              From Account
-            </label>
-            <select className="p-2 mt-1 border rounded">
-              <option>FVMBank USD Account - 204839293</option>
-              <option>FVMBank EUR Account - 839201233</option>
-              <option>FVMBank GBP Account - 382920199</option>
+          <div>
+            <label className="block text-sm font-semibold">From Account</label>
+            <select
+              className="w-full p-2 border rounded"
+              value={selectedAccount?._id || ""}
+              onChange={(e) =>
+                setSelectedAccount(
+                  accounts.find((acc) => acc._id === e.target.value),
+                )
+              }
+            >
+              <option value="">Select account</option>
+              {accounts.map((acc) => (
+                <option key={acc._id} value={acc._id}>
+                  {acc.accountType.toUpperCase()} - {acc.accountNumber}
+                </option>
+              ))}
             </select>
+            {selectedAccount && (
+              <p className="mt-1 text-sm text-gray-500">
+                Balance: ${selectedAccount.balance.toLocaleString()}
+              </p>
+            )}
           </div>
 
-          {/* Recipient Bank */}
-          {/* Recipient Bank */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              Recipient Bank
-            </label>
-            <select className="p-2 mt-1 border rounded">
-              <option>FVMBank</option>
-              <option>JPMorgan Chase Bank</option>
-              <option>Bank of America</option>
-              <option>HSBC</option>
-              <option>Barclays Bank</option>
-              <option>Deutsche Bank</option>
-              <option>Citibank</option>
-              <option>Standard Chartered</option>
-            </select>
-          </div>
-
-          {/* Country */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              Destination Country
-            </label>
-            <select className="p-2 mt-1 border rounded">
-              <option>United States</option>
-              <option>United Kingdom</option>
-              <option>Germany</option>
-              <option>Canada</option>
-              <option>Australia</option>
-              <option>Singapore</option>
-            </select>
-          </div>
-
-          {/* Currency */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              Currency
-            </label>
-            <select className="p-2 mt-1 border rounded">
-              <option>USD ($)</option>
-              <option>EUR (€)</option>
-              <option>GBP (£)</option>
-              <option>CAD ($)</option>
-              <option>AUD ($)</option>
-            </select>
-          </div>
-
-          {/* IBAN */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">IBAN</label>
-            <input
-              type="text"
-              placeholder="Enter IBAN"
-              className="p-2 mt-1 border rounded"
-            />
-          </div>
-
-          {/* SWIFT */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              SWIFT / BIC Code
+          {/* Recipient Account Number */}
+          <div>
+            <label className="block text-sm font-semibold">
+              Recipient Account Number
             </label>
             <input
               type="text"
-              placeholder="Enter SWIFT code"
-              className="p-2 mt-1 border rounded"
-            />
-          </div>
-
-          {/* Recipient Name */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              Recipient Name
-            </label>
-            <input
-              type="text"
-              placeholder="Full name"
-              className="p-2 mt-1 border rounded"
+              className="w-full p-2 border rounded"
+              value={toAccountNumber}
+              onChange={(e) => setToAccountNumber(e.target.value)}
+              placeholder="Enter recipient account number"
             />
           </div>
 
           {/* Amount */}
-          <div className="flex flex-col">
-            <label className="text-sm font-semibold text-gray-600">
-              Amount
-            </label>
-            <input
-              type="number"
-              placeholder="Enter amount"
-              className="p-2 mt-1 border rounded"
-            />
-          </div>
+          <input
+            type="number"
+            placeholder="Amount"
+            className="w-full p-2 border rounded"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
 
-          {/* Description */}
-          <div className="flex flex-col md:col-span-2">
-            <label className="text-sm font-semibold text-gray-600">
-              Payment Description
-            </label>
-            <textarea
-              placeholder="Purpose of transfer"
-              className="p-2 mt-1 border rounded"
-            ></textarea>
-          </div>
+          {/* Transaction PIN */}
+          <input
+            type="password"
+            placeholder="Transaction PIN"
+            className="w-full p-2 border rounded"
+            value={transactionPin}
+            onChange={(e) => setTransactionPin(e.target.value)}
+          />
 
-          {/* Button */}
-          <div className="md:col-span-2">
-            <button
-              type="submit"
-              className="w-full py-3 font-semibold text-white transition bg-teal-900 rounded-lg hover:bg-teal-800"
-            >
-              Transfer
-            </button>
-          </div>
+          {/* Submit button */}
+          <button
+            type="submit"
+            className={`w-full py-3 rounded text-white ${
+              mutation.isLoading
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-teal-900"
+            }`}
+            disabled={mutation.isLoading}
+          >
+            {mutation.isLoading ? "Processing..." : "Transfer"}
+          </button>
         </form>
-
-        {/* Recent Transfers */}
-        <div className="mt-10">
-          <h2 className="mb-4 text-lg font-bold text-teal-900">
-            Recent Transfers
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full border">
-              <thead className="text-white bg-teal-900">
-                <tr>
-                  <th className="p-2 text-left">Date</th>
-                  <th className="p-2 text-left">Recipient</th>
-                  <th className="p-2 text-left">Bank</th>
-                  <th className="p-2 text-left">Amount</th>
-                  <th className="p-2 text-left">Status</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr className="border-t">
-                  <td className="p-2">06 Mar 2026</td>
-                  <td className="p-2">Michael Smith</td>
-                  <td className="p-2">JPMorgan Chase</td>
-                  <td className="p-2 text-red-600">-$1,500</td>
-                  <td className="p-2 text-green-600">Completed</td>
-                </tr>
-
-                <tr className="border-t">
-                  <td className="p-2">04 Mar 2026</td>
-                  <td className="p-2">Emma Wilson</td>
-                  <td className="p-2">HSBC</td>
-                  <td className="p-2 text-red-600">-€900</td>
-                  <td className="p-2 text-green-600">Completed</td>
-                </tr>
-
-                <tr className="border-t">
-                  <td className="p-2">02 Mar 2026</td>
-                  <td className="p-2">Lucas Müller</td>
-                  <td className="p-2">Deutsche Bank</td>
-                  <td className="p-2 text-red-600">-€2,300</td>
-                  <td className="p-2 text-yellow-600">Processing</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </section>
     </main>
   );

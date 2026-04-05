@@ -6,16 +6,16 @@ import {
   RiArrowUpCircleFill,
   RiNotification3Fill,
 } from "react-icons/ri";
-import DashboardBalance from "../dashboardBalance/DashboardBalnace";
+import DashboardBalance from "../dashboardBalance/DashboardBalance";
 import CopyAbleInput from "../dashboardMniComponents/CopyAbleInput";
+import DashboadNotification2 from "../dashboardNotification2/dashboadNotification2";
+import DashboardRcTransactions from "../dashboardRcTransactionComp/DashboardRcTransaction";
 
 const DashboardHome = () => {
   return (
     <main className="pt-[14vh] lg:pt-[16vh] min-h-screen">
       <div className="flex flex-col gap-10 px-0 mx-auto lg:px-2">
-        
         <div className="grid gap-4 lg:grid-cols-4">
-        
           <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiMoneyDollarBoxFill className="text-4xl text-teal-600" />
             <p className="flex items-center justify-between font-semibold text-gray-800">
@@ -26,7 +26,6 @@ const DashboardHome = () => {
             </p>
           </div>
 
-       
           <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiBankFill className="text-4xl text-teal-600" />
             <p className="flex items-center justify-between font-semibold text-gray-800">
@@ -37,7 +36,6 @@ const DashboardHome = () => {
             </p>
           </div>
 
-        
           <div className="flex flex-col justify-between gap-4 p-4 transition bg-white rounded-lg shadow dashboard-card hover:shadow-lg">
             <RiArrowUpCircleFill className="text-4xl text-teal-600" />
             <p className="flex items-center justify-between font-semibold text-gray-800">
@@ -66,16 +64,9 @@ const DashboardHome = () => {
         {/* Notifications & Quick Links */}
         <section className="grid gap-6 lg:grid-cols-3">
           {/* Notifications */}
-          <div className="p-4 bg-white rounded-lg shadow">
-            <h2 className="flex items-center gap-2 mb-3 text-lg font-bold text-teal-900">
-              <RiNotification3Fill /> Notifications
-            </h2>
-            <ul className="space-y-2 text-gray-700">
-              <li className="pb-1 border-b">Payment of $120 completed</li>
-              <li className="pb-1 border-b">New login from Lagos, Nigeria</li>
-              <li className="pb-1 border-b">Virtual card request approved</li>
-            </ul>
-          </div>
+          <section>
+            <DashboadNotification2 />
+          </section>
 
           {/* Quick Actions */}
           <div className="flex flex-col gap-3 p-4 bg-white rounded-lg shadow">
@@ -103,46 +94,8 @@ const DashboardHome = () => {
         </section>
 
         {/* Recent Transactions */}
-        <section className="p-4 bg-white rounded-lg shadow">
-          <h2 className="mb-3 text-lg font-bold text-teal-900">
-            Recent Transactions
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full border">
-              <thead className="text-white bg-teal-900">
-                <tr>
-                  <th className="p-2 text-left">Date</th>
-                  <th className="p-2 text-left">Description</th>
-                  <th className="p-2 text-left">Type</th>
-                  <th className="p-2 text-left">Amount</th>
-                  <th className="p-2 text-left">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t">
-                  <td className="p-2">07 Mar 2026</td>
-                  <td className="p-2">Transfer to John Smith</td>
-                  <td className="p-2">Debit</td>
-                  <td className="p-2 text-red-600">-$120</td>
-                  <td className="p-2 text-green-600">Completed</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="p-2">06 Mar 2026</td>
-                  <td className="p-2">Received from Alice</td>
-                  <td className="p-2">Credit</td>
-                  <td className="p-2 text-green-600">+$250</td>
-                  <td className="p-2 text-green-600">Completed</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="p-2">05 Mar 2026</td>
-                  <td className="p-2">Netflix Subscription</td>
-                  <td className="p-2">Debit</td>
-                  <td className="p-2 text-red-600">-$15</td>
-                  <td className="p-2 text-yellow-600">Pending</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <section>
+          <DashboardRcTransactions />
         </section>
       </div>
     </main>

@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    firstname: {
+    firstName: { 
       type: String,
       required: true,
       trim: true,
     },
-    lastname: {
+    lastName: {
       type: String,
       required: true,
       trim: true,
@@ -17,6 +17,12 @@ const userSchema = new mongoose.Schema(
       unique: true,
       required: true,
       lowercase: true,
+    },
+    otp: String,
+    otpExpires: Date,
+    isVerified: {
+      type: Boolean,
+      default: false,
     },
     password: {
       type: String,

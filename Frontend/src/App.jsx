@@ -14,12 +14,12 @@ import AdminLayout from "./layouts/AdminLayout";
 import Admin from "./features/admin/adminComponent/adminMain/Admin";
 import ResetPassword from "./auth/ResetPassword";
 import ResetPasswordToken from "./auth/ResetPasswordToken";
-import VerifyOTP from "./auth/VerifyOTP";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import AuthContextProvider from "./context/AuthContextProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Protected from "./protected/Protected";
+import VerifyOtp from "./auth/VerifyOTP";
 
 const queryClient = new QueryClient();
 
@@ -46,7 +46,7 @@ const App = () => {
                   path="/ResetPassword/:token"
                   element={<ResetPasswordToken />}
                 />
-                <Route path="/otp" element={<VerifyOTP />} />
+                <Route path="/verify-otp" element={<VerifyOtp />} />
               </Route>
 
               {/* USERDASHBOARD */}

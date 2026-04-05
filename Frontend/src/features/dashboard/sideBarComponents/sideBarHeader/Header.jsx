@@ -15,8 +15,8 @@ const Header = () => {
             </span>
           </Link>
 
-          <p className="text-[20px] text-teal-600 md:text-[25px] lg:text-[18px] font-extrabold tracking-wider ">
-            Hello: {user?.firstname || "Guest"}
+          <p className="text-[20px] text-teal-50 md:text-[25px] lg:text-[18px] font-extrabold tracking-wider flex flex-row items-centers w-full gap-0.5 ">
+            Hello: <p className="text-teal-600">{user?.firstName || "Guest"}</p>
           </p>
         </div>
       </section>

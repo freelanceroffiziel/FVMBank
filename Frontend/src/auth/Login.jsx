@@ -111,7 +111,7 @@ const Login = () => {
 
                     <div
                       id="menuIcon"
-                      className="absolute inset-y-0 lg:top-6 top-8 right-2 flex items-center cursor-pointer"
+                      className="absolute inset-y-0 flex items-center cursor-pointer lg:top-6 top-8 right-2"
                     >
                       {show ? (
                         <FiEye

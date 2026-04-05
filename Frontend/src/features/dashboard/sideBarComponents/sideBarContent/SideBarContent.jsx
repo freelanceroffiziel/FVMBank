@@ -3,6 +3,7 @@ import {
   RiDashboard2Fill,
   RiArrowUpSLine,
   RiArrowDownSLine,
+  RiBankLine,
 } from "react-icons/ri";
 import { PiHandDeposit } from "react-icons/pi";
 import { BiTransfer } from "react-icons/bi";
@@ -12,7 +13,6 @@ import { IoCardSharp } from "react-icons/io5";
 import { FcDebt } from "react-icons/fc";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { RiUserSharedLine } from "react-icons/ri";
-
 
 const SideBarContent = ({ setSelectedSection }) => {
   const sidebarRef = useRef(null);
@@ -63,6 +63,16 @@ const SideBarContent = ({ setSelectedSection }) => {
               >
                 <FiActivity className="text-[25px]" />
                 Activity Logs
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => setSelectedSection("accounts")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
+              >
+                <RiBankLine className="text-[25px]" />
+                Accounts
               </button>
             </li>
 
@@ -131,7 +141,7 @@ const SideBarContent = ({ setSelectedSection }) => {
                 onClick={() => setSelectedSection("referral")}
                 className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
               >
-                <RiUserSharedLine  className="text-[25px]" />
+                <RiUserSharedLine className="text-[25px]" />
                 Referral
               </button>
             </li>

@@ -1,104 +1,160 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import * as Yup from "yup";
+import { useNavigate, useLocation } from "react-router-dom";
+import { verifyOtp, resendOtp } from "../api/authApi";
+import "react-toastify/dist/ReactToastify.css";
 
-const VerifyOTP = () => {
+const VerifyOtp = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const initialValues = {
-    otp: "",
+  const [otpValues, setOtpValues] = useState(Array(6).fill(""));
+  const [verifying, setVerifying] = useState(false);
+  const [timer, setTimer] = useState(60);
+  const [resending, setResending] = useState(false);
+
+  const inputsRef = useRef([]);
+
+  const email = location.state?.email;
+
+  useEffect(() => {
+    if (timer === 0) return;
+
+    const interval = setInterval(() => {
+      setTimer((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timer]);
+
+  useEffect(() => {
+    if (otpValues.join("").length === 6) {
+      handleSubmit();
+    }
+  }, [otpValues]);
+
+  const handleInputChange = (index, value) => {
+    if (/^\d*$/.test(value)) {
+      const newOtp = [...otpValues];
+      newOtp[index] = value.slice(-1);
+      setOtpValues(newOtp);
+
+      if (value && index < 5) {
+        inputsRef.current[index + 1].focus();
+      }
+    }
   };
 
-  const validationSchema = Yup.object({
-    otp: Yup.string()
-      .length(6, "OTP must be 6 digits")
-      .required("OTP is required"),
-  });
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace" && !otpValues[index] && index > 0) {
+      inputsRef.current[index - 1].focus();
+    }
+  };
 
-  const handleSubmit = async (values, { setSubmitting }) => {
-    try {
-      console.log(values);
+  const handleSubmit = async () => {
+    const otp = otpValues.join("");
 
-      // Example API
-      // await axios.post("/api/auth/verify-otp", values)
-
-      toast.success("OTP verified successfully");
-
-      setTimeout(() => {
-        navigate("/ResetPasswordToken");
-      }, 1500);
-    } catch (error) {
-      toast.error("Invalid OTP");
+    if (!email) {
+      toast.error("Email missing. Please register again.");
+      return;
     }
 
-    setSubmitting(false);
+    if (otp.length < 6) {
+      toast.error("Enter complete OTP");
+      return;
+    }
+
+    setVerifying(true);
+
+    try {
+      await verifyOtp({ email, otp });
+
+      toast.success("OTP verified successfully!");
+
+      setTimeout(() => {
+        navigate("/login", { state: { email } });
+      }, 1500);
+    } catch (error) {
+      toast.error(error.message || "Invalid OTP");
+      setVerifying(false);
+    }
+  };
+
+  const handleResend = async () => {
+    if (!email) {
+      toast.error("Email missing.");
+      return;
+    }
+
+    if (timer > 0) return;
+
+    setResending(true);
+
+    try {
+      await resendOtp(email);
+
+      toast.success("OTP resent successfully!");
+      setTimer(60);
+      setOtpValues(Array(6).fill(""));
+    } catch (error) {
+      toast.error(error.message || "Failed to resend OTP");
+    } finally {
+      setResending(false);
+    }
   };
 
   return (
-    <>
-      <main className="lg:mt-[22vh] mt-[15vh] md:mt-[20vh] w-full">
-        <section className="lg:max-w-md md:max-w-2xl max-w-[23rem] mx-auto flex-col flex gap-4 bg-white px-6 py-12 rounded-lg shadow-lg text-navyBlue">
-          <div className="flex flex-col items-center justify-center gap-1">
-            <h1 className="text-[35px] font-serif font-semibold text-teal-800">
-              Verify OTP
-            </h1>
-            <hr className="w-[60px] border-red-800 border-4 border-dashed rounded-full" />
-          </div>
-
+    <main className="lg:mt-[22vh] mt-[15vh] md:mt-[20vh] w-full">
+      <section className="lg:max-w-md md:max-w-2xl max-w-[25rem] mx-auto flex flex-col gap-6 bg-white px-6 py-12 rounded-lg shadow-lg text-navyBlue">
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-[35px] font-serif font-semibold text-teal-800">
+            Verify OTP
+          </h1>
           <p className="text-center text-gray-500">
             Enter the 6-digit code sent to your email
           </p>
+        </div>
 
-          <ToastContainer />
+        <ToastContainer />
+        <div className="flex justify-center gap-3 mt-4">
+          {otpValues.map((digit, idx) => (
+            <input
+              key={idx}
+              ref={(el) => (inputsRef.current[idx] = el)}
+              type="text"
+              value={digit}
+              onChange={(e) => handleInputChange(idx, e.target.value)}
+              onKeyDown={(e) => handleKeyDown(idx, e)}
+              maxLength="1"
+              className="w-12 text-xl font-bold text-center border-2 border-teal-600 rounded-lg h-14 focus:outline-none focus:ring-2 focus:ring-teal-600"
+            />
+          ))}
+        </div>
 
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form className="space-y-4">
-                <div>
-                  <label className="text-[18px]">
-                    OTP <span className="text-teal-600">*</span>
-                  </label>
-
-                  <Field
-                    type="text"
-                    name="otp"
-                    maxLength="6"
-                    className="w-full border text-teal-600 rounded-md p-3 text-center tracking-[10px] text-xl focus:outline-none focus:ring-1 focus:ring-teal-600"
-                  />
-
-                  <ErrorMessage
-                    name="otp"
-                    component="div"
-                    className="text-red-600"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full border border-teal-600 p-3 text-xl hover:bg-teal-600 hover:text-white transition"
-                >
-                  {isSubmitting ? "Verifying..." : "Verify OTP"}
-                </button>
-
-                <p className="text-center text-gray-500">
-                  Didn’t receive code?{" "}
-                  <span className="text-teal-600 cursor-pointer hover:underline">
-                    Resend OTP
-                  </span>
-                </p>
-              </Form>
-            )}
-          </Formik>
-        </section>
-      </main>
-    </>
+        <button
+          onClick={handleSubmit}
+          disabled={verifying}
+          className="w-full p-3 mt-4 text-xl text-white bg-teal-600 rounded-lg hover:bg-teal-700 disabled:opacity-50"
+        >
+          {verifying ? "Verifying..." : "Verify OTP"}
+        </button>
+        <p className="mt-2 text-center text-gray-500">
+          {timer > 0 ? (
+            <>
+              Resend OTP in <span className="text-teal-600">{timer}s</span>
+            </>
+          ) : (
+            <span
+              onClick={handleResend}
+              className="text-teal-600 cursor-pointer hover:underline"
+            >
+              {resending ? "Resending..." : "Resend OTP"}
+            </span>
+          )}
+        </p>
+      </section>
+    </main>
   );
 };
 
-export default VerifyOTP;
+export default VerifyOtp;

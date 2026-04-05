@@ -14,6 +14,7 @@ import Notification from "../notificationComponent/Notification";
 import Settings from "../settingsComponent/Settings";
 import Support from "../helpsupportComponent/Support";
 import Profile from "../userProfileComponent/Profile";
+import Accounts from "../accountsComponent/Accounts";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -103,9 +104,14 @@ const Dashboard = () => {
                   <Support />
                 </section>
               )}
-               {selectedSection === "profile" && (
+              {selectedSection === "profile" && (
                 <section className="profile">
-                  <Profile/>
+                  <Profile />
+                </section>
+              )}
+              {selectedSection === "accounts" && (
+                <section className="accounts">
+                  <Accounts />
                 </section>
               )}
             </section>

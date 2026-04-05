@@ -14,7 +14,7 @@ const accountSchema = new mongoose.Schema(
     },
     accountType: {
       type: String,
-      enum: ["savings", "current", "business"],
+      enum: ["savings", "current", "business", "personal"],
       default: "savings",
     },
     balance: {
@@ -30,8 +30,10 @@ const accountSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    iban: { type: String },
+    swiftCode: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("Account", accountSchema);
