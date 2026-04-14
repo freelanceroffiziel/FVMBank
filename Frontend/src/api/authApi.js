@@ -52,18 +52,24 @@ export const resendOtp = async (email) => {
 };
 
 export const loginUser = async (data) => {
+  const res = await fetch(`${API_URL}/api/v1/loginuser`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  const text = await res.text(); // 🔥 IMPORTANT FIX
+
+  let result;
   try {
-    const res = await fetch(`${API_URL}/api/v1/loginuser`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    const result = await res.json();
-    if (!res.ok) throw new Error(result.message);
-
-    return result;
-  } catch (error) {
-    throw new Error(error.message || "Login failed");
+    result = text ? JSON.parse(text) : {};
+  } catch (err) {
+    throw new Error("Server returned invalid response");
   }
+
+  if (!res.ok) {
+    throw new Error(result.message || "Login failed");
+  }
+
+  return result;
 };
