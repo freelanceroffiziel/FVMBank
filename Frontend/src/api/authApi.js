@@ -51,7 +51,7 @@ export const resendOtp = async (email) => {
   }
 };
 
-
+// 
 export const loginUser = async (data) => {
   const res = await fetch(`${API_URL}/api/v1/loginuser`, {
     method: "POST",
