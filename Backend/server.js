@@ -18,6 +18,7 @@ const app = express();
 
 app.use(express.json());
 
+// upadete
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://fvm-bank.vercel.app"],
