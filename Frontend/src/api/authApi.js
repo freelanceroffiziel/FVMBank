@@ -52,19 +52,20 @@ export const resendOtp = async (email) => {
 };
 
 export const loginUser = async (data) => {
-  const res = await fetch(`${API_URL}/api/v1/loginuser`, {
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/loginuser`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
 
-  const text = await res.text(); // 🔥 IMPORTANT FIX
+  const text = await res.text();
+  console.log("LOGIN RESPONSE:", text);
 
   let result;
   try {
     result = text ? JSON.parse(text) : {};
-  } catch (err) {
-    throw new Error("Server returned invalid response");
+  } catch {
+    throw new Error("Invalid server response");
   }
 
   if (!res.ok) {
