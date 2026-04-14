@@ -8,8 +8,8 @@ import {
 } from "react-icons/ri";
 import DashboardBalance from "../dashboardBalance/DashboardBalance";
 import CopyAbleInput from "../dashboardMniComponents/CopyAbleInput";
-import DashboadNotification2 from "../dashboardNotification2/dashboadNotification2";
 import DashboardRcTransactions from "../dashboardRcTransactionComp/DashboardRcTransaction";
+import DashboardNotification2 from "../dashboardNotification2/DashboardNotification2";
 
 const DashboardHome = () => {
   return (
@@ -65,7 +65,7 @@ const DashboardHome = () => {
         <section className="grid gap-6 lg:grid-cols-3">
           {/* Notifications */}
           <section>
-            <DashboadNotification2 />
+            <DashboardNotification2 />
           </section>
 
           {/* Quick Actions */}

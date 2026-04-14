@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchNotifications } from "../../../../api/notificationsApi";
 import useAuth from "../../../../context/useAuth";
 
-const DashboadNotification2 = () => {
+const DashboardNotification2 = () => {
   const { user } = useAuth();
 
   const { data, isLoading, error } = useQuery({
@@ -59,4 +59,4 @@ const DashboadNotification2 = () => {
   );
 };
 
-export default DashboadNotification2;
+export default DashboardNotification2;
