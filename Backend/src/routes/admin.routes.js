@@ -19,7 +19,7 @@ const adminRouter = express.Router();
 
 // ================= AUTH =================
 adminRouter.post("/create-admin", createAdmin);
-adminRouter.post("/admin-login", isAdmin, adminLogin);
+adminRouter.post("/admin-login", adminLogin);
 
 // ================= USERS =================
 adminRouter.get("/users", authMiddleware, isAdmin, adminGetAllUsers);
