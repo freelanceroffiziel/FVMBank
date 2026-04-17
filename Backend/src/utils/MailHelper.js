@@ -248,6 +248,66 @@ class MailHelper {
       return false;
     }
   }
+
+  // ADMIN BELOW
+  static async sendAdminCreatedEmail(admin) {
+    try {
+      const fullName = this.getFullName(admin);
+
+      const content = `
+      <p>Hello <strong>${fullName}</strong>,</p>
+      <p>Your admin account has been created successfully.</p>
+
+      ${this.infoCard(`
+        <p><strong>Email:</strong> ${admin.email}</p>
+        <p><strong>Role:</strong> ${admin.role}</p>
+      `)}
+
+      <p>You can now log in to the admin dashboard.</p>
+    `;
+
+      await this.transporter().sendMail({
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
+        to: admin.email,
+        subject: "🛡️ Admin Account Created",
+        html: this.baseTemplate("Admin Account Created", content),
+      });
+
+      console.log(`📧 Admin creation email sent to ${admin.email}`);
+      return true;
+    } catch (err) {
+      console.error("❌ Admin email failed:", err.message);
+      return false;
+    }
+  }
+
+  static async sendAdminLoginEmail(admin) {
+    try {
+      const fullName = this.getFullName(admin);
+
+      const content = `
+      <p>Hello <strong>${fullName}</strong>,</p>
+      <p>Your admin account was just logged into.</p>
+
+      ${this.infoCard(`
+        <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+        <p><strong>Email:</strong> ${admin.email}</p>
+      `)}
+    `;
+
+      await this.transporter().sendMail({
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
+        to: admin.email,
+        subject: "🔐 Admin Login Alert",
+        html: this.baseTemplate("Security Alert", content),
+      });
+
+      return true;
+    } catch (err) {
+      console.error("Login email failed:", err.message);
+      return false;
+    }
+  }
 }
 
 module.exports = MailHelper;

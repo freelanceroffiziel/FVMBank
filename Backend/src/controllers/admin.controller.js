@@ -1,6 +1,7 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const MailHelper = require("../utils/MailHelper");
 
 exports.createAdmin = async (req, res) => {
   try {
@@ -27,6 +28,8 @@ exports.createAdmin = async (req, res) => {
       isVerified: true,
     });
 
+    await MailHelper.sendAdminCreatedEmail(admin);
+
     res.status(201).json({
       message: "Admin created successfully",
       admin,
@@ -36,7 +39,6 @@ exports.createAdmin = async (req, res) => {
   }
 };
 
-// ================= ADMIN LOGIN =================
 exports.adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -59,15 +61,17 @@ exports.adminLogin = async (req, res) => {
       { expiresIn: "7d" },
     );
 
-    res.status(200).json({
+    await MailHelper.sendAdminLoginEmail(admin);
+
+    return res.status(200).json({
       message: "Admin login successful",
       token,
       admin: {
         id: admin._id,
-        email: admin.email,
-        role: admin.role,
         firstName: admin.firstName,
         lastName: admin.lastName,
+        email: admin.email,
+        role: admin.role,
       },
     });
   } catch (err) {
