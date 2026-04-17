@@ -25,9 +25,8 @@ const authMiddleware = (req, res, next) => {
     req.user = decodedToken;
     next();
   } catch (error) {
-    return res.status(500).json({
-      message: `Internal server error`,
-      error: error.message,
+    return res.status(401).json({
+      message: "Invalid or expired token",
     });
   }
 };

@@ -1,16 +1,38 @@
 const express = require("express");
 const authMiddleware = require("../middlewares/authMiddleware");
-const adminMiddleware = require("../middlewares/adminMdiddleware");
-const { deleteuser, getallusers, admingettransactions, admingettransaction, admingetallusers, admindeleteuser } = require("../controllers/admin.controller");
-const adminMdiddleware = require("../middlewares/adminMdiddleware");
+const isAdmin = require("../middlewares/adminMiddleware");
+
+const {
+  createAdmin,
+  adminGetAllUsers,
+  adminGUserById,
+  deleteUser,
+  lockUserAccount,
+  unlockUserAccount,
+  adminForgotPassword,
+  adminResetPassword,
+  adminResetUserPassword,
+  adminLogin,
+} = require("../controllers/admin.controller");
+
 const adminRouter = express.Router();
 
-// All routes here require authentication + admin role
-adminRouter.get("/users", authMiddleware, adminMdiddleware, admingetallusers);
+// ================= AUTH =================
+adminRouter.post("/create-admin", createAdmin);
+adminRouter.post("/admin-login", isAdmin, adminLogin);
 
-adminRouter.get("/transactions",admingettransactions );
-adminRouter.get("/transaction/:transactionId",admingettransaction );
+// ================= USERS =================
+adminRouter.get("/users", authMiddleware, isAdmin, adminGetAllUsers);
+adminRouter.get("/users/:id", authMiddleware, isAdmin, adminGUserById);
+adminRouter.delete("/users/:id", authMiddleware, isAdmin, deleteUser);
 
-adminRouter.delete("/users/:id", authMiddleware, adminMiddleware, admindeleteuser);
+// ================= ACCOUNT CONTROL =================
+adminRouter.patch("/users/:id/lock", authMiddleware, isAdmin, lockUserAccount);
+adminRouter.patch("/users/:id/unlock", authMiddleware, isAdmin, unlockUserAccount);
+
+// ================= PASSWORD =================
+adminRouter.post("/admin-forgot-password", adminForgotPassword);
+adminRouter.post("/admin-reset-password", adminResetPassword);
+adminRouter.post("/admin-reset-user-password", authMiddleware, isAdmin, adminResetUserPassword);
 
 module.exports = adminRouter;
