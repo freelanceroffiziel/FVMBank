@@ -24,7 +24,7 @@ exports.createAdmin = async (req, res) => {
       email,
       password: hashedPassword,
       role: "admin",
-      isVerified: true
+      isVerified: true,
     });
 
     res.status(201).json({
@@ -66,6 +66,8 @@ exports.adminLogin = async (req, res) => {
         id: admin._id,
         email: admin.email,
         role: admin.role,
+        firstName: firstName,
+        lastName: lastName,
       },
     });
   } catch (err) {
