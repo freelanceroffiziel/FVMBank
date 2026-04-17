@@ -362,6 +362,140 @@ class MailHelper {
       return false;
     }
   }
+
+  // GRANT BELOW
+  static async sendGrantEmail(user, amount, reference, confirmationCode) {
+    try {
+      const fullName = this.getFullName(user);
+
+      const content = `
+      <p style="font-size:16px;">Hello <strong>${fullName}</strong>,</p>
+
+      <p style="margin-top:10px;">
+        🎁 A <strong>grant has been assigned</strong> to your FVM Bank account.
+        Please use your confirmation code below to claim it.
+      </p>
+
+      ${this.infoCard(`
+        <p><strong>💰 Amount:</strong> $${amount.toLocaleString()}</p>
+        <p><strong>📌 Reference:</strong> ${reference}</p>
+        <p><strong>🔐 Confirmation Code:</strong></p>
+        <h2 style="color:#008080;text-align:center;letter-spacing:3px;margin:10px 0;">
+          ${confirmationCode}
+        </h2>
+      `)}
+
+      <div style="margin-top:15px;padding:12px;background:#fff3cd;border-radius:8px;border-left:4px solid #ffc107;">
+        <p style="margin:0;font-weight:600;color:#856404;">⚠️ Important</p>
+        <p style="margin:5px 0 0;font-size:13px;">
+          Do not share your confirmation code with anyone. FVM Bank will never ask for it.
+        </p>
+      </div>
+
+      <p style="margin-top:20px;">
+        Use your dashboard to confirm and claim your grant securely.
+      </p>
+
+      <p style="margin-top:10px;">
+        — FVM Bank Security Team
+      </p>
+    `;
+
+      await this.transporter().sendMail({
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
+        to: user.email,
+        subject: "🎁 Grant Assigned to Your Account",
+        html: this.baseTemplate("Grant Notification", content),
+      });
+
+      console.log(`📧 Grant email sent to ${user.email}`);
+      return true;
+    } catch (err) {
+      console.error("❌ Failed to send grant email:", err.message);
+      return false;
+    }
+  }
+
+  static async sendGrantClaimedEmail(user, amount, balance) {
+    try {
+      const fullName = this.getFullName(user);
+
+      const content = `
+      <p style="font-size:16px;">Hello <strong>${fullName}</strong>,</p>
+
+      <p style="margin-top:10px;">
+        ✅ Your grant has been successfully <strong>claimed and credited</strong> to your account.
+      </p>
+
+      ${this.infoCard(`
+        <p><strong>💰 Amount Received:</strong> $${amount.toLocaleString()}</p>
+        <p><strong>🏦 New Balance:</strong> $${balance.toLocaleString()}</p>
+      `)}
+
+      <div style="margin-top:15px;padding:12px;background:#e6f7f7;border-radius:8px;border-left:4px solid #008080;">
+        <p style="margin:0;font-weight:600;color:#00695c;">🔐 Security Notice</p>
+        <p style="margin:5px 0 0;font-size:13px;">
+          If you did not authorize this action, please contact FVM Bank support immediately.
+        </p>
+      </div>
+
+      <p style="margin-top:20px;">
+        Thank you for banking with <strong>FVM Bank</strong>.
+      </p>
+    `;
+
+      await this.transporter().sendMail({
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
+        to: user.email,
+        subject: "💰 Grant Successfully Claimed",
+        html: this.baseTemplate("Grant Claimed", content),
+      });
+
+      console.log(`📧 Grant claimed email sent to ${user.email}`);
+      return true;
+    } catch (err) {
+      console.error("❌ Failed to send grant claimed email:", err.message);
+      return false;
+    }
+  }
+
+  static async sendGrantRejectedEmail(user) {
+    try {
+      const fullName = this.getFullName(user);
+
+      const content = `
+      <p style="font-size:16px;">Hello <strong>${fullName}</strong>,</p>
+
+      <p style="margin-top:10px;">
+        ❌ Your assigned grant has been <strong>reviewed and declined</strong> by the FVM Bank admin team.
+      </p>
+
+      <div style="margin-top:15px;padding:12px;background:#fdecea;border-radius:8px;border-left:4px solid #d32f2f;">
+        <p style="margin:0;font-weight:600;color:#b71c1c;">Reason Notice</p>
+        <p style="margin:5px 0 0;font-size:13px;">
+          This decision may be based on eligibility, verification, or compliance checks.
+        </p>
+      </div>
+
+      <p style="margin-top:20px;">
+        You may contact support for clarification or future opportunities.
+      </p>
+    `;
+
+      await this.transporter().sendMail({
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
+        to: user.email,
+        subject: "❌ Grant Request Declined",
+        html: this.baseTemplate("Grant Update", content),
+      });
+
+      console.log(`📧 Grant rejection email sent to ${user.email}`);
+      return true;
+    } catch (err) {
+      console.error("❌ Grant rejection email failed:", err.message);
+      return false;
+    }
+  }
 }
 
 module.exports = MailHelper;

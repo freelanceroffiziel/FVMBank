@@ -1,5 +1,7 @@
 const MailHelper = require("../utils/MailHelper");
 const Grant = require("../models/grant.model");
+const userModel = require("../models/user.model");
+const Notification = require("../models/notification.model");
 
 // ================= CREATE GRANT =================
 exports.createGrant = async (req, res) => {
@@ -40,16 +42,16 @@ exports.createGrant = async (req, res) => {
       type: "grant",
     });
 
-    // ✅ SEND EMAIL
+    // ✅ CLEAN EMAIL (USING MAILHELPER)
     await MailHelper.sendGrantEmail(user, amount, reference, confirmationCode);
 
-    res.status(201).json({
+    return res.status(201).json({
       message: "Grant created successfully",
       confirmationCode,
       grant,
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: err.message });
   }
 };
 
@@ -80,7 +82,7 @@ exports.confirmGrant = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // 💰 Add balance safely
+    // 💰 Update balance
     user.balance = Number(user.balance || 0) + Number(grant.amount);
     await user.save();
 
@@ -93,23 +95,15 @@ exports.confirmGrant = async (req, res) => {
       type: "grant",
     });
 
-    // ✅ OPTIONAL EMAIL (recommended)
-    await MailHelper.sendDepositNotificationEmail(
-      user,
-      {
-        accountNumber: "N/A",
-        accountType: "Grant Wallet",
-        balance: user.balance,
-      },
-      grant.amount,
-    );
+    // ✅ CLEAN EMAIL (NEW DEDICATED METHOD)
+    await MailHelper.sendGrantClaimedEmail(user, grant.amount, user.balance);
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "Grant claimed successfully",
       newBalance: user.balance,
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: err.message });
   }
 };
 
@@ -144,22 +138,15 @@ exports.rejectGrant = async (req, res) => {
       type: "grant",
     });
 
-    // ✅ EMAIL NOTIFICATION
+    // ✅ CLEAN EMAIL (USING MAILHELPER)
     if (user) {
-      await MailHelper.transporter().sendMail({
-        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
-        to: user.email,
-        subject: "❌ Grant Cancelled",
-        html: MailHelper.baseTemplate(
-          "Grant Cancelled",
-          `<p>Hello ${MailHelper.getFullName(user)},</p>
-           <p>Your assigned grant has been cancelled by the admin.</p>`,
-        ),
-      });
+      await MailHelper.sendGrantRejectedEmail(user);
     }
 
-    res.status(200).json({ message: "Grant rejected successfully" });
+    return res.status(200).json({
+      message: "Grant rejected successfully",
+    });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: err.message });
   }
 };
