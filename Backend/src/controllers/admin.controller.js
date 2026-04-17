@@ -66,8 +66,8 @@ exports.adminLogin = async (req, res) => {
         id: admin._id,
         email: admin.email,
         role: admin.role,
-        firstName: firstName,
-        lastName: lastName,
+        firstName: admin.firstName,
+        lastName: admin.lastName,
       },
     });
   } catch (err) {
