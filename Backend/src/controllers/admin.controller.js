@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 exports.createAdmin = async (req, res) => {
   try {
-    const { email, password, secretKey } = req.body;
+    const { firstName, lastName, email, password, secretKey } = req.body;
 
     if (secretKey !== process.env.ADMIN_SECRET) {
       return res.status(403).json({ message: "Invalid secret key" });
@@ -13,15 +13,18 @@ exports.createAdmin = async (req, res) => {
     const exists = await User.findOne({ email });
 
     if (exists) {
-      return res.status(400).json({ message: "Admin already exists" });
+      return res.status(400).json({ message: "User already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const admin = await User.create({
+      firstName: firstName || "Admin",
+      lastName: lastName || "User",
       email,
       password: hashedPassword,
       role: "admin",
+      isVerified: true
     });
 
     res.status(201).json({
