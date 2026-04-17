@@ -13,7 +13,16 @@ const notificationSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ["account", "transaction", "user", "deposit"], 
+      enum: [
+        "account",
+        "transaction",
+        "user",
+        "deposit",
+        "admin",
+        "deposit",
+        "transfer",
+        "grant",
+      ],
       required: true,
     },
     isRead: {
