@@ -2,6 +2,7 @@ const MailHelper = require("../utils/MailHelper");
 const Grant = require("../models/grant.model");
 const userModel = require("../models/user.model");
 const Notification = require("../models/notification.model");
+const Account = require("../models/account.model"); // ✅ IMPORTANT
 
 // ================= CREATE GRANT =================
 exports.createGrant = async (req, res) => {
@@ -42,7 +43,6 @@ exports.createGrant = async (req, res) => {
       type: "grant",
     });
 
-    // ✅ CLEAN EMAIL (USING MAILHELPER)
     await MailHelper.sendGrantEmail(user, amount, reference, confirmationCode);
 
     return res.status(201).json({
@@ -82,9 +82,18 @@ exports.confirmGrant = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // 💰 Update balance
-    user.balance = Number(user.balance || 0) + Number(grant.amount);
-    await user.save();
+    // ✅ USE ACCOUNT (NOT USER BALANCE)
+    const account = await Account.findOne({
+      user: userId,
+      accountType: "personal",
+    });
+
+    if (!account) {
+      return res.status(404).json({ message: "Account not found" });
+    }
+
+    account.balance += grant.amount;
+    await account.save();
 
     grant.status = "claimed";
     await grant.save();
@@ -95,12 +104,15 @@ exports.confirmGrant = async (req, res) => {
       type: "grant",
     });
 
-    // ✅ CLEAN EMAIL (NEW DEDICATED METHOD)
-    await MailHelper.sendGrantClaimedEmail(user, grant.amount, user.balance);
+    await MailHelper.sendGrantClaimedEmail(
+      user,
+      grant.amount,
+      account.balance
+    );
 
     return res.status(200).json({
       message: "Grant claimed successfully",
-      newBalance: user.balance,
+      newBalance: account.balance,
     });
   } catch (err) {
     return res.status(500).json({ message: err.message });
@@ -138,7 +150,6 @@ exports.rejectGrant = async (req, res) => {
       type: "grant",
     });
 
-    // ✅ CLEAN EMAIL (USING MAILHELPER)
     if (user) {
       await MailHelper.sendGrantRejectedEmail(user);
     }

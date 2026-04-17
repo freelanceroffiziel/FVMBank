@@ -3,7 +3,9 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../models/user.model");
 const MailHelper = require("../utils/MailHelper");
 const Notification = require("../models/notification.model");
+const Account = require("../models/account.model"); // ✅ IMPORTANT
 
+// ================= CREATE USER =================
 exports.createuser = async (req, res) => {
   try {
     const { firstName, lastName, email, password, role } = req.body;
@@ -22,10 +24,6 @@ exports.createuser = async (req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const hashedOtp = bcrypt.hashSync(otp, 10);
 
-    const accountNumber = Math.floor(
-      1000000000 + Math.random() * 9000000000
-    ).toString();
-
     const user = new userModel({
       firstName,
       lastName,
@@ -34,16 +32,29 @@ exports.createuser = async (req, res) => {
       role: userRole,
       otp: hashedOtp,
       otpExpires: Date.now() + 10 * 60 * 1000,
-      accountNumber,
-      balance: 0,
       isVerified: false,
     });
 
     await user.save();
 
+    // ✅ CREATE ACCOUNTS
+    await Account.create([
+      {
+        user: user._id,
+        accountType: "personal",
+        accountNumber: Math.floor(1000000000 + Math.random() * 9000000000),
+        balance: 0,
+      },
+      {
+        user: user._id,
+        accountType: "business",
+        accountNumber: Math.floor(1000000000 + Math.random() * 9000000000),
+        balance: 0,
+      },
+    ]);
+
     await MailHelper.sendOtpEmail(email, otp);
 
-    // 🔔 Create notification
     await Notification.create({
       user: user._id,
       message: "Account created. OTP sent to email for verification.",
@@ -55,10 +66,7 @@ exports.createuser = async (req, res) => {
       email: user.email,
     });
   } catch (error) {
-    console.error("Create user error:", error);
-    return res
-      .status(500)
-      .json({ message: "Internal server error", error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -145,10 +153,11 @@ exports.loginuser = async (req, res) => {
 
     const user = await userModel.findOne({ email });
     if (!user) return res.status(404).json({ message: "User does not exist" });
+
     if (!user.isVerified)
-      return res
-        .status(403)
-        .json({ message: "Please verify your account before logging in" });
+      return res.status(403).json({
+        message: "Please verify your account before logging in",
+      });
 
     if (!bcrypt.compareSync(password, user.password))
       return res.status(400).json({ message: "Invalid password" });
@@ -160,10 +169,11 @@ exports.loginuser = async (req, res) => {
         fullName: `${user.firstName} ${user.lastName}`,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "1d" }
+      { expiresIn: "1d" },
     );
 
-    // 🔔 Notification
+    const accounts = await Account.find({ user: user._id });
+
     await Notification.create({
       user: user._id,
       message: "Logged in successfully",
@@ -179,11 +189,9 @@ exports.loginuser = async (req, res) => {
         lastName: user.lastName,
         email: user.email,
       },
+      accounts, // ✅ IMPORTANT
     });
   } catch (error) {
-    console.error("Login error:", error);
-    return res
-      .status(500)
-      .json({ message: "Internal server error", error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
