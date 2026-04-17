@@ -58,16 +58,26 @@ class MailHelper {
   static async sendOtpEmail(email, otp) {
     try {
       const content = `
-        <p>Your One-Time Password (OTP) is:</p>
-        <h2 style="text-align:center;letter-spacing:3px;">${otp}</h2>
-        <p>This code will expire in 1 minute.</p>
-      `;
+      <p>Hello 👋,</p>
+      <p>Your One-Time Password (OTP) for verification is:</p>
+
+      ${this.infoCard(`
+        <h1 style="text-align:center;letter-spacing:6px;color:#008080;margin:0;">
+          ${otp}
+        </h1>
+        <p style="text-align:center;margin-top:10px;">
+          This code expires in <strong>10 minutes</strong>. Do not share it with anyone.
+        </p>
+      `)}
+
+      <p>If you did not request this, please ignore this email.</p>
+    `;
 
       await this.transporter().sendMail({
-        from: process.env.EMAILSERVICE,
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: email,
-        subject: "Your OTP Code",
-        html: this.baseTemplate("🔐 OTP Verification", content),
+        subject: "🔐 Your OTP Verification Code",
+        html: this.baseTemplate("OTP Verification", content),
       });
 
       console.log(`📧 OTP email sent to ${email}`);
@@ -84,15 +94,25 @@ class MailHelper {
       const fullName = this.getFullName(user);
 
       const content = `
-        <p>Hello <strong>${fullName}</strong>,</p>
-        <p>Welcome to FVM Bank! We're excited to have you onboard.</p>
-      `;
+      <p>Hello <strong>${fullName}</strong>,</p>
+
+      <p>Welcome to <strong>FVM Bank</strong> 🎉</p>
+      <p>Your account has been successfully created and verified.</p>
+
+      ${this.infoCard(`
+        <p><strong>Status:</strong> Active</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>Role:</strong> ${user.role || "user"}</p>
+      `)}
+
+      <p>You can now log in and start using your dashboard.</p>
+    `;
 
       await this.transporter().sendMail({
-        from: process.env.EMAILSERVICE,
+        from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: user.email,
-        subject: "Welcome!",
-        html: this.baseTemplate("🎉 Welcome!", content),
+        subject: "🎉 Welcome to FVM Bank",
+        html: this.baseTemplate("Welcome Aboard", content),
       });
 
       console.log(`📧 Welcome email sent to ${user.email}`);
@@ -109,20 +129,41 @@ class MailHelper {
       const fullName = this.getFullName(user);
 
       const content = `
-        <p>Hello <strong>${fullName}</strong>,</p>
-        <p>Your bank account has been successfully created.</p>
-        ${this.infoCard(`
-          <p><strong>Account Number:</strong> ${account.accountNumber}</p>
-          <p><strong>Account Type:</strong> ${account.accountType}</p>
-          <p><strong>Balance:</strong> $${account.balance.toLocaleString()}</p>
-        `)}
-      `;
+      <p style="font-size:16px;">Hello <strong>${fullName}</strong>,</p>
+
+      <p style="margin-top:10px;">
+        🎉 Your <strong>FVM Bank account</strong> has been successfully created and is now active.
+      </p>
+
+      ${this.infoCard(`
+        <p style="margin:6px 0;"><strong>🏦 Account Number:</strong> ${account.accountNumber}</p>
+        <p style="margin:6px 0;"><strong>📂 Account Type:</strong> ${account.accountType}</p>
+        <p style="margin:6px 0;"><strong>💰 Starting Balance:</strong> $${account.balance.toLocaleString()}</p>
+      `)}
+
+      <div style="margin-top:15px;padding:12px;background:#e6f7f7;border-radius:8px;border:1px solid #b2dfdb;">
+        <p style="margin:0;color:#00695c;font-weight:600;">
+          🔐 Security Tip
+        </p>
+        <p style="margin:5px 0 0;font-size:13px;">
+          Never share your account details or OTP with anyone, including bank staff.
+        </p>
+      </div>
+
+      <p style="margin-top:20px;">
+        You can now log in to your dashboard to manage your account, make transfers, and view transactions.
+      </p>
+
+      <p style="margin-top:10px;">
+        Welcome to <strong>FVM Bank</strong> — secure, fast, and trusted banking.
+      </p>
+    `;
 
       await this.transporter().sendMail({
         from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: user.email,
-        subject: "🎉 Account Created",
-        html: this.baseTemplate("New Account Created", content),
+        subject: "🎉 Your FVM Bank Account is Ready",
+        html: this.baseTemplate("Account Successfully Created", content),
       });
 
       console.log(`📧 Account creation email sent to ${user.email}`);
@@ -139,20 +180,23 @@ class MailHelper {
       const fullName = this.getFullName(user);
 
       const content = `
-        <p>Hello <strong>${fullName}</strong>,</p>
-        <p>Your deposit was successful.</p>
-        ${this.infoCard(`
-          <p><strong>Amount:</strong> $${amount.toLocaleString()}</p>
-          <p><strong>Account:</strong> ${account.accountNumber}</p>
-          <p><strong>New Balance:</strong> $${account.balance.toLocaleString()}</p>
-        `)}
-      `;
+      <p>Hello <strong>${fullName}</strong>,</p>
+      <p>We’ve successfully received your deposit.</p>
+
+      ${this.infoCard(`
+        <p><strong>Amount Credited:</strong> $${amount.toLocaleString()}</p>
+        <p><strong>Account Number:</strong> ${account.accountNumber}</p>
+        <p><strong>New Balance:</strong> $${account.balance.toLocaleString()}</p>
+      `)}
+
+      <p>Thank you for banking with FVM Bank 💙</p>
+    `;
 
       await this.transporter().sendMail({
         from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: user.email,
         subject: "💰 Deposit Successful",
-        html: this.baseTemplate("Deposit Successful", content),
+        html: this.baseTemplate("Deposit Confirmation", content),
       });
 
       console.log(`📧 Deposit email sent to ${user.email}`);
@@ -169,39 +213,43 @@ class MailHelper {
       const senderName = this.getFullName(sender.user);
       const receiverName = this.getFullName(receiver.user);
 
-      // Sender email
       const senderContent = `
-        <p>Hello <strong>${senderName}</strong>,</p>
-        <p>Your transfer was successful.</p>
-        ${this.infoCard(`
-          <p><strong>Amount:</strong> $${amount.toLocaleString()}</p>
-          <p><strong>To:</strong> ${receiverName}</p>
-          <p><strong>Balance:</strong> $${sender.balance.toLocaleString()}</p>
-        `)}
-      `;
+      <p>Hello <strong>${senderName}</strong>,</p>
+      <p>Your transfer was successfully completed.</p>
 
-      // Receiver email
+      ${this.infoCard(`
+        <p><strong>Amount Sent:</strong> $${amount.toLocaleString()}</p>
+        <p><strong>Recipient:</strong> ${receiverName}</p>
+        <p><strong>Remaining Balance:</strong> $${sender.balance.toLocaleString()}</p>
+      `)}
+
+      <p>Thank you for using FVM Bank 💙</p>
+    `;
+
       const receiverContent = `
-        <p>Hello <strong>${receiverName}</strong>,</p>
-        <p>You have received funds.</p>
-        ${this.infoCard(`
-          <p><strong>Amount:</strong> $${amount.toLocaleString()}</p>
-          <p><strong>From:</strong> ${senderName}</p>
-          <p><strong>Balance:</strong> $${receiver.balance.toLocaleString()}</p>
-        `)}
-      `;
+      <p>Hello <strong>${receiverName}</strong>,</p>
+      <p>You have received a new transfer.</p>
+
+      ${this.infoCard(`
+        <p><strong>Amount Received:</strong> $${amount.toLocaleString()}</p>
+        <p><strong>Sender:</strong> ${senderName}</p>
+        <p><strong>Available Balance:</strong> $${receiver.balance.toLocaleString()}</p>
+      `)}
+
+      <p>The funds are now available in your account.</p>
+    `;
 
       await this.transporter().sendMail({
         from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: sender.user.email,
-        subject: "💸 Transfer Successful",
+        subject: "💸 Transfer Completed",
         html: this.baseTemplate("Transfer Sent", senderContent),
       });
 
       await this.transporter().sendMail({
         from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: receiver.user.email,
-        subject: "💰 Incoming Transfer",
+        subject: "💰 You Received Funds",
         html: this.baseTemplate("Transfer Received", receiverContent),
       });
 
@@ -219,26 +267,32 @@ class MailHelper {
       const fullName = this.getFullName(user);
 
       const content = `
-        <p>Hello <strong>${fullName}</strong>,</p>
-        <p>A grant has been assigned to your account.</p>
+      <p>Hello <strong>${fullName}</strong>,</p>
+      <p>A new grant has been assigned to your account 🎁</p>
 
-        ${this.infoCard(`
-          <p><strong>Amount:</strong> $${amount.toLocaleString()}</p>
-          <p><strong>Reference:</strong> ${reference}</p>
-          <p><strong>Confirmation Code:</strong></p>
-          <h2 style="color:#d32f2f;text-align:center;letter-spacing:2px;">
-            ${confirmationCode}
-          </h2>
-        `)}
+      ${this.infoCard(`
+        <p><strong>Amount:</strong> $${amount.toLocaleString()}</p>
+        <p><strong>Reference:</strong> ${reference}</p>
+      `)}
 
-        <p>Use the confirmation code to claim your grant.</p>
-      `;
+      ${this.infoCard(`
+        <p style="text-align:center;margin-bottom:5px;">
+          <strong>Confirmation Code</strong>
+        </p>
+        <h2 style="text-align:center;color:#008080;letter-spacing:5px;">
+          ${confirmationCode}
+        </h2>
+        <p style="text-align:center;">
+          Use this code to activate your grant.
+        </p>
+      `)}
+    `;
 
       await this.transporter().sendMail({
         from: `"FVM Bank" <${process.env.EMAILSERVICE}>`,
         to: user.email,
-        subject: "🎁 Grant Assigned",
-        html: this.baseTemplate("Grant Notification", content),
+        subject: "🎁 Grant Notification",
+        html: this.baseTemplate("Grant Assigned", content),
       });
 
       console.log(`📧 Grant email sent to ${user.email}`);
