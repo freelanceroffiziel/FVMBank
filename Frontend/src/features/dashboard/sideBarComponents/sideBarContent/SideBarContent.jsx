@@ -116,6 +116,16 @@ const SideBarContent = ({ setSelectedSection }) => {
               </button>
             </li>
 
+             <li>
+              <button
+                onClick={() => setSelectedSection("grants")}
+                className="flex flex-row items-center w-full gap-2 px-2 py-4 border-b-4 border-teal-700 cursor-pointer focus:border-teal-500 focus:text-teal-600 focus:bg-gray-100"
+              >
+                <IoCardSharp className="text-[25px]" />
+                Grants
+              </button>
+            </li>
+
             <li>
               <button
                 onClick={() => setSelectedSection("loans")}

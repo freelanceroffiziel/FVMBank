@@ -3,6 +3,7 @@ const {
   createGrant,
   confirmGrant,
   rejectGrant,
+  getUserGrants,
 } = require("../controllers/grant.controller");
 const isAdmin = require("../middlewares/adminMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
@@ -12,5 +13,6 @@ grantRouter.post("/creategrant", authMiddleware, isAdmin, createGrant);
 grantRouter.put("/reject/:grantId", authMiddleware, isAdmin, rejectGrant);
 
 grantRouter.post("/confirmgrant", authMiddleware, confirmGrant);
+grantRouter.get("/mygrants", authMiddleware, getUserGrants);
 
 module.exports = grantRouter;

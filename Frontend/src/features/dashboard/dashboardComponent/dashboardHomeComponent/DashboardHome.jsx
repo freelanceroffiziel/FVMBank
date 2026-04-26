@@ -11,7 +11,7 @@ import CopyAbleInput from "../dashboardMniComponents/CopyAbleInput";
 import DashboardRcTransactions from "../dashboardRcTransactionComp/DashboardRcTransaction";
 import DashboardNotification2 from "../dashboardNotification2/DashboardNotification2";
 
-const DashboardHome = () => {
+const DashboardHome = ({setSelectedSection}) => {
   return (
     <main className="pt-[14vh] lg:pt-[16vh] min-h-screen">
       <div className="flex flex-col gap-10 px-0 mx-auto lg:px-2">
@@ -73,13 +73,16 @@ const DashboardHome = () => {
             <h2 className="mb-2 text-lg font-bold text-teal-900">
               Quick Links
             </h2>
-            <button className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
+            <button
+            onClick={() => setSelectedSection("loans")} className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
               Apply for Loan
             </button>
-            <button className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
+            <button
+            onClick={() => setSelectedSection("cards")} className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
               View Cards
             </button>
-            <button className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
+            <button
+            onClick={() => setSelectedSection("deposit")} className="py-2 text-white transition bg-teal-900 rounded hover:bg-teal-800">
               Fund Wallet
             </button>
           </div>

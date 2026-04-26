@@ -15,6 +15,7 @@ import Settings from "../settingsComponent/Settings";
 import Support from "../helpsupportComponent/Support";
 import Profile from "../userProfileComponent/Profile";
 import Accounts from "../accountsComponent/Accounts";
+import Grants from "../grantsComponent/Grants";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("dashboard");
@@ -46,7 +47,7 @@ const Dashboard = () => {
             <section id="conditionalSec" className="p-2 lg:p-0">
               {selectedSection === "dashboard" && (
                 <section id="dashboardSecVater" className="">
-                  <DashboardHome />
+                  <DashboardHome  setSelectedSection={setSelectedSection} />
                 </section>
               )}
               {selectedSection === "transfer" && (
@@ -112,6 +113,12 @@ const Dashboard = () => {
               {selectedSection === "accounts" && (
                 <section className="accounts">
                   <Accounts />
+                </section>
+              )}
+
+              {selectedSection === "grants" && (
+                <section className="grants">
+                  <Grants/>
                 </section>
               )}
             </section>

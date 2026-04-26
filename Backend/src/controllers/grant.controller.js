@@ -2,9 +2,8 @@ const MailHelper = require("../utils/MailHelper");
 const Grant = require("../models/grant.model");
 const userModel = require("../models/user.model");
 const Notification = require("../models/notification.model");
-const Account = require("../models/account.model"); // ✅ IMPORTANT
+const Account = require("../models/account.model");
 
-// ================= CREATE GRANT =================
 exports.createGrant = async (req, res) => {
   try {
     if (req.user.role !== "admin") {
@@ -55,7 +54,6 @@ exports.createGrant = async (req, res) => {
   }
 };
 
-// ================= CONFIRM GRANT =================
 exports.confirmGrant = async (req, res) => {
   try {
     const { code } = req.body;
@@ -82,18 +80,19 @@ exports.confirmGrant = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // ✅ USE ACCOUNT (NOT USER BALANCE)
-    const account = await Account.findOne({
-      user: userId,
-      accountType: "personal",
-    });
+    const account = await Account.findOne({ user: userId });
 
     if (!account) {
       return res.status(404).json({ message: "Account not found" });
     }
 
+    // 💰 Update account balance
     account.balance += grant.amount;
     await account.save();
+
+    // (optional sync)
+    user.balance = account.balance;
+    await user.save();
 
     grant.status = "claimed";
     await grant.save();
@@ -104,11 +103,7 @@ exports.confirmGrant = async (req, res) => {
       type: "grant",
     });
 
-    await MailHelper.sendGrantClaimedEmail(
-      user,
-      grant.amount,
-      account.balance
-    );
+    await MailHelper.sendGrantClaimedEmail(user, grant.amount, account.balance);
 
     return res.status(200).json({
       message: "Grant claimed successfully",
@@ -119,7 +114,6 @@ exports.confirmGrant = async (req, res) => {
   }
 };
 
-// ================= REJECT GRANT =================
 exports.rejectGrant = async (req, res) => {
   try {
     if (req.user.role !== "admin") {
@@ -157,6 +151,20 @@ exports.rejectGrant = async (req, res) => {
     return res.status(200).json({
       message: "Grant rejected successfully",
     });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
+
+exports.getUserGrants = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+
+    const grants = await Grant.find({ user: userId }).sort({
+      createdAt: -1,
+    });
+
+    return res.status(200).json(grants);
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
