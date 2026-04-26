@@ -64,7 +64,7 @@ const Accounts = () => {
         <h1 className="text-3xl font-bold text-teal-800">Your Accounts</h1>
 
         {isLoading ? (
-          <p>Loading accounts..</p>
+          <p>Loading accounts....</p>
         ) : accounts.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2">
             {accounts.map((acc) => (
