@@ -33,3 +33,19 @@ export const confirmGrant = async ({ code, token }) => {
     throw new Error(error.message || "Grant confirmation failed");
   }
 };
+
+export const getMyGrants = async (token) => {
+  const res = await fetch(`${API_URL}/api/v1/mygrants`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message);
+
+  return data;
+};

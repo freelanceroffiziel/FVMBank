@@ -178,6 +178,19 @@ const DashboardHeader = ({ setSelectedSection }) => {
                 <li>
                   <button
                     onClick={() => {
+                      setSelectedSection("grants");
+                      setMenu(false);
+                    }}
+                    className="flex items-center gap-2 px-2 py-4"
+                  >
+                    <RiLuggageDepositLine className="text-[25px]" />
+                    Grants
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    onClick={() => {
                       setSelectedSection("cards");
                       setMenu(false);
                     }}
