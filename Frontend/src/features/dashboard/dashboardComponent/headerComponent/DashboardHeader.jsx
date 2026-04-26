@@ -181,7 +181,7 @@ const DashboardHeader = ({ setSelectedSection }) => {
                       setSelectedSection("grants");
                       setMenu(false);
                     }}
-                    className="flex items-center gap-2 px-2 py-4"
+                    className=" grantSection flex items-center gap-2 px-2 py-4"
                   >
                     <RiLuggageDepositLine className="text-[25px]" />
                     Grants

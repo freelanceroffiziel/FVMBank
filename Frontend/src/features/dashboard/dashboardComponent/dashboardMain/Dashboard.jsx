@@ -112,7 +112,7 @@ const Dashboard = () => {
               )}
               {selectedSection === "accounts" && (
                 <section className="accounts">
-                  <Accounts />
+                  <Accounts />d
                 </section>
               )}
 
