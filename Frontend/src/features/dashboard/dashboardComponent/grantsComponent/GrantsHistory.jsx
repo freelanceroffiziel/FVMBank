@@ -18,7 +18,7 @@ const GrantsHistory = () => {
   const safeGrants = Array.isArray(grants) ? grants : [];
 
   return (
-    <main className="h-auto px-3 sm:px-6">
+    <main className="">
       <section className="bg-white rounded-2xl shadow p-4 sm:p-6 w-full">
         <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-gray-700">
           Your Grants
