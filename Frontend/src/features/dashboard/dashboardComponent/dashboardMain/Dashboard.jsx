@@ -110,16 +110,14 @@ const Dashboard = () => {
                   <Profile />
                 </section>
               )}
-              {selectedSection === "accounts" && (
-                <section className="accounts">
-                  <Accounts />d
-                </section>
-              )}
-
               {selectedSection === "grants" && (
                 <section className="grants">
                   <Grants />
-                  console.log("TEST UPDATE 123");
+                </section>
+              )}
+              {selectedSection === "accounts" && (
+                <section className="accounts">
+                  <Accounts />d
                 </section>
               )}
             </section>
