@@ -47,7 +47,7 @@ const Dashboard = () => {
             <section id="conditionalSec" className="p-2 lg:p-0">
               {selectedSection === "dashboard" && (
                 <section id="dashboardSecVater" className="">
-                  <DashboardHome  setSelectedSection={setSelectedSection} />
+                  <DashboardHome setSelectedSection={setSelectedSection} />
                 </section>
               )}
               {selectedSection === "transfer" && (
@@ -118,7 +118,8 @@ const Dashboard = () => {
 
               {selectedSection === "grants" && (
                 <section className="grants">
-                  <Grants/>
+                  <Grants />
+                  console.log("TEST UPDATE 123");
                 </section>
               )}
             </section>
